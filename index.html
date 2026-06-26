@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ainhoa Fitness | Entrenamiento & Nutrición</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0D0D0D;
+      --white:   #F5F0EB;
+      --coral:   #E8623A;
+      --green:   #2A7A5E;
+      --grey:    #1A1A1A;
+      --mid:     #3A3A3A;
+      --light:   #C8C0B8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      transition: background 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(232,98,58,0.15);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--coral); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-cta {
+      background: var(--coral);
+      color: var(--white) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: #c94e2a; color: var(--white) !important; }
+
+    /* Hamburger */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ─── HERO ────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.4) 60%, rgba(13,13,13,0.7) 100%),
+        url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1600&q=80&fit=crop&crop=top') center/cover no-repeat;
+    }
+    /* Diagonal accent line */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 52%;
+      width: 3px;
+      background: var(--coral);
+      transform: skewX(-8deg);
+      opacity: 0.7;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 3rem 6rem;
+      max-width: 700px;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.0;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--coral);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--light);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--coral);
+      color: var(--white);
+      padding: 0.9rem 2.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: #c94e2a; transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid rgba(245,240,235,0.4);
+      color: var(--white);
+      padding: 0.9rem 2.2rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--coral); background: rgba(232,98,58,0.1); }
+
+    /* Scroll hint */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      right: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+    .hero-scroll span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light);
+      writing-mode: vertical-rl;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--coral), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; } 50% { opacity: 1; }
+    }
+
+    /* ─── STATS BAR ───────────────────────────── */
+    .stats-bar {
+      background: var(--grey);
+      border-top: 1px solid rgba(232,98,58,0.2);
+      border-bottom: 1px solid rgba(232,98,58,0.2);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+    .stat-item {
+      flex: 1;
+      max-width: 260px;
+      padding: 2rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--coral);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-top: 0.4rem;
+    }
+
+    /* ─── SECTION COMMONS ─────────────────────── */
+    section { padding: 7rem 3rem; }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .section-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--light);
+      line-height: 1.8;
+      max-width: 540px;
+    }
+    .inner { max-width: 1200px; margin: 0 auto; }
+
+    /* ─── SOBRE MÍ ────────────────────────────── */
+    #sobre {
+      background: var(--black);
+    }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .sobre-img-wrap {
+      position: relative;
+    }
+    .sobre-img-wrap img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .sobre-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: -16px; left: -16px;
+      right: 16px; bottom: 16px;
+      border: 2px solid var(--coral);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .sobre-img-wrap img { position: relative; z-index: 1; }
+    .sobre-accent {
+      position: absolute;
+      bottom: -12px; right: -12px;
+      width: 120px; height: 120px;
+      background: var(--green);
+      z-index: 0;
+    }
+    .sobre-text { padding-right: 1rem; }
+    .sobre-list {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .sobre-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--light);
+    }
+    .sobre-list li::before {
+      content: '';
+      display: block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex-shrink: 0;
+    }
+
+    /* ─── SERVICIOS ───────────────────────────── */
+    #servicios {
+      background: var(--grey);
+    }
+    .servicios-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .servicios-header .section-body {
+      margin: 0 auto;
+    }
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+    }
+    .servicio-card {
+      background: var(--black);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .servicio-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 3px;
+      width: 0;
+      background: var(--coral);
+      transition: width 0.4s ease;
+    }
+    .servicio-card:hover::after { width: 100%; }
+    .servicio-card:hover { background: #141414; }
+    .servicio-icon {
+      width: 48px; height: 48px;
+      margin-bottom: 1.8rem;
+      color: var(--coral);
+    }
+    .servicio-num {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--mid);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .servicio-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .servicio-desc {
+      font-size: 0.88rem;
+      color: var(--light);
+      line-height: 1.75;
+    }
+
+    /* ─── QUOTE / FILOSOFÍA ───────────────────── */
+    #filosofia {
+      background: var(--black);
+      padding: 6rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #filosofia::before {
+      content: '"';
+      position: absolute;
+      top: -2rem; left: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 18rem;
+      color: var(--coral);
+      opacity: 0.06;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .filosofia-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .filosofia-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+    .filosofia-author {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    /* Image mosaic below quote */
+    .filosofia-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 220px 220px;
+      gap: 4px;
+      margin-top: 4rem;
+    }
+    .mosaic-img {
+      overflow: hidden;
+    }
+    .mosaic-img:first-child {
+      grid-row: 1 / 3;
+    }
+    .mosaic-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(30%);
+      transition: filter 0.4s, transform 0.5s;
+    }
+    .mosaic-img:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.04);
+    }
+
+    /* ─── PROCESO ─────────────────────────────── */
+    #proceso {
+      background: var(--grey);
+    }
+    .proceso-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .proceso-header .section-body { margin: 0 auto; }
+    .proceso-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .proceso-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5%);
+      right: calc(12.5%);
+      height: 1px;
+      background: rgba(232,98,58,0.3);
+    }
+    .proceso-step {
+      text-align: center;
+      padding: 0 1.5rem 2rem;
+      position: relative;
+    }
+    .step-dot {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--coral);
+      background: var(--grey);
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--coral);
+      position: relative;
+      z-index: 1;
+    }
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .step-desc {
+      font-size: 0.82rem;
+      color: var(--light);
+      line-height: 1.65;
+    }
+
+    /* ─── CONTACTO ────────────────────────────── */
+    #contacto {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    #contacto::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(42,122,94,0.12));
+      pointer-events: none;
+    }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contacto-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    input, textarea, select {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--coral);
+    }
+    textarea { resize: vertical; min-height: 120px; }
+    select option { background: var(--grey); }
+    .form-submit {
+      align-self: flex-start;
+      background: var(--coral);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      padding: 1rem 2.4rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: #c94e2a; transform: translateY(-2px); }
+
+    .form-success {
+      display: none;
+      background: rgba(42,122,94,0.15);
+      border: 1px solid var(--green);
+      border-radius: 2px;
+      padding: 1.2rem 1.5rem;
+      font-size: 0.9rem;
+      color: #6bcca6;
+    }
+
+    .contacto-info { padding-top: 0.5rem; }
+    .contacto-info .section-body { margin-bottom: 2.5rem; }
+    .info-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .info-icon {
+      width: 40px; height: 40px;
+      border: 1px solid rgba(232,98,58,0.3);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--coral);
+    }
+    .info-icon svg { width: 18px; height: 18px; }
+    .info-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.25rem;
+    }
+    .info-value {
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .social-link {
+      width: 42px; height: 42px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .social-link:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+      background: rgba(232,98,58,0.08);
+    }
+    .social-link svg { width: 18px; height: 18px; }
+
+    /* ─── FOOTER ──────────────────────────────── */
+    footer {
+      background: var(--grey);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .footer-logo span { color: var(--coral); }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--mid);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--coral); }
+
+    /* ─── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(13,13,13,0.97); padding: 1.5rem; gap: 1.2rem; }
+      .nav-links.open { display: flex; }
+      .nav-burger { display: flex; }
+      section { padding: 5rem 1.5rem; }
+      .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .sobre-img-wrap { order: -1; }
+      .sobre-img-wrap img { height: 380px; }
+      .servicios-grid { grid-template-columns: 1fr; }
+      .proceso-steps { grid-template-columns: 1fr 1fr; }
+      .proceso-steps::before { display: none; }
+      .contacto-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .filosofia-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .mosaic-img:first-child { grid-row: auto; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      footer { flex-direction: column; text-align: center; }
+      .hero-content { padding: 0 1.5rem 5rem; }
+      .hero-bg::after { display: none; }
+      .hero-scroll { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .proceso-steps { grid-template-columns: 1fr; }
+      .filosofia-mosaic { grid-template-columns: 1fr; }
+    }
+
+    /* ─── REVEAL ANIMATION ────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">Ainhoa<span>.</span></a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Método</a></li>
+      <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Entrenadora Personal & Nutricionista</p>
+      <h1 class="hero-title">Tu mejor<br/> versión<br/> <em>empieza aquí.</em></h1>
+      <p class="hero-sub">Planes de entrenamiento y nutrición adaptados a ti, sin dietas milagro ni rutinas imposibles. Solo método, constancia y resultados reales.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">Quiero empezar</a>
+        <a href="#servicios" class="btn-outline">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item reveal">
+      <div class="stat-number">+200</div>
+      <div class="stat-label">Clientes transformados</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">5+</div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Planes personalizados</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number">Online</div>
+      <div class="stat-label">Desde cualquier lugar</div>
+    </div>
+  </div>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre">
+    <div class="inner sobre-grid">
+      <div class="sobre-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80&fit=crop&crop=top" alt="Ainhoa entrenadora personal" loading="lazy"/>
+        <div class="sobre-accent"></div>
+      </div>
+      <div class="sobre-text reveal">
+        <p class="section-eyebrow">Sobre mí</p>
+        <h2 class="section-title">Hola, soy Ainhoa.</h2>
+        <p class="section-body">Soy entrenadora personal certificada y especialista en nutrición deportiva. Mi misión es ayudarte a conseguir tus objetivos de forma sostenible, cuidando tanto tu cuerpo como tu relación con la alimentación y el ejercicio.</p>
+        <p class="section-body" style="margin-top:1rem;">Creo firmemente que no existen cuerpos imposibles, solo métodos que no se adaptan a ti. Por eso cada plan que diseño es completamente personalizado.</p>
+        <ul class="sobre-list">
+          <li>Grado en Ciencias del Deporte</li>
+          <li>Especialización en Nutrición Deportiva</li>
+          <li>Certificación en Entrenamiento Online</li>
+          <li>Disponible para entrenamientos presenciales y online</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="inner">
+      <div class="servicios-header reveal">
+        <p class="section-eyebrow">Lo que ofrezco</p>
+        <h2 class="section-title">Servicios</h2>
+        <p class="section-body">Cada persona es diferente. Por eso trabajo con un enfoque 100% individualizado, escuchando tus objetivos, tu historia y tu estilo de vida.</p>
+      </div>
+      <div class="servicios-grid">
+
+        <div class="servicio-card reveal">
+          <div class="servicio-num">01</div>
+          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 4v16M18 4v16M6 12h12M2 8h4M18 8h4M2 16h4M18 16h4"/>
+          </svg>
+          <h3 class="servicio-title">Plan de Entrenamiento</h3>
+          <p class="servicio-desc">Rutinas adaptadas a tu nivel, objetivos y disponibilidad. Seguimiento semanal con ajustes continuos para que nunca te estanques.</p>
+        </div>
+
+        <div class="servicio-card reveal">
+          <div class="servicio-num">02</div>
+          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M8 12h8M12 8v8"/>
+          </svg>
+          <h3 class="servicio-title">Plan de Nutrición</h3>
+          <p class="servicio-desc">Dietas personalizadas sin restricciones absurdas. Aprendemos a comer bien sin renunciar a lo que te gusta, de forma progresiva y real.</p>
+        </div>
+
+        <div class="servicio-card reveal">
+          <div class="servicio-num">03</div>
+          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <h3 class="servicio-title">Pack Integral Online</h3>
+          <p class="servicio-desc">Entrenamiento + nutrición + seguimiento diario por WhatsApp. La opción más completa para quienes quieren resultados rápidos y duraderos.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FILOSOFÍA / QUOTE -->
+  <section id="filosofia">
+    <div class="inner">
+      <div class="filosofia-inner reveal">
+        <p class="section-eyebrow">Mi filosofía</p>
+        <blockquote class="filosofia-quote">
+          "El mejor entrenamiento es el que se adapta a tu vida, no el que te obliga a cambiar quién eres para encajar en él."
+        </blockquote>
+        <p class="filosofia-author">— Ainhoa</p>
+      </div>
+      <div class="filosofia-mosaic">
+        <div class="mosaic-img reveal">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80&fit=crop" alt="Entrenamiento" loading="lazy"/>
+        </div>
+        <div class="mosaic-img reveal">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80&fit=crop" alt="Nutrición saludable" loading="lazy"/>
+        </div>
+        <div class="mosaic-img reveal">
+          <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80&fit=crop" alt="Yoga y bienestar" loading="lazy"/>
+        </div>
+        <div class="mosaic-img reveal">
+          <img src="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=600&q=80&fit=crop" alt="Alimentación" loading="lazy"/>
+        </div>
+        <div class="mosaic-img reveal">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80&fit=crop" alt="Fuerza" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso">
+    <div class="inner">
+      <div class="proceso-header reveal">
+        <p class="section-eyebrow">Cómo trabajamos</p>
+        <h2 class="section-title">El método Ainhoa</h2>
+        <p class="section-body">Un proceso sencillo diseñado para que empieces con confianza y mantengas la motivación desde el primer día.</p>
+      </div>
+      <div class="proceso-steps">
+        <div class="proceso-step reveal">
+          <div class="step-dot">1</div>
+          <h4 class="step-title">Primera consulta</h4>
+          <p class="step-desc">Hablamos de tus objetivos, tu historial y tu estilo de vida. Completamente gratuita.</p>
+        </div>
+        <div class="proceso-step reveal">
+          <div class="step-dot">2</div>
+          <h4 class="step-title">Plan personalizado</h4>
+          <p class="step-desc">Diseño tu rutina y plan nutricional en 48-72h, adaptado al 100% a ti.</p>
+        </div>
+        <div class="proceso-step reveal">
+          <div class="step-dot">3</div>
+          <h4 class="step-title">Empezamos</h4>
+          <p class="step-desc">Comienzas con acceso directo a mí para resolver cualquier duda en tiempo real.</p>
+        </div>
+        <div class="proceso-step reveal">
+          <div class="step-dot">4</div>
+          <h4 class="step-title">Seguimiento continuo</h4>
+          <p class="step-desc">Revisiones semanales y ajustes del plan para que siempre avances y no te estanques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="inner contacto-grid">
+      <div class="contacto-info reveal">
+        <p class="section-eyebrow">Hablemos</p>
+        <h2 class="section-title">¿Lista para empezar?</h2>
+        <p class="section-body">Cuéntame tu objetivo y te ayudo a ver qué servicio encaja mejor contigo. Primera consulta sin compromiso y completamente gratuita.</p>
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-value">ainhoa@fitness.com</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="info-label">WhatsApp / Teléfono</div>
+              <div class="info-value">+34 600 000 000</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Instagram</div>
+              <div class="info-value">@ainhoa.fitness</div>
+            </div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9a8.23 8.23 0 0 0 4.81 1.54V7.09a4.85 4.85 0 0 1-1.04-.4z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.94C18.88 4 12 4 12 4s-6.88 0-8.6.48a2.78 2.78 0 0 0-1.94 1.94A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.52C5.12 20 12 20 12 20s6.88 0 8.6-.48a2.78 2.78 0 0 0 1.94-1.94A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="contacto-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="servicio">¿Qué te interesa?</label>
+            <select id="servicio" name="servicio">
+              <option value="">Selecciona un servicio</option>
+              <option value="entrenamiento">Plan de entrenamiento</option>
+              <option value="nutricion">Plan de nutrición</option>
+              <option value="pack">Pack integral</option>
+              <option value="consulta">Solo quiero consultar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Cuéntame tu objetivo</label>
+            <textarea id="mensaje" name="mensaje" placeholder="¿Qué quieres conseguir? Cualquier detalle me ayuda a darte la mejor respuesta." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar mensaje</button>
+          <div class="form-success" id="formSuccess">
+            ✓ ¡Mensaje enviado! Te respondo en menos de 24 horas.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">Ainhoa<span>.</span></a>
+    <p class="footer-copy">© 2026 Ainhoa Fitness. Todos los derechos reservados.</p>
+    <ul class="footer-links">
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    // NAV scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const navlinks = document.getElementById('navlinks');
+    burger.addEventListener('click', () => {
+      navlinks.classList.toggle('open');
+    });
+    navlinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navlinks.classList.remove('open'));
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form submit (demo)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('formSuccess').style.display = 'block';
+      this.reset();
+      setTimeout(() => {
+        document.getElementById('formSuccess').style.display = 'none';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
