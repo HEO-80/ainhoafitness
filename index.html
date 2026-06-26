@@ -403,6 +403,54 @@
       flex-shrink: 0;
     }
 
+    /* ─── CAMPEONATO ─────────────────────────── */
+    #campeonato {
+      background: var(--grey);
+    }
+    .campeonato-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .campeonato-header .section-body { margin: 0 auto; }
+    .campeonato-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 310px 310px;
+      gap: 6px;
+    }
+    .camp-main {
+      grid-row: 1 / 3;
+      overflow: hidden;
+      position: relative;
+    }
+    .camp-side {
+      overflow: hidden;
+      position: relative;
+    }
+    .camp-main img,
+    .camp-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .camp-main:hover img,
+    .camp-side:hover img { transform: scale(1.04); }
+    .camp-badge {
+      position: absolute;
+      bottom: 1rem; left: 1rem;
+      background: var(--coral);
+      color: #F5F0EB;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+    }
+
     /* ─── SERVICIOS ───────────────────────────── */
     #servicios {
       background: var(--grey);
@@ -797,6 +845,8 @@
       .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
       .sobre-img-wrap { order: -1; }
       .sobre-img-wrap img { height: 380px; }
+      .campeonato-photos { grid-template-columns: 1fr; grid-template-rows: 360px 280px 280px; }
+      .camp-main { grid-row: auto; }
       .servicios-grid { grid-template-columns: 1fr; }
       .proceso-steps { grid-template-columns: 1fr 1fr; }
       .proceso-steps::before { display: none; }
@@ -922,6 +972,29 @@
           <li>Certificación en Entrenamiento Online</li>
           <li>Disponible para entrenamientos presenciales y online</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPEONATO -->
+  <section id="campeonato">
+    <div class="inner">
+      <div class="campeonato-header reveal">
+        <p class="section-eyebrow">Competición</p>
+        <h2 class="section-title">Campeona Fitness Bikini</h2>
+        <p class="section-body">Compito en campeonatos de Fitness Bikini porque creo que la mejor entrenadora es la que vive en primera persona cada fase del proceso: la preparación, el sacrificio y la satisfacción de subirse al escenario.</p>
+      </div>
+      <div class="campeonato-photos">
+        <div class="camp-main reveal">
+          <img src="img/IMG_20260626_110657.jpg" alt="Ainhoa posando en el escenario del campeonato de Fitness Bikini" loading="lazy" />
+        </div>
+        <div class="camp-side reveal">
+          <img src="img/IMG_20260626_110832.jpg" alt="Ainhoa compitiendo en el escenario de Ms. Bikini" loading="lazy" />
+        </div>
+        <div class="camp-side reveal">
+          <img src="img/IMG_20260626_110815.jpg" alt="Ainhoa con su entrenador y la medalla del campeonato" loading="lazy" />
+          <span class="camp-badge">Ms. Bikini · Medalla</span>
+        </div>
       </div>
     </div>
   </section>
