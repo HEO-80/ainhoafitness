@@ -20,7 +20,7 @@ Sin frameworks. Sin dependencias. Solo HTML, CSS y JS puro — lista para GitHub
 
 <br/>
 
-> 🌐 **Live:** [ainhoa.github.io/ainhoa-fitness](https://ainhoa.github.io/ainhoa-fitness) &nbsp;·&nbsp; **Inspiración:** [saschafitness.com](https://saschafitness.com)
+> 🌐 **Live:** [ainhoa.github.io/ainhoa-fitness](https://heo-80.github.io/ainhoafitness/) &nbsp;·&nbsp; **Inspiración:** [saschafitness.com](https://saschafitness.com)
 
 <br/>
 
