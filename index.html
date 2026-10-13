@@ -6,41 +6,76 @@
   <title>Ainhoa Fitness | Entrenamiento & Nutrición</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:   #0D0D0D;
-      --white:   #F5F0EB;
-      --coral:   #E8623A;
-      --green:   #2A7A5E;
-      --grey:    #1A1A1A;
-      --mid:     #3A3A3A;
-      --light:   #C8C0B8;
-      --demo-h:  33px;
+      --af-bg: #09080A;
+      --af-card: #141216;
+      --af-alt: #121014;
+      --af-alt2: #1E1A22;
+      --af-line: #2B2530;
+      --af-deep: #050406;
+      --af-ink: #F5F0F5;
+      --af-mut: #B9B2BC;
+      --af-mut2: #A8A1AB;
+      --af-mut3: #8F8893;
+      --af-mut4: #6E6772;
+      --af-soft: #D6D1D9;
+      --af-soft2: #D9D6DE;
+      --af-pink: #BF2A7C;
+      --af-pink2: #73194A;
+      --af-head: rgba(9,8,10,0.9);
+      --af-tint: rgba(242,240,242,0.04);
+      --af-tint2: rgba(242,240,242,0.22);
+      --af-highlight-card: #2E2E30;
+      --af-highlight-ink: #F5F0F5;
+      --af-highlight-soft: #D6D1D9;
+      --af-s-sobre:#09080A;--af-s-comp:#09080A;--af-s-serv:#09080A;--af-s-filo:#09080A;--af-s-met:#09080A;--af-s-tienda:#09080A;--af-s-cont:#09080A;--af-s-vid:#09080A;--af-s-rec:#09080A;--af-s-imc:#09080A;
+      --demo-h: 33px;
     }
 
-    /* ─── LIGHT THEME ────────────────────────────── */
     [data-theme="light"] {
-      --black: #FAF7F2;
-      --white: #1C1410;
-      --grey:  #EDE8E0;
-      --mid:   #9B8B7E;
-      --light: #6B5C52;
+      --af-bg: #FFF7FB;
+      --af-card: #FFFFFF;
+      --af-alt: #FCEFF6;
+      --af-alt2: #F7E6EF;
+      --af-line: #EBD3E0;
+      --af-deep: #F3E4EC;
+      --af-ink: #1A1418;
+      --af-mut: #5E5260;
+      --af-mut2: #665A69;
+      --af-mut3: #716475;
+      --af-mut4: #8A7D8C;
+      --af-soft: #3A3040;
+      --af-soft2: #3A3040;
+      --af-pink: #D6127A;
+      --af-pink2: #B80F68;
+      --af-head: rgba(255,247,251,0.92);
+      --af-tint: rgba(214,18,122,0.05);
+      --af-tint2: rgba(26,20,24,0.14);
+      --af-highlight-card: #3A3040;
+      --af-highlight-ink: #fff;
+      --af-highlight-soft: #F2F0F2;
+      --af-s-sobre:#FFFFFF;--af-s-comp:#F5F3F4;--af-s-serv:#FFFFFF;--af-s-filo:#F5F3F4;--af-s-met:#FFFFFF;--af-s-tienda:#FDF0F6;--af-s-cont:#F5F3F4;--af-s-vid:#FFFFFF;--af-s-rec:#F5F3F4;--af-s-imc:#F0EDEE;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--black);
-      color: var(--white);
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background: var(--af-bg);
+      color: var(--af-ink);
       overflow-x: hidden;
-      transition: background 0.3s, color 0.3s;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* ─── BANNER VERSION DEMO ──────────────────── */
+    a { color: var(--af-pink); text-decoration: none; }
+    a:hover { color: var(--af-pink2); }
+    ::selection { background: var(--af-pink); color: #fff; }
+
+    /* ─── DEMO BANNER ──────────────────── */
     .demo {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -49,8 +84,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0D0D0D;
-      color: #F5F0EB;
+      background: #09080A;
+      color: #F5F0F5;
       padding: 0 1rem;
       font-size: 10.5px;
       font-weight: 700;
@@ -59,101 +94,84 @@
       white-space: nowrap;
       overflow: hidden;
     }
-    .demo b { color: var(--coral); font-weight: 700; }
+    .demo b { color: var(--af-pink); font-weight: 700; }
 
-    /* ─── NAV ─────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: var(--demo-h); left: 0; right: 0;
+    /* ─── HEADER ───────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
       z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.25rem 3rem;
-      transition: background 0.4s;
+      gap: 24px;
+      padding: 16px clamp(20px, 5vw, 72px);
+      background: var(--af-head);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--af-line);
+      transition: background 0.3s, box-shadow 0.3s;
     }
-    nav.scrolled {
-      background: rgba(13,13,13,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(232,98,58,0.15);
+    header.scrolled {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
     }
-    [data-theme="light"] nav.scrolled {
-      background: rgba(250,247,242,0.95);
-      border-bottom-color: rgba(232,98,58,0.2);
-    }
-    /* En modo día el nav flota sobre la foto oscura — letras blancas para legibilidad */
-    [data-theme="light"] .nav-logo { color: #F5F0EB; }
-    [data-theme="light"] nav.scrolled .nav-logo { color: var(--white); }
-    [data-theme="light"] .nav-links a { color: #F5F0EB; font-size: 0.76rem; }
-    [data-theme="light"] nav.scrolled .nav-links a { color: var(--light); font-size: 0.76rem; }
-    [data-theme="light"] nav.scrolled .nav-links a:hover { color: var(--coral); }
-    [data-theme="light"] .nav-burger span { background: #F5F0EB; }
-    [data-theme="light"] nav.scrolled .nav-burger span { background: var(--white); }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 900;
-      letter-spacing: 0.05em;
-      color: var(--white);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--coral); }
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.76rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--light);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--coral); }
-    .nav-cta {
-      background: var(--coral);
-      color: var(--white) !important;
-      padding: 0.6rem 1.4rem;
-      border-radius: 2px;
-      font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: #c94e2a; color: var(--white) !important; }
 
-    /* Theme toggle button */
-    .theme-toggle {
-      width: 42px; height: 42px;
-      border: 2px solid var(--coral);
-      border-radius: 3px;
-      background: rgba(232,98,58,0.15);
-      cursor: pointer;
+    .header-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      line-height: 1;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .header-logo .logo-ainhoa {
+      color: var(--af-pink);
+      text-shadow: 0 0 12px rgba(242,46,154,0.55);
+    }
+    .header-logo .logo-villalba {
+      color: var(--af-ink);
+      text-shadow: 0 0 10px rgba(255,255,255,0.15);
+    }
+
+    .header-nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--coral);
-      transition: background 0.2s, color 0.2s;
-      flex-shrink: 0;
+      gap: clamp(14px, 2.2vw, 30px);
+      list-style: none;
     }
-    .theme-toggle:hover {
-      background: var(--coral);
-      color: #F5F0EB;
+    .header-nav a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--af-ink);
+      text-decoration: none;
+      transition: color 0.15s;
     }
-    .theme-toggle svg { width: 18px; height: 18px; stroke-width: 2; }
-    [data-theme="light"] .theme-toggle {
-      border-color: var(--coral);
-      background: rgba(232,98,58,0.12);
-      color: var(--coral);
+    .header-nav a:hover { color: var(--af-pink); }
+    .header-nav .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      background: var(--af-pink);
+      color: #fff !important;
+      border-radius: 2px;
+      letter-spacing: 0.12em;
+      box-shadow: 0 0 18px rgba(242,46,154,0.45);
+      transition: background 0.2s;
     }
-    [data-theme="light"] .theme-toggle:hover {
-      background: var(--coral);
-      color: #F5F0EB;
-    }
-    .icon-sun { display: block; }
-    .icon-moon { display: none; }
-    [data-theme="light"] .icon-sun { display: none; }
-    [data-theme="light"] .icon-moon { display: block; }
+    .header-nav .nav-cta:hover { background: var(--af-pink2); }
+
+    /* Nav over dark hero in light mode */
+    [data-theme="light"] .header-logo .logo-ainhoa { color: var(--af-pink); }
+    [data-theme="light"] .header-logo .logo-villalba { color: #F5F0F5; text-shadow: none; }
+    [data-theme="light"] .header-nav a { color: #F5F0F5; }
+    [data-theme="light"] header.scrolled .header-logo .logo-villalba { color: var(--af-ink); }
+    [data-theme="light"] header.scrolled .header-nav a { color: var(--af-ink); }
+    [data-theme="light"] header.scrolled .header-nav a:hover { color: var(--af-pink); }
+    [data-theme="light"] .header-nav .nav-cta { color: #fff !important; }
 
     /* Hamburger */
     .nav-burger {
@@ -169,113 +187,173 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: var(--white);
+      background: var(--af-ink);
       transition: all 0.3s;
     }
+    [data-theme="light"] .nav-burger span { background: #F5F0F5; }
+    [data-theme="light"] header.scrolled .nav-burger span { background: var(--af-ink); }
 
-    /* ─── HERO ────────────────────────────────── */
-    #hero {
-      position: relative;
-      height: 100vh;
-      min-height: 600px;
+    .header-right {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* ─── THEME TOGGLE ─────────────────── */
+    .theme-toggle {
+      position: fixed;
+      right: clamp(16px, 3vw, 32px);
+      top: 92px;
+      z-index: 98;
+      display: flex;
+      align-items: center;
+      padding: 16px 32px;
+      min-height: 44px;
+      background: var(--af-pink);
+      color: #fff;
+      border: 0;
+      border-radius: 2px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 6px 22px rgba(242,46,154,0.35);
+      transition: background 0.2s;
+    }
+    .theme-toggle:hover { background: var(--af-pink2); }
+
+    /* ─── HERO ──────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: clamp(560px, 86vh, 860px);
+      display: flex;
+      align-items: center;
       overflow: hidden;
+      background: var(--af-bg);
     }
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(135deg, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.4) 60%, rgba(13,13,13,0.7) 100%),
-        url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1600&q=80&fit=crop&crop=top') center/cover no-repeat;
     }
-    [data-theme="light"] .hero-bg {
-      background:
-        linear-gradient(135deg, rgba(13,13,13,0.78) 0%, rgba(13,13,13,0.32) 60%, rgba(13,13,13,0.6) 100%),
-        url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1600&q=80&fit=crop&crop=top') center/cover no-repeat;
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
-    /* Diagonal accent line */
-    .hero-bg::after {
-      content: '';
+    .hero-scrim {
       position: absolute;
-      top: 0; bottom: 0;
-      left: 52%;
-      width: 3px;
-      background: var(--coral);
-      transform: skewX(-8deg);
-      opacity: 0.7;
+      inset: 0;
+      background: linear-gradient(100deg, rgba(6,5,7,0.92) 0%, rgba(6,5,7,0.78) 50%, rgba(6,5,7,0.6) 100%);
+      pointer-events: none;
     }
-    .hero-content {
+    .hero-inner {
       position: relative;
-      z-index: 2;
-      padding: 0 3rem 6rem;
-      max-width: 700px;
-      /* Always light text — hero sits over a dark photo overlay */
-      color: #F5F0EB;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: clamp(40px, 7vw, 96px) clamp(20px, 5vw, 72px);
+    }
+    .hero-text {
+      max-width: 720px;
+      flex: 1 1 420px;
     }
     .hero-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
+      margin: 0 0 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--coral);
-      margin-bottom: 1.2rem;
+      color: var(--af-pink);
     }
     .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3.2rem, 7vw, 6rem);
-      font-weight: 900;
-      line-height: 1.0;
-      margin-bottom: 1.5rem;
-      color: #F5F0EB;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: clamp(40px, 6.2vw, 78px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: #F5F0F5;
     }
     .hero-title em {
-      font-style: italic;
-      color: var(--coral);
+      display: inline-block;
+      margin-top: 8px;
+      padding-bottom: 0.12em;
+      font-family: 'Great Vibes', cursive;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.35em;
+      line-height: 1.2;
+      white-space: nowrap;
+      letter-spacing: 0;
+      color: var(--af-pink);
+      text-shadow: 0 0 22px rgba(242,46,154,0.6);
     }
     .hero-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(245,240,235,0.78);
+      margin: 26px 0 0;
+      max-width: 470px;
+      font-size: 16px;
       line-height: 1.7;
-      max-width: 420px;
-      margin-bottom: 2.5rem;
+      color: var(--af-soft);
     }
     .hero-actions {
       display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
     }
-    .btn-primary {
-      display: inline-block;
-      background: var(--coral);
-      color: #F5F0EB;
-      padding: 0.9rem 2.2rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+    .btn-pink {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 30px;
+      background: var(--af-pink);
+      color: #fff;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
-      border-radius: 2px;
+      border: none;
+      cursor: pointer;
       transition: background 0.2s, transform 0.2s;
     }
-    .btn-primary:hover { background: #c94e2a; transform: translateY(-2px); }
-    .btn-outline {
-      display: inline-block;
-      border: 1px solid rgba(245,240,235,0.4);
-      color: #F5F0EB;
-      padding: 0.9rem 2.2rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+    .btn-pink:hover { background: var(--af-pink2); color: #fff; transform: translateY(-2px); }
+    .btn-border {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 30px;
+      border: 1px solid rgba(242,240,242,0.5);
+      color: #F5F0F5;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
-      border-radius: 2px;
       transition: border-color 0.2s, background 0.2s;
     }
-    .btn-outline:hover { border-color: var(--coral); background: rgba(232,98,58,0.1); }
+    .btn-border:hover { border-color: var(--af-pink); background: rgba(191,42,124,0.12); color: #F5F0F5; }
 
-    /* Scroll hint */
+    .hero-logo-img {
+      flex: 0 1 330px;
+      width: 100%;
+      max-width: 330px;
+      height: auto;
+      margin: 0 auto;
+      mix-blend-mode: screen;
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 62%, transparent 100%);
+      mask-image: radial-gradient(ellipse at center, #000 62%, transparent 100%);
+    }
+
+    /* ─── SCROLL HINT ──────────────────── */
     .hero-scroll {
       position: absolute;
       bottom: 2rem;
@@ -290,558 +368,1084 @@
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(245,240,235,0.6);
+      color: rgba(245,240,245,0.6);
       writing-mode: vertical-rl;
     }
     .scroll-line {
       width: 1px;
       height: 60px;
-      background: linear-gradient(to bottom, var(--coral), transparent);
+      background: linear-gradient(to bottom, var(--af-pink), transparent);
       animation: scrollPulse 2s ease-in-out infinite;
     }
     @keyframes scrollPulse {
       0%, 100% { opacity: 0.3; } 50% { opacity: 1; }
     }
 
-    /* ─── STATS BAR ───────────────────────────── */
+    /* ─── STATS BAR ────────────────────── */
     .stats-bar {
-      background: var(--grey);
-      border-top: 1px solid rgba(232,98,58,0.2);
-      border-bottom: 1px solid rgba(232,98,58,0.2);
-      display: flex;
-      justify-content: center;
-      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px,100%), 1fr));
+      background: var(--af-alt);
+      border-bottom: 1px solid var(--af-line);
+      transition: background 0.3s;
     }
     .stat-item {
-      flex: 1;
-      max-width: 260px;
-      padding: 2rem;
+      padding: 34px 24px;
       text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.06);
-    }
-    [data-theme="light"] .stat-item {
-      border-right-color: rgba(0,0,0,0.08);
+      border-right: 1px solid var(--af-line);
+      transition: background 0.3s;
     }
     .stat-item:last-child { border-right: none; }
     .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--coral);
-      line-height: 1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--af-pink);
     }
     .stat-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--light);
-      margin-top: 0.4rem;
+      color: var(--af-pink);
     }
 
-    /* ─── SECTION COMMONS ─────────────────────── */
-    section { padding: 7rem 3rem; }
-    .section-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--coral);
-      margin-bottom: 1rem;
+    /* ─── SECTION COMMONS ──────────────── */
+    .sec {
+      padding: clamp(64px, 10vw, 130px) clamp(20px, 5vw, 72px);
+      transition: background-color 0.3s ease;
     }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-    .section-body {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--light);
-      line-height: 1.8;
-      max-width: 540px;
-    }
-    .inner { max-width: 1200px; margin: 0 auto; }
-    /* Los anclas del menú y del footer no deben quedar tapados por el nav fijo */
-    section[id] { scroll-margin-top: calc(var(--demo-h) + 78px); }
+    .sec .inner { max-width: 1180px; margin: 0 auto; }
+    .sec .inner-narrow { max-width: 1036px; margin: 0 auto; }
+    section[id] { scroll-margin-top: calc(var(--demo-h) + 62px); }
 
-    /* ─── SOBRE MÍ ────────────────────────────── */
-    #sobre {
-      background: var(--black);
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--af-pink);
     }
+    .sec-title {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(30px, 4.2vw, 50px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .sec-desc {
+      margin: 18px 0 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--af-mut);
+    }
+    .center { text-align: center; max-width: 620px; margin: 0 auto; }
+
+    /* ─── SOBRE MÍ ─────────────────────── */
+    #sobre { background: var(--af-s-sobre); }
     .sobre-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: clamp(36px, 6vw, 80px);
       align-items: center;
     }
     .sobre-img-wrap {
       position: relative;
-    }
-    .sobre-img-wrap img {
-      width: 100%;
-      height: 560px;
-      object-fit: cover;
-      object-position: top;
-      display: block;
+      padding: 14px 0 26px 14px;
     }
     .sobre-img-wrap::before {
       content: '';
       position: absolute;
-      top: -16px; left: -16px;
-      right: 16px; bottom: 16px;
-      border: 2px solid var(--coral);
-      z-index: 0;
+      top: 0; left: 0;
+      width: 72%; height: 82%;
+      border: 1px solid var(--af-pink);
       pointer-events: none;
     }
-    .sobre-img-wrap img { position: relative; z-index: 1; }
     .sobre-accent {
       position: absolute;
-      bottom: -12px; right: -12px;
-      width: 120px; height: 120px;
-      background: var(--green);
-      z-index: 0;
+      bottom: 0; right: 0;
+      width: 96px; height: 96px;
+      background: var(--af-soft2);
+      pointer-events: none;
     }
-    .sobre-text { padding-right: 1rem; }
-    .sobre-list {
-      list-style: none;
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .sobre-list li {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 0.9rem;
-      color: var(--light);
-    }
-    .sobre-list li::before {
-      content: '';
+    .sobre-img-wrap img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: top;
       display: block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--coral);
-      flex-shrink: 0;
+    }
+    .sobre-bold {
+      margin: 22px 0 0;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--af-ink);
+      font-weight: 600;
+    }
+    .sobre-body {
+      margin: 14px 0 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--af-mut);
+    }
+    .sobre-divider {
+      margin: 16px 0 0;
+      padding-top: 16px;
+      border-top: 2px dotted var(--af-pink);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--af-mut);
     }
 
-    /* ─── CAMPEONATO ─────────────────────────── */
-    #campeonato {
-      background: var(--grey);
+    /* ─── COMPETICIÓN ──────────────────── */
+    .sec-comp { background: var(--af-s-comp); border-top: 1px solid var(--af-line); }
+    .comp-horse {
+      display: block;
+      width: 84px; height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 999px;
+      box-shadow: 0 0 30px rgba(242,46,154,0.35);
     }
-    .campeonato-header {
-      text-align: center;
-      margin-bottom: 4rem;
+    .comp-title-cursive {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      font-size: 1.3em;
+      letter-spacing: 0;
+      color: var(--af-pink);
     }
-    .campeonato-header .section-body { margin: 0 auto; }
-    .campeonato-photos {
+    .comp-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 310px 310px;
-      gap: 6px;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      margin-top: 44px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .camp-main {
-      grid-row: 1 / 3;
-      overflow: hidden;
-      position: relative;
-    }
-    .camp-side {
-      overflow: hidden;
-      position: relative;
-    }
-    .camp-main img,
-    .camp-side img {
-      width: 100%;
-      height: 100%;
+    .comp-main { grid-row: 1 / 3; overflow: hidden; position: relative; }
+    .comp-side { overflow: hidden; position: relative; }
+    .comp-gallery img {
+      width: 100%; height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
       transition: transform 0.5s;
     }
-    .camp-main:hover img,
-    .camp-side:hover img { transform: scale(1.04); }
-    .camp-badge {
-      position: absolute;
-      bottom: 1rem; left: 1rem;
-      background: var(--coral);
-      color: #F5F0EB;
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.85rem;
-      border-radius: 2px;
-    }
+    .comp-main:hover img,
+    .comp-side:hover img { transform: scale(1.03); }
 
-    /* ─── SERVICIOS ───────────────────────────── */
-    #servicios {
-      background: var(--grey);
-    }
-    .servicios-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .servicios-header .section-body {
-      margin: 0 auto;
-    }
+    /* ─── SERVICIOS ────────────────────── */
+    #servicios { background: var(--af-s-serv); border-top: 1px solid var(--af-line); }
     .servicios-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      margin-top: 48px;
+      background: var(--af-line);
+      border: 1px solid var(--af-line);
     }
     .servicio-card {
-      background: var(--black);
-      padding: 3rem 2.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
+      background: var(--af-card);
+      padding: 38px 32px;
+      transition: background 0.25s;
     }
-    .servicio-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      height: 3px;
-      width: 0;
-      background: var(--coral);
-      transition: width 0.4s ease;
-    }
-    .servicio-card:hover::after { width: 100%; }
-    .servicio-card:hover { background: #141414; }
-    [data-theme="light"] .servicio-card:hover { background: #F0EBE3; }
-    .servicio-icon {
-      width: 48px; height: 48px;
-      margin-bottom: 1.8rem;
-      color: var(--coral);
-    }
+    .servicio-card:hover { background: var(--af-alt2); }
     .servicio-num {
-      font-size: 0.65rem;
-      font-weight: 600;
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.2em;
-      color: var(--mid);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
+      color: var(--af-mut4);
+    }
+    .servicio-icon {
+      margin: 22px 0 20px;
+      font-size: 26px;
+      color: var(--af-pink);
     }
     .servicio-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
       font-weight: 700;
-      margin-bottom: 0.8rem;
     }
     .servicio-desc {
-      font-size: 0.88rem;
-      color: var(--light);
-      line-height: 1.75;
+      margin: 12px 0 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--af-mut);
     }
 
-    /* ─── QUOTE / FILOSOFÍA ───────────────────── */
-    #filosofia {
-      background: var(--black);
-      padding: 6rem 3rem;
+    /* ─── FILOSOFÍA ────────────────────── */
+    .sec-filo {
+      background: var(--af-s-filo);
+      border-top: 1px solid var(--af-line);
+      border-bottom: 1px solid var(--af-line);
       position: relative;
-      overflow: hidden;
     }
-    #filosofia::before {
-      content: '"';
-      position: absolute;
-      top: -2rem; left: 2rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 18rem;
-      color: var(--coral);
-      opacity: 0.06;
-      line-height: 1;
-      pointer-events: none;
-    }
-    .filosofia-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .filosofia-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 3vw, 2.4rem);
-      font-weight: 700;
-      font-style: italic;
-      line-height: 1.4;
-      color: var(--white);
-      margin-bottom: 2rem;
-    }
-    .filosofia-author {
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
+    .filo-quote {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
       text-transform: uppercase;
-      color: var(--coral);
+      text-wrap: balance;
     }
-
-    /* Image mosaic below quote */
-    .filosofia-mosaic {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 220px 220px;
-      gap: 4px;
-      margin-top: 4rem;
+    .filo-sub {
+      margin: 20px 0 0;
+      font-size: clamp(16px, 1.8vw, 19px);
+      line-height: 1.6;
+      color: var(--af-mut);
     }
-    .mosaic-img {
-      overflow: hidden;
-    }
-    .mosaic-img:first-child {
-      grid-row: 1 / 3;
-    }
-    .mosaic-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: grayscale(30%);
-      transition: filter 0.4s, transform 0.5s;
-    }
-    .mosaic-img:hover img {
-      filter: grayscale(0%);
-      transform: scale(1.04);
-    }
-
-    /* ─── PROCESO ─────────────────────────────── */
-    #proceso {
-      background: var(--grey);
-    }
-    .proceso-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .proceso-header .section-body { margin: 0 auto; }
-    .proceso-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      position: relative;
-    }
-    .proceso-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: calc(12.5%);
-      right: calc(12.5%);
-      height: 1px;
-      background: rgba(232,98,58,0.3);
-    }
-    .proceso-step {
-      text-align: center;
-      padding: 0 1.5rem 2rem;
-      position: relative;
-    }
-    .step-dot {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      border: 2px solid var(--coral);
-      background: var(--grey);
-      margin: 0 auto 1.5rem;
+    .filo-divider {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
+      gap: 14px;
+      margin-top: 26px;
+    }
+    .filo-dot-line {
+      width: 70px;
+      border-top: 2px dotted var(--af-pink);
+    }
+    .filo-heart {
+      color: var(--af-pink);
+      font-size: 16px;
+    }
+    .filo-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 30px;
+      color: var(--af-ink);
+    }
+
+    /* Radial glow behind quote */
+    .filo-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px; height: 200px;
+      background: radial-gradient(ellipse, rgba(242,46,154,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ─── MÉTODO ────────────────────────── */
+    #metodo { background: var(--af-s-met); border-top: 1px solid var(--af-line); }
+    .metodo-title-cursive {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      font-size: 1.3em;
+      letter-spacing: 0;
+      color: var(--af-pink);
+    }
+    .metodo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 24px;
+      margin-top: 52px;
+    }
+    .metodo-step { text-align: center; }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border: 1px solid var(--af-pink);
+      border-radius: 999px;
+      color: var(--af-pink);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
       font-weight: 700;
-      color: var(--coral);
-      position: relative;
-      z-index: 1;
     }
     .step-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      margin: 18px 0 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 0.6rem;
     }
     .step-desc {
-      font-size: 0.82rem;
-      color: var(--light);
-      line-height: 1.65;
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--af-mut);
     }
 
-    /* ─── CONTACTO ────────────────────────────── */
-    #contacto {
-      background: var(--black);
+    /* ─── VIDEOS ────────────────────────── */
+    .sec-videos {
+      background: var(--af-s-vid);
+      border-top: 1px solid var(--af-line);
+      padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 72px) clamp(56px, 9vw, 110px);
+      transition: background-color 0.3s;
+    }
+    .sec-videos .inner-narrow { max-width: 1036px; margin: 0 auto; }
+    .vid-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .vid-header-text { max-width: 560px; }
+    .vid-title {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 1px;
+      background: var(--af-line);
+      border: 1px solid var(--af-line);
+    }
+    .tab {
+      background: var(--af-card);
+      border: none;
+      color: var(--af-mut);
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 22px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .tab:hover { color: var(--af-ink); }
+    .tab[aria-selected="true"] {
+      background: var(--af-pink);
+      color: #fff;
+    }
+    .tab-panel[hidden] { display: none; }
+
+    /* Reels grid */
+    .reels {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 34px;
+    }
+    @media (min-width: 900px) {
+      .reels { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    .reel {
       position: relative;
       overflow: hidden;
+      border: 1px solid var(--af-line);
+      background: var(--af-card);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    #contacto::after {
-      content: '';
+    .reel:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .reel iframe {
       position: absolute;
-      top: 0; right: 0;
-      width: 40%;
-      height: 100%;
-      background: linear-gradient(135deg, transparent 40%, rgba(42,122,94,0.12));
+      inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .reel-btn {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+    }
+    .reel-thumb {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: var(--af-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .reel-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .reel-play-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       pointer-events: none;
     }
-    .contacto-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-    .contacto-form {
+    .reel-play-circle {
       display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
+      align-items: center;
+      justify-content: center;
+      width: 48px; height: 48px;
+      background: rgba(242,46,154,0.94);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 15px;
+      padding-left: 3px;
+      transition: transform 0.2s;
     }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--light);
-    }
-    input, textarea, select {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 2px;
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      padding: 0.85rem 1rem;
-      outline: none;
-      transition: border-color 0.2s;
-      width: 100%;
-    }
-    [data-theme="light"] input,
-    [data-theme="light"] textarea,
-    [data-theme="light"] select {
-      background: rgba(0,0,0,0.04);
-      border-color: rgba(0,0,0,0.14);
-      color: var(--white);
-    }
-    input:focus, textarea:focus, select:focus {
-      border-color: var(--coral);
-    }
-    textarea { resize: vertical; min-height: 120px; }
-    select option { background: var(--grey); }
-    [data-theme="light"] select option {
-      background: #EDE8E0;
-      color: #1C1410;
-    }
-    .form-submit {
-      align-self: flex-start;
-      background: var(--coral);
-      color: #F5F0EB;
-      border: none;
-      cursor: pointer;
-      padding: 1rem 2.4rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
+    .reel-btn:hover .reel-play-circle { transform: scale(1.08); }
+    .reel-dur {
+      position: absolute;
+      top: 10px; right: 10px;
+      padding: 4px 8px;
+      background: rgba(6,5,7,0.78);
+      color: #fff;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
+      pointer-events: none;
+    }
+    .reel-info {
+      padding: 16px 18px 18px;
+    }
+    .reel-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.2s;
-      margin-top: 0.5rem;
+      color: var(--af-pink);
     }
-    .form-submit:hover { background: #c94e2a; transform: translateY(-2px); }
-
-    .form-success {
-      display: none;
-      background: rgba(42,122,94,0.15);
-      border: 1px solid var(--green);
-      border-radius: 2px;
-      padding: 1.2rem 1.5rem;
-      font-size: 0.9rem;
-      color: #6bcca6;
+    .reel-name {
+      margin-top: 7px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--af-ink);
+    }
+    .reel-note {
+      margin-top: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--af-mut);
+    }
+    .reel-ph {
+      color: var(--af-mut3);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.6;
     }
 
-    .contacto-info { padding-top: 0.5rem; }
-    .contacto-info .section-body { margin-bottom: 2.5rem; }
-    .info-items {
+    /* ─── TIENDA ────────────────────────── */
+    #tienda { background: var(--af-s-tienda); }
+    .shop-section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 38px 0 18px;
+    }
+    .shop-section-label span:first-child {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--af-pink);
+      white-space: nowrap;
+    }
+    .shop-section-label .dotline {
+      flex: 1;
+      border-top: 2px dotted var(--af-pink);
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 18px;
+    }
+    .plan-card {
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      border: 1px solid var(--af-tint2);
+      background: var(--af-tint);
+      padding: 32px 28px;
+      transition: border-color 0.2s;
     }
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
+    .plan-card:hover { border-color: var(--af-pink); }
+    .plan-highlight {
+      background: var(--af-highlight-card);
+      border-color: var(--af-pink);
     }
-    .info-icon {
-      width: 40px; height: 40px;
-      border: 1px solid rgba(232,98,58,0.3);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--coral);
-    }
-    .info-icon svg { width: 18px; height: 18px; }
-    .info-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
+    [data-theme="light"] .plan-highlight { color: var(--af-highlight-ink); }
+    [data-theme="light"] .plan-highlight h3 { color: var(--af-highlight-ink); }
+    [data-theme="light"] .plan-highlight .plan-tag { color: var(--af-pink); }
+    [data-theme="light"] .plan-highlight li { color: var(--af-highlight-soft); }
+    [data-theme="light"] .plan-highlight .plan-period { color: var(--af-highlight-soft); }
+    [data-theme="light"] .plan-highlight .btn-form { color: var(--af-highlight-ink); border-color: rgba(255,255,255,0.3); }
+    [data-theme="light"] .plan-highlight .btn-form:hover { border-color: var(--af-pink); color: var(--af-pink); }
+
+    .plan-badge {
+      position: absolute;
+      top: 0; right: 0;
+      padding: 7px 14px;
+      background: var(--af-pink);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 0.25rem;
+      white-space: nowrap;
     }
-    .info-value {
-      font-size: 0.95rem;
-      color: var(--white);
-    }
-
-    .social-links {
+    .plan-tag {
       display: flex;
-      gap: 0.75rem;
-      margin-top: 2.5rem;
+      align-items: flex-end;
+      min-height: calc(2 * 1.4em);
+      font-size: 10px;
+      line-height: 1.4;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--af-pink);
+      padding-right: 92px;
     }
-    .social-link {
-      width: 42px; height: 42px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 2px;
+    .plan-name {
+      margin: 14px 0 0;
+      min-height: calc(2 * 1.35em);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--af-ink);
+    }
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      min-height: 62px;
+      margin-top: 18px;
+      padding: 18px 0 20px;
+      border-top: 2px dotted var(--af-pink);
+      border-bottom: 1px solid var(--af-tint2);
+    }
+    .plan-amount {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 44px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--af-pink);
+      white-space: nowrap;
+    }
+    .plan-period {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--af-mut);
+      white-space: nowrap;
+    }
+    .plan-features {
+      margin: 20px 0 26px;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      flex: 1;
+    }
+    .plan-features li {
+      display: flex;
+      gap: 10px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--af-soft);
+    }
+    .plan-features li::before {
+      content: '✦';
+      flex: none;
+      color: var(--af-pink);
+    }
+    .plan-actions {
+      display: grid;
+      gap: 8px;
+    }
+    .btn-wa-pink {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--light);
+      padding: 14px;
+      background: var(--af-pink);
+      border: 0;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       text-decoration: none;
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      cursor: pointer;
+      transition: background 0.2s;
     }
-    [data-theme="light"] .social-link {
-      border-color: rgba(0,0,0,0.12);
+    .btn-wa-pink:hover { background: var(--af-pink2); color: #fff; }
+    .btn-form {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid var(--af-tint2);
+      color: var(--af-ink);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .social-link:hover {
-      border-color: var(--coral);
-      color: var(--coral);
-      background: rgba(232,98,58,0.08);
-    }
-    .social-link svg { width: 18px; height: 18px; }
+    .btn-form:hover { border-color: var(--af-pink); color: var(--af-pink); }
 
-    /* ─── FOOTER ──────────────────────────────── */
-    footer {
-      background: var(--grey);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 2.5rem 3rem;
+    /* Guías / Material grid */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin-top: 38px;
+    }
+    .shop-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--af-tint2);
+      background: var(--af-tint);
+    }
+    .shop-card-img {
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--af-alt);
+      color: var(--af-mut3);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 12px;
+    }
+    .shop-card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 22px;
+    }
+    .shop-card-format {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--af-pink);
+    }
+    .shop-card-title {
+      margin: 10px 0 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .shop-card-desc {
+      margin: 10px 0 18px;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--af-mut);
+      flex: 1;
+    }
+    .shop-card-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
+    }
+    .shop-card-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--af-ink);
+    }
+    .btn-wa-small {
+      white-space: nowrap;
+      padding: 12px 18px;
+      background: var(--af-pink);
+      border: 0;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-wa-small:hover { background: var(--af-pink2); color: #fff; }
+
+    .tienda-note {
+      margin: 34px 0 0;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--af-mut3);
+    }
+
+    .tabs-center {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    /* ─── RECOMENDADOS ─────────────────── */
+    #recomendados { background: var(--af-s-rec); border-top: 1px solid var(--af-line); }
+    .rec-title-cursive {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      font-size: 1.3em;
+      letter-spacing: 0;
+      color: var(--af-pink);
+    }
+    .recs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(250px,100%), 1fr));
+      gap: 18px;
+      margin-top: 40px;
+    }
+    .rec-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--af-line);
+      background: var(--af-card);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .rec-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .rec-card-img {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--af-alt);
+    }
+    .rec-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .rec-card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 22px;
+    }
+    .rec-card-title {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .rec-card-desc {
+      margin: 8px 0 18px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--af-mut);
+      flex: 1;
+    }
+    .btn-pending {
+      padding: 12px;
+      text-align: center;
+      border: 1px dashed var(--af-tint2);
+      color: var(--af-mut3);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ─── CALCULADORA IMC ──────────────── */
+    #imc { background: var(--af-s-imc); border-top: 1px solid var(--af-line); }
+    .imc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));
+      gap: clamp(28px, 5vw, 56px);
+      align-items: center;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .imc-calc {
+      padding: clamp(24px, 4vw, 36px);
+      border: 1px solid var(--af-pink);
+      background: var(--af-card);
+    }
+    .imc-inputs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .imc-label {
+      display: grid;
+      gap: 7px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--af-mut3);
+    }
+    .imc-input {
+      width: 100%;
+      min-width: 0;
+      padding: 13px 14px;
+      border: 1px solid var(--af-line);
+      background: var(--af-bg);
+      font: inherit;
+      font-size: 16px;
+      color: var(--af-ink);
+      letter-spacing: 0;
+      border-radius: 2px;
+      transition: border-color 0.2s;
+    }
+    .imc-input:focus { border-color: var(--af-pink); outline: none; }
+    .imc-result {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 2px dotted var(--af-pink);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 1rem;
     }
-    [data-theme="light"] footer {
-      border-top-color: rgba(0,0,0,0.08);
+    .imc-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--af-pink);
     }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: var(--white);
+    .imc-cat {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--af-ink);
+    }
+    .imc-hint {
+      margin: 12px 0 0;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--af-mut);
+    }
+    .imc-warn {
+      margin: 6px 0 0;
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: var(--af-mut3);
+    }
+
+    /* ─── GUÍA GRATIS ──────────────────── */
+    #guia {
+      background: #09080A;
+      border-top: 1px solid var(--af-line);
+      border-bottom: 1px solid var(--af-line);
+      color: #F5F0F5;
+    }
+    .guia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+      max-width: 1036px;
+      margin: 0 auto;
+    }
+    #guia .sec-title { color: #F5F0F5; }
+    #guia .sec-desc { color: #B8AEA3; }
+    .guia-form { display: grid; gap: 14px; }
+    .guia-field {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .guia-field input {
+      flex: 1 1 200px;
+      background: rgba(251,247,242,0.06);
+      border: 1px solid rgba(251,247,242,0.24);
+      color: #F5F0F5;
+      font: inherit;
+      font-size: 14px;
+      padding: 13px 14px;
+      border-radius: 2px;
+      transition: border-color 0.2s;
+    }
+    .guia-field input::placeholder { color: #8D8378; }
+    .guia-field input:focus { border-color: var(--af-pink); outline: none; }
+    .guia-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #B8AEA3;
+      cursor: pointer;
+    }
+    .guia-consent a { color: #F0A88C; }
+    .guia-consent input[type="checkbox"] {
+      width: 16px; height: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--af-pink);
+    }
+    .guia-msg {
+      margin: 0;
+      font-size: 13px;
+      color: #7FBFA4;
+      min-height: 20px;
+    }
+
+    /* ─── CONTACTO ─────────────────────── */
+    #contacto { background: var(--af-s-cont); }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: clamp(36px, 6vw, 72px);
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .contacto-info-items {
+      display: grid;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .contacto-info-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .contacto-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      background: var(--af-pink);
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .contacto-info-item:hover .contacto-icon { transform: scale(1.1); }
+    .contacto-icon svg { width: 16px; height: 16px; }
+    .contacto-item-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--af-mut3);
+    }
+    .contacto-item-value {
+      margin-top: 4px;
+      font-size: 14.5px;
+    }
+    .contacto-item-value.muted { color: var(--af-mut); }
+
+    .contacto-form-wrap {
+      padding: clamp(24px, 4vw, 36px);
+      background: var(--af-card);
+      border: 1px solid var(--af-line);
+    }
+    .contacto-form {
+      display: grid;
+      gap: 16px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(150px,100%), 1fr));
+      gap: 16px;
+    }
+    .form-label {
+      display: grid;
+      gap: 7px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--af-mut3);
+    }
+    .form-input {
+      width: 100%;
+      min-width: 0;
+      padding: 13px 14px;
+      border: 1px solid var(--af-line);
+      background: var(--af-card);
+      font: inherit;
+      font-size: 14px;
+      color: var(--af-ink);
+      letter-spacing: 0;
+      text-transform: none;
+      border-radius: 2px;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus { border-color: var(--af-pink); outline: none; }
+    textarea.form-input { resize: vertical; min-height: 120px; }
+    select.form-input option { background: var(--af-card); color: var(--af-ink); }
+
+    .btn-submit {
+      justify-self: start;
+      padding: 16px 30px;
+      background: var(--af-pink);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-submit:hover { background: var(--af-pink2); transform: translateY(-2px); }
+
+    .form-success {
+      display: none;
+      background: rgba(127,191,164,0.15);
+      border: 1px solid #7FBFA4;
+      border-radius: 2px;
+      padding: 1.2rem 1.5rem;
+      font-size: 0.9rem;
+      color: #7FBFA4;
+    }
+
+    /* ─── FOOTER ────────────────────────── */
+    footer {
+      background: var(--af-deep);
+      border-top: 1px solid var(--af-line);
+      padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 72px) 30px;
+      transition: background-color 0.3s;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .footer-brand {
       text-decoration: none;
     }
-    .footer-logo span { color: var(--coral); }
-    .footer-copy {
-      font-size: 0.75rem;
-      color: var(--mid);
+    .footer-brand-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: var(--af-ink);
+    }
+    .footer-brand-name .pink { color: var(--af-pink); }
+    .footer-brand-sub {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--af-mut3);
+      margin-top: 4px;
     }
     .footer-links {
       display: flex;
@@ -851,579 +1455,25 @@
       list-style: none;
     }
     .footer-links a {
-      font-size: 0.72rem;
+      font-size: 12px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--light);
+      color: var(--af-mut);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--coral); }
-
-    /* ─── PESTANAS (tienda y videos) ──────────────────── */
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 3rem;
-    }
-    .tab {
-      background: none;
-      border: 1px solid rgba(232,98,58,0.3);
-      border-radius: 2px;
-      color: var(--light);
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.75rem 1.5rem;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
-    }
-    .tab:hover { border-color: var(--coral); color: var(--white); }
-    .tab[aria-selected="true"] {
-      background: var(--coral);
-      border-color: var(--coral);
-      color: #F5F0EB;
-    }
-    /* Necesario: la regla de autor de .planes/.reels ganaría al [hidden] del navegador */
-    .tab-panel[hidden] { display: none; }
-
-    /* ─── VIDEOS ──────────────────── */
-    #videos {
-      background: var(--black);
-    }
-    #videos .sec-header,
-    #tienda .sec-header { margin-bottom: 2.5rem; }
-    .reels {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    @media (min-width: 900px) {
-      .reels { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    }
-    .reel {
-      position: relative;
-      aspect-ratio: 9 / 16;
-      overflow: hidden;
-      border: 1px solid rgba(232,98,58,0.15);
-      border-radius: 2px;
-      background: var(--grey);
-    }
-    .reel iframe {
-      position: absolute;
-      inset: 0;
+    .footer-links a:hover { color: var(--af-pink); }
+    .footer-copy {
       width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .reel-btn {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.9rem;
-      padding: 1rem;
-      border: 0;
-      background: var(--grey);
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-    }
-    .reel-play {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: rgba(232,98,58,0.92);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #F5F0EB;
-      flex-shrink: 0;
-      transition: transform 0.2s;
-    }
-    .reel-btn:hover .reel-play { transform: scale(1.08); }
-    .reel-play svg { width: 20px; height: 20px; margin-left: 2px; }
-    .reel-ph {
-      color: var(--light);
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
       text-align: center;
-      line-height: 1.6;
-    }
-    .reel-info {
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      padding: 1.4rem 0.8rem 0.9rem;
-      text-align: left;
-      background: linear-gradient(to top, rgba(13,13,13,0.94), rgba(13,13,13,0));
-    }
-    .reel-tag {
-      font-size: 0.56rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--coral);
-    }
-    .reel-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      line-height: 1.25;
-      color: #F5F0EB;
-    }
-    .reel-dur {
-      position: absolute;
-      top: 0.6rem; right: 0.6rem;
-      background: rgba(13,13,13,0.8);
-      color: #F5F0EB;
-      font-size: 0.6rem;
-      font-weight: 600;
-      padding: 0.2rem 0.45rem;
-      border-radius: 2px;
-    }
-    .videos-note {
-      max-width: 660px;
-      margin: 2.5rem auto 0;
-      text-align: center;
-      font-size: 0.8rem;
-      line-height: 1.7;
-      color: var(--light);
-    }
-
-    /* ─── TIENDA ──────────────────── */
-    #tienda {
-      background: var(--grey);
-    }
-    /* Las tarjetas de tienda invierten el contraste respecto a #recomendados */
-    #tienda .ph { background: var(--grey); }
-
-    .planes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: start;
+      font-size: 12px;
+      color: var(--af-mut4);
       margin-top: 1rem;
-    }
-    .plan {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: var(--black);
-      border: 1px solid rgba(232,98,58,0.15);
-      border-radius: 2px;
-      padding: 2.4rem 2rem;
-    }
-    .plan.featured { border-color: var(--coral); }
-    .plan-badge {
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--coral);
-      color: #F5F0EB;
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.9rem;
-      border-radius: 2px;
-      white-space: nowrap;
-    }
-    .plan-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .plan-price {
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-    .plan-amount {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      line-height: 1;
-      color: var(--coral);
-    }
-    .plan-period {
-      font-size: 0.8rem;
-      color: var(--light);
-    }
-    .plan-note {
-      margin-top: 0.6rem;
-      font-size: 0.78rem;
-      line-height: 1.6;
-      color: var(--light);
-    }
-    .plan-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      margin: 1.8rem 0;
-      flex: 1;
-    }
-    .plan-list li {
-      display: flex;
-      gap: 0.7rem;
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: var(--light);
-    }
-    .plan-list li::before {
-      content: '';
-      display: block;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--coral);
-      flex-shrink: 0;
-      margin-top: 0.5rem;
-    }
-    .btn-wa {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      width: 100%;
-      background: var(--green);
-      color: #F5F0EB;
-      padding: 0.95rem 1.1rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .btn-wa:hover { background: #20624A; transform: translateY(-2px); }
-    .btn-wa svg { width: 15px; height: 15px; flex-shrink: 0; }
-    .planes-note,
-    .tienda-note {
-      max-width: 660px;
-      margin: 2.2rem auto 0;
-      text-align: center;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: var(--light);
-    }
-    .tienda-note { margin-top: 2.8rem; }
-
-    .shop-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-    }
-    .card-shop {
-      display: flex;
-      flex-direction: column;
-      background: var(--black);
-      border: 1px solid rgba(232,98,58,0.15);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .shop-body {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      padding: 1.6rem;
-    }
-    .shop-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
-    .shop-meta {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 1rem;
-      flex: 1;
-    }
-    .shop-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 900;
-      line-height: 1;
-      color: var(--coral);
-      margin-bottom: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--af-line);
     }
 
-    /* ─── RECOMENDADOS ──────────────────── */
-    #recomendados {
-      background: var(--black);
-    }
-    .sec-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .sec-header .section-body { margin: 0 auto; }
-    .recs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .rec {
-      display: flex;
-      flex-direction: column;
-      background: var(--grey);
-      border: 1px solid rgba(232,98,58,0.15);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .ph {
-      aspect-ratio: 4 / 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      background: var(--black);
-      border-bottom: 1px solid rgba(232,98,58,0.15);
-      color: var(--mid);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .rec-body {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      padding: 2rem 1.8rem;
-    }
-    .rec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-    }
-    .rec-desc {
-      font-size: 0.85rem;
-      color: var(--light);
-      line-height: 1.7;
-      flex: 1;
-      margin-bottom: 1.6rem;
-    }
-    .btn-ghost {
-      align-self: flex-start;
-      display: inline-block;
-      border: 1px solid rgba(232,98,58,0.45);
-      color: var(--white);
-      padding: 0.75rem 1.7rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
-    }
-    .btn-ghost:hover {
-      background: var(--coral);
-      border-color: var(--coral);
-      color: #F5F0EB;
-    }
-    .afil {
-      max-width: 660px;
-      margin: 2.5rem auto 0;
-      text-align: center;
-      font-size: 0.78rem;
-      line-height: 1.7;
-      color: var(--light);
-    }
-
-    /* ─── CALCULADORA IMC ──────────────────── */
-    #imc {
-      background: var(--grey);
-    }
-    .imc-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .imc-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-    .imc-two {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .imc-two label {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .imc-out {
-      background: var(--black);
-      border: 1px solid rgba(232,98,58,0.2);
-      border-radius: 2px;
-      padding: 2.4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.6rem;
-    }
-    .imc-val {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 6vw, 3.8rem);
-      font-weight: 900;
-      line-height: 1;
-      color: var(--coral);
-    }
-    .imc-cat {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--white);
-    }
-    .imc-hint {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: var(--light);
-    }
-    .imc-warn {
-      font-size: 0.78rem;
-      line-height: 1.6;
-      color: var(--light);
-    }
-    .imc-out .btn-primary { margin-top: 0.8rem; }
-
-    /* ─── GUIA GRATIS ──────────────────── */
-    #guia {
-      background: #0D0D0D;
-      border-top: 1px solid rgba(232,98,58,0.2);
-      border-bottom: 1px solid rgba(232,98,58,0.2);
-    }
-    #guia .section-title { color: #F5F0EB; }
-    #guia .section-body { color: rgba(245,240,235,0.72); }
-    .guia-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .guia-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .guia-field {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .guia-field input,
-    [data-theme="light"] .guia-field input {
-      flex: 1 1 200px;
-      width: auto;
-      min-width: 0;
-      background: rgba(245,240,235,0.06);
-      border-color: rgba(245,240,235,0.24);
-      color: #F5F0EB;
-    }
-    .guia-field input::placeholder { color: rgba(245,240,235,0.45); }
-    .guia-field .form-submit { margin-top: 0; align-self: auto; }
-    .guia-consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-size: 0.78rem;
-      line-height: 1.6;
-      letter-spacing: 0;
-      text-transform: none;
-      color: rgba(245,240,235,0.72);
-      cursor: pointer;
-    }
-    .guia-consent input,
-    [data-theme="light"] .guia-consent input {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      padding: 0;
-      accent-color: var(--coral);
-    }
-    .guia-msg {
-      font-size: 0.82rem;
-      min-height: 20px;
-      color: #6bcca6;
-    }
-
-    /* ─── RESPONSIVE ──────────────────────────── */
-    /* El menú tiene ahora más enlaces: pasa a hamburguesa antes.
-       Se posiciona relativo al <nav> (top:100%), así el banner demo no lo descuadra. */
-    @media (max-width: 1220px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--black); padding: 1.5rem; gap: 1.2rem; }
-      [data-theme="light"] .nav-links { background: var(--black) !important; }
-      .nav-links.open { display: flex; }
-      .nav-burger { display: flex; }
-    }
-
-    @media (max-width: 900px) {
-      section { padding: 5rem 1.5rem; }
-      .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .sobre-img-wrap { order: -1; }
-      .sobre-img-wrap img { height: 380px; }
-      .campeonato-photos { grid-template-columns: 1fr; grid-template-rows: 360px 280px 280px; }
-      .camp-main { grid-row: auto; }
-      .servicios-grid { grid-template-columns: 1fr; }
-      .proceso-steps { grid-template-columns: 1fr 1fr; }
-      .proceso-steps::before { display: none; }
-      .contacto-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .form-row { grid-template-columns: 1fr; }
-      .filosofia-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .mosaic-img:first-child { grid-row: auto; }
-      .stats-bar { flex-wrap: wrap; }
-      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      [data-theme="light"] .stat-item { border-bottom-color: rgba(0,0,0,0.08); }
-      footer { flex-direction: column; text-align: center; }
-      .hero-content { padding: 0 1.5rem 5rem; }
-      .hero-bg::after { display: none; }
-      .hero-scroll { display: none; }
-      .planes { grid-template-columns: 1fr; gap: 2.6rem; }
-      .imc-box { grid-template-columns: 1fr; gap: 2.5rem; }
-      .guia-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    @media (max-width: 600px) {
-      .proceso-steps { grid-template-columns: 1fr; }
-      .filosofia-mosaic { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 420px) {
-      .demo { font-size: 8.5px; letter-spacing: 0.14em; }
-      .tab { padding: 0.65rem 1rem; font-size: 0.66rem; }
-      .reel-play { width: 38px; height: 38px; }
-      .reel-play svg { width: 16px; height: 16px; }
-      .imc-two { grid-template-columns: 1fr; }
-      .imc-out { padding: 1.8rem 1.4rem; }
-      .guia-field .form-submit { width: 100%; }
-    }
-
-    /* ─── REVEAL ANIMATION ────────────────────── */
+    /* ─── REVEAL ANIMATION ─────────────── */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -1433,6 +1483,52 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ─── RESPONSIVE ───────────────────── */
+    @media (max-width: 700px) {
+      .header-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--af-bg);
+        padding: 1.5rem clamp(20px, 5vw, 72px);
+        gap: 1.2rem;
+        border-bottom: 1px solid var(--af-line);
+      }
+      [data-theme="light"] .header-nav {
+        background: var(--af-bg);
+      }
+      [data-theme="light"] .header-nav a {
+        color: var(--af-ink);
+      }
+      .header-nav.open { display: flex; }
+      .nav-burger { display: flex; }
+      .hero-logo-img { max-width: 200px; }
+      .hero-scroll { display: none; }
+      .theme-toggle { padding: 12px 16px; font-size: 10px; top: 78px; }
+    }
+
+    @media (max-width: 900px) {
+      .sobre-grid { gap: 2rem; }
+      .comp-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .comp-main { grid-row: auto; }
+      .metodo-grid { grid-template-columns: 1fr; }
+      .contacto-grid { gap: 2rem; }
+      .imc-grid { gap: 2rem; }
+      .imc-inputs { grid-template-columns: 1fr; }
+      .guia-grid { gap: 2rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .plans-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 420px) {
+      .demo { font-size: 8.5px; letter-spacing: 0.14em; }
+      .tab { padding: 10px 14px; font-size: 10px; }
+    }
   </style>
 </head>
 <body>
@@ -1440,55 +1536,47 @@
   <!-- BANNER VERSION DEMO -->
   <div class="demo"><b>Versión demo</b>&nbsp;— contenido provisional</div>
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <a href="#" class="nav-logo">Ainhoa-Fitness<span>.</span></a>
-    <ul class="nav-links" id="navlinks">
-      <li><a href="#sobre">Sobre mí</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proceso">Método</a></li>
-      <li><a href="#videos">Vídeos</a></li>
-      <li><a href="#tienda">Tienda</a></li>
-      <li><a href="#recomendados">Recomendados</a></li>
-      <li><a href="#imc">Calculadora</a></li>
-      <li><a href="#contacto" class="nav-cta">Contactar</a></li>
-    </ul>
-    <div style="display:flex;align-items:center;gap:0.75rem;">
-      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-        <!-- Sun icon: shown in dark mode to switch to light -->
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-        <!-- Moon icon: shown in light mode to switch to dark -->
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </button>
+  <!-- HEADER -->
+  <header id="siteHeader">
+    <a href="#" class="header-logo">
+      <span class="logo-ainhoa">Ainhoa</span>
+      <span class="logo-villalba">Villalba</span>
+    </a>
+    <nav class="header-nav" id="headerNav">
+      <a href="#sobre">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#metodo">Método</a>
+      <a href="#tienda">Packs</a>
+      <a href="#imc">IMC</a>
+      <a href="#contacto" class="nav-cta">Contactar</a>
+    </nav>
+    <div class="header-right">
       <button class="nav-burger" id="burger" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
     </div>
-  </nav>
+  </header>
+
+  <!-- THEME TOGGLE -->
+  <button class="theme-toggle" id="themeToggle">Modo claro</button>
 
   <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Entrenadora Personal & Nutricionista</p>
-      <h1 class="hero-title">Tu mejor<br/> versión<br/> <em>empieza aquí.</em></h1>
-      <p class="hero-sub">Planes de entrenamiento y nutrición adaptados a ti, sin dietas milagro ni rutinas imposibles. Solo método, constancia y resultados reales.</p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn-primary">Quiero empezar</a>
-        <a href="#servicios" class="btn-outline">Ver servicios</a>
+  <section class="hero" data-dark>
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=80&fit=crop" alt="Gym" loading="eager" />
+    </div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Asesora personal de entrenamiento y nutrición deportiva</p>
+        <h1 class="hero-title">Tu mejor versión<br /><em>empieza aquí</em></h1>
+        <p class="hero-sub">Planes de entrenamiento y nutrición adaptados a ti, sin dietas milagro ni rutinas imposibles. Solo método, constancia y resultados reales.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn-pink">Quiero empezar</a>
+          <a href="#tienda" class="btn-border">Ver planes y precios</a>
+        </div>
       </div>
+      <img src="img/af-logo-brillos.png" alt="Ainhoa Villalba · Bikini Fitness Master" class="hero-logo-img reveal" />
     </div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
@@ -1496,14 +1584,10 @@
     </div>
   </section>
 
-  <!-- STATS -->
+  <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat-item reveal">
-      <div class="stat-number">+200</div>
-      <div class="stat-label">Clientes transformados</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-number">5+</div>
+      <div class="stat-number" data-count="10">10</div>
       <div class="stat-label">Años de experiencia</div>
     </div>
     <div class="stat-item reveal">
@@ -1517,543 +1601,599 @@
   </div>
 
   <!-- SOBRE MÍ -->
-  <section id="sobre">
+  <section class="sec" id="sobre">
     <div class="inner sobre-grid">
       <div class="sobre-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80&fit=crop&crop=top" alt="Ainhoa entrenadora personal" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80&fit=crop&crop=top" alt="Ainhoa entrenando" loading="lazy" />
         <div class="sobre-accent"></div>
       </div>
-      <div class="sobre-text reveal">
-        <p class="section-eyebrow">Sobre mí</p>
-        <h2 class="section-title">Hola, soy Ainhoa.</h2>
-        <p class="section-body">Soy entrenadora personal certificada y especialista en nutrición deportiva. Mi misión es ayudarte a conseguir tus objetivos de forma sostenible, cuidando tanto tu cuerpo como tu relación con la alimentación y el ejercicio.</p>
-        <p class="section-body" style="margin-top:1rem;">Creo firmemente que no existen cuerpos imposibles, solo métodos que no se adaptan a ti. Por eso cada plan que diseño es completamente personalizado.</p>
-        <ul class="sobre-list">
-          <li>Grado en Ciencias del Deporte</li>
-          <li>Especialización en Nutrición Deportiva</li>
-          <li>Certificación en Entrenamiento Online</li>
-          <li>Disponible para entrenamientos presenciales y online</li>
-        </ul>
+      <div class="reveal">
+        <p class="eyebrow">Sobre mí</p>
+        <h2 class="sec-title">Hola, soy Ainhoa</h2>
+        <p class="sobre-bold">Soy una apasionada del Fitness como estilo de vida.</p>
+        <p class="sobre-body">Puedo ayudarte a mejorar tu físico, tu rendimiento y calidad muscular. Mi objetivo es entender tus necesidades y darte las pautas necesarias para mejorar tu relación con la alimentación y el deporte de forma sostenible.</p>
+        <p class="sobre-divider">La clave del éxito está en encontrar el plan que mejor se adapte a ti, el cual disfrutes para poderlo mantener en el tiempo e incorporarlo a tu día a día.</p>
       </div>
     </div>
   </section>
 
-  <!-- CAMPEONATO -->
-  <section id="campeonato">
+  <!-- COMPETICIÓN -->
+  <section class="sec sec-comp">
     <div class="inner">
-      <div class="campeonato-header reveal">
-        <p class="section-eyebrow">Competición</p>
-        <h2 class="section-title">Campeona Fitness Bikini</h2>
-        <p class="section-body">Compito en campeonatos de Fitness Bikini porque creo que la mejor entrenadora es la que vive en primera persona cada fase del proceso: la preparación, el sacrificio y la satisfacción de subirse al escenario.</p>
+      <div class="center reveal">
+        <img src="img/af-horse.png" alt="" class="comp-horse" />
+        <p class="eyebrow">Competición</p>
+        <h2 class="sec-title">Campeona<span class="comp-title-cursive">Bikini Fitness</span></h2>
+        <p class="sec-desc">Competir en campeonatos de culturismo es la satisfacción de dar tu 100%, de ver hasta dónde eres capaz de llegar, superar tus límites y demostrarte a ti misma que <strong style="font-weight:800;letter-spacing:0.04em;color:var(--af-pink)">TODO ESFUERZO TIENE SU RECOMPENSA.</strong></p>
       </div>
-      <div class="campeonato-photos">
-        <div class="camp-main reveal">
+      <div class="comp-gallery">
+        <div class="comp-main reveal">
           <img src="img/IMG_20260626_110657.jpg" alt="Ainhoa posando en el escenario del campeonato de Fitness Bikini" loading="lazy" />
         </div>
-        <div class="camp-side reveal">
+        <div class="comp-side reveal">
           <img src="img/IMG_20260626_110832.jpg" alt="Ainhoa compitiendo en el escenario de Ms. Bikini" loading="lazy" />
         </div>
-        <div class="camp-side reveal">
+        <div class="comp-side reveal">
           <img src="img/IMG_20260626_110815.jpg" alt="Ainhoa con su entrenador y la medalla del campeonato" loading="lazy" />
-          <span class="camp-badge">Ms. Bikini · Medalla</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICIOS -->
-  <section id="servicios">
+  <section class="sec" id="servicios">
     <div class="inner">
-      <div class="servicios-header reveal">
-        <p class="section-eyebrow">Lo que ofrezco</p>
-        <h2 class="section-title">Servicios</h2>
-        <p class="section-body">Cada persona es diferente. Por eso trabajo con un enfoque 100% individualizado, escuchando tus objetivos, tu historia y tu estilo de vida.</p>
+      <div class="center reveal">
+        <p class="eyebrow">Lo que ofrezco</p>
+        <h2 class="sec-title">Servicios</h2>
+        <p class="sec-desc">Cada persona es diferente. Por eso trabajo con un enfoque 100% individualizado, escuchando tus objetivos, tu historia y tu estilo de vida.</p>
       </div>
       <div class="servicios-grid">
-
         <div class="servicio-card reveal">
           <div class="servicio-num">01</div>
-          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 4v16M18 4v16M6 12h12M2 8h4M18 8h4M2 16h4M18 16h4"/>
-          </svg>
+          <div class="servicio-icon">╫</div>
           <h3 class="servicio-title">Plan de Entrenamiento</h3>
-          <p class="servicio-desc">Rutinas adaptadas a tu nivel, objetivos y disponibilidad. Seguimiento semanal con ajustes continuos para que nunca te estanques.</p>
+          <p class="servicio-desc">Rutinas adaptadas a tu nivel, objetivos y disponibilidad. Seguimiento quincenal con ajustes continuos para que nunca te estanques.</p>
         </div>
-
         <div class="servicio-card reveal">
           <div class="servicio-num">02</div>
-          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-            <path d="M8 12h8M12 8v8"/>
-          </svg>
+          <div class="servicio-icon">⊕</div>
           <h3 class="servicio-title">Plan de Nutrición</h3>
-          <p class="servicio-desc">Dietas personalizadas sin restricciones absurdas. Aprendemos a comer bien sin renunciar a lo que te gusta, de forma progresiva y real.</p>
+          <p class="servicio-desc">Dietas personalizadas sin restricciones rotundas. Aprenderemos a comer bien sin renunciar a lo que te gusta, de forma progresiva y real.</p>
         </div>
-
         <div class="servicio-card reveal">
           <div class="servicio-num">03</div>
-          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
+          <div class="servicio-icon">⊛</div>
           <h3 class="servicio-title">Pack Integral Online</h3>
-          <p class="servicio-desc">Entrenamiento + nutrición + seguimiento diario por WhatsApp. La opción más completa para quienes quieren resultados rápidos y duraderos.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FILOSOFÍA / QUOTE -->
-  <section id="filosofia">
-    <div class="inner">
-      <div class="filosofia-inner reveal">
-        <p class="section-eyebrow">Mi filosofía</p>
-        <blockquote class="filosofia-quote">
-          "El mejor entrenamiento es el que se adapta a tu vida, no el que te obliga a cambiar quién eres para encajar en él."
-        </blockquote>
-        <p class="filosofia-author">— Ainhoa</p>
-      </div>
-      <div class="filosofia-mosaic">
-        <div class="mosaic-img reveal">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80&fit=crop" alt="Entrenamiento" loading="lazy"/>
-        </div>
-        <div class="mosaic-img reveal">
-          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80&fit=crop" alt="Nutrición saludable" loading="lazy"/>
-        </div>
-        <div class="mosaic-img reveal">
-          <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80&fit=crop" alt="Yoga y bienestar" loading="lazy"/>
-        </div>
-        <div class="mosaic-img reveal">
-          <img src="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=600&q=80&fit=crop" alt="Alimentación" loading="lazy"/>
-        </div>
-        <div class="mosaic-img reveal">
-          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80&fit=crop" alt="Fuerza" loading="lazy"/>
+          <p class="servicio-desc">Entrenamiento + nutrición + seguimiento diario por WhatsApp. La opción más completa para quienes quieren resultados reales y duraderos.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESO -->
-  <section id="proceso">
-    <div class="inner">
-      <div class="proceso-header reveal">
-        <p class="section-eyebrow">Cómo trabajamos</p>
-        <h2 class="section-title">El método Ainhoa</h2>
-        <p class="section-body">Un proceso sencillo diseñado para que empieces con confianza y mantengas la motivación desde el primer día.</p>
+  <!-- FILOSOFÍA -->
+  <section class="sec sec-filo">
+    <div class="filo-glow"></div>
+    <div style="max-width:880px;margin:0 auto;text-align:center;position:relative">
+      <p class="eyebrow reveal">Mi filosofía</p>
+      <blockquote class="filo-quote reveal">"Todo esfuerzo tiene su <span style="color:var(--af-pink)">recompensa</span>"</blockquote>
+      <p class="filo-sub reveal">Sé fiel y constante y los resultados llegarán solos.</p>
+      <div class="filo-divider reveal">
+        <span class="filo-dot-line"></span>
+        <span class="filo-heart">♥</span>
+        <span class="filo-name">Ainhoa</span>
+        <span class="filo-heart">♥</span>
+        <span class="filo-dot-line"></span>
       </div>
-      <div class="proceso-steps">
-        <div class="proceso-step reveal">
-          <div class="step-dot">1</div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="sec" id="metodo">
+    <div class="inner-narrow">
+      <div class="center reveal">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2 class="sec-title">El método <span class="metodo-title-cursive">Ainhoa</span></h2>
+        <p class="sec-desc">Un proceso adaptado a ti pensado para que encuentres la motivación y la disciplina necesaria para cumplir tus objetivos.</p>
+      </div>
+      <div class="metodo-grid">
+        <div class="metodo-step reveal">
+          <div class="step-num">1</div>
           <h4 class="step-title">Primera consulta</h4>
-          <p class="step-desc">Hablamos de tus objetivos, tu historial y tu estilo de vida. Completamente gratuita.</p>
+          <p class="step-desc">Hacemos una pequeña entrevista donde hablamos sobre tus necesidades y qué quieres conseguir. Incluida en los packs de servicios.</p>
         </div>
-        <div class="proceso-step reveal">
-          <div class="step-dot">2</div>
+        <div class="metodo-step reveal">
+          <div class="step-num">2</div>
           <h4 class="step-title">Plan personalizado</h4>
-          <p class="step-desc">Diseño tu rutina y plan nutricional en 48-72h, adaptado al 100% a ti.</p>
+          <p class="step-desc">Diseño tu plan personalizado 100% y adaptado a ti.</p>
         </div>
-        <div class="proceso-step reveal">
-          <div class="step-dot">3</div>
-          <h4 class="step-title">Empezamos</h4>
-          <p class="step-desc">Comienzas con acceso directo a mí para resolver cualquier duda en tiempo real.</p>
+        <div class="metodo-step reveal">
+          <div class="step-num">3</div>
+          <h4 class="step-title">Te acompaño</h4>
+          <p class="step-desc">Te acompaño desde el comienzo resolviendo posibles dudas.</p>
         </div>
-        <div class="proceso-step reveal">
-          <div class="step-dot">4</div>
+        <div class="metodo-step reveal">
+          <div class="step-num">4</div>
           <h4 class="step-title">Seguimiento continuo</h4>
-          <p class="step-desc">Revisiones semanales y ajustes del plan para que siempre avances y no te estanques.</p>
+          <p class="step-desc">Revisiones quincenales y ajustes del plan para que siempre avances.</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- VIDEOS -->
-  <!-- Facade: el iframe de youtube-nocookie.com se crea al hacer clic, nunca precargado.
-       TODO: si más adelante se añade banner de cookies, no montar el iframe sin consentimiento. -->
-  <section id="videos">
-    <div class="inner">
-      <div class="sec-header reveal">
-        <p class="section-eyebrow">En movimiento</p>
-        <h2 class="section-title">Mira cómo se entrena y qué dicen ellas</h2>
-        <p class="section-body">Técnica explicada en vídeos cortos y las historias de quienes ya han pasado por el proceso.</p>
-      </div>
-      <div class="tabs reveal" role="tablist" aria-label="Categorías de vídeos">
-        <button class="tab" type="button" role="tab" id="tab-ejercicios" aria-controls="panel-ejercicios" aria-selected="true">Ejercicios</button>
-        <button class="tab" type="button" role="tab" id="tab-testimonios" aria-controls="panel-testimonios" aria-selected="false" tabindex="-1">Testimonios</button>
-      </div>
-      <div class="tab-panel" id="panel-ejercicios" role="tabpanel" aria-labelledby="tab-ejercicios">
-        <div class="reels">
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_1" data-title="Hip thrust" aria-label="Reproducir vídeo: Hip thrust">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">0:45</span>
-          <span class="reel-info">
-            <span class="reel-tag">Glúteo</span>
-            <span class="reel-title">Hip thrust</span>
-          </span>
-        </button>
-      </article>
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_2" data-title="Sentadilla búlgara" aria-label="Reproducir vídeo: Sentadilla búlgara">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">0:52</span>
-          <span class="reel-info">
-            <span class="reel-tag">Pierna</span>
-            <span class="reel-title">Sentadilla búlgara</span>
-          </span>
-        </button>
-      </article>
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_3" data-title="Remo con mancuerna" aria-label="Reproducir vídeo: Remo con mancuerna">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">0:38</span>
-          <span class="reel-info">
-            <span class="reel-tag">Espalda</span>
-            <span class="reel-title">Remo con mancuerna</span>
-          </span>
-        </button>
-      </article>
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_4" data-title="Plancha con apoyo" aria-label="Reproducir vídeo: Plancha con apoyo">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">0:41</span>
-          <span class="reel-info">
-            <span class="reel-tag">Core</span>
-            <span class="reel-title">Plancha con apoyo</span>
-          </span>
-        </button>
-      </article>
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_5" data-title="Press militar" aria-label="Reproducir vídeo: Press militar">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">0:47</span>
-          <span class="reel-info">
-            <span class="reel-tag">Hombro</span>
-            <span class="reel-title">Press militar</span>
-          </span>
-        </button>
-      </article>
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_6" data-title="Calentamiento 5 min" aria-label="Reproducir vídeo: Calentamiento 5 min">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">4:58</span>
-          <span class="reel-info">
-            <span class="reel-tag">Movilidad</span>
-            <span class="reel-title">Calentamiento 5 min</span>
-          </span>
-        </button>
-      </article>
+    <!-- VIDEOS (inside método section) -->
+    <div class="sec-videos">
+      <div class="inner-narrow">
+        <div class="vid-header">
+          <div class="vid-header-text reveal">
+            <p class="eyebrow">En vídeo</p>
+            <h3 class="vid-title">Mira cómo se entrena y qué dicen ellas</h3>
+          </div>
+          <div class="tabs reveal" role="tablist" aria-label="Categorías de vídeos">
+            <button class="tab" type="button" role="tab" id="tab-ejercicios" aria-controls="panel-ejercicios" aria-selected="true">Ejercicios</button>
+            <button class="tab" type="button" role="tab" id="tab-testimonios" aria-controls="panel-testimonios" aria-selected="false" tabindex="-1">Testimonios</button>
+          </div>
         </div>
-      </div>
-      <!-- TODO: pedir permiso escrito a cada clienta antes de publicar su testimonio. -->
-      <div class="tab-panel" id="panel-testimonios" role="tabpanel" aria-labelledby="tab-testimonios" hidden>
-        <div class="reels">
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_7" data-title="Testimonio de Marta G." aria-label="Reproducir vídeo: Testimonio de Marta G.">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">1:12</span>
-          <span class="reel-info">
-            <span class="reel-tag">−12 kg en 7 meses</span>
-            <span class="reel-title">Marta G.</span>
-          </span>
-        </button>
-      </article>
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_8" data-title="Testimonio de Lucía R." aria-label="Reproducir vídeo: Testimonio de Lucía R.">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">0:58</span>
-          <span class="reel-info">
-            <span class="reel-tag">Fuerza +40%</span>
-            <span class="reel-title">Lucía R.</span>
-          </span>
-        </button>
-      </article>
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_9" data-title="Testimonio de Elena V." aria-label="Reproducir vídeo: Testimonio de Elena V.">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">1:24</span>
-          <span class="reel-info">
-            <span class="reel-tag">Primera competición</span>
-            <span class="reel-title">Elena V.</span>
-          </span>
-        </button>
-      </article>
-      <article class="reel reveal">
-        <!-- TODO: sustituir por ID de YouTube -->
-        <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_10" data-title="Testimonio de Sara M." aria-label="Reproducir vídeo: Testimonio de Sara M.">
-          <span class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="reel-ph">Miniatura<br />del vídeo</span>
-          <span class="reel-dur">1:03</span>
-          <span class="reel-info">
-            <span class="reel-tag">Rutina sostenible</span>
-            <span class="reel-title">Sara M.</span>
-          </span>
-        </button>
-      </article>
+
+        <div class="tab-panel" id="panel-ejercicios" role="tabpanel" aria-labelledby="tab-ejercicios">
+          <div class="reels">
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_1" data-title="Hip thrust" aria-label="Reproducir vídeo: Hip thrust">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">0:45</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Glúteo</div>
+                  <div class="reel-name">Hip thrust</div>
+                  <div class="reel-note">Activación y técnica correcta.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_2" data-title="Sentadilla búlgara" aria-label="Reproducir vídeo: Sentadilla búlgara">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">0:52</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Pierna</div>
+                  <div class="reel-name">Sentadilla búlgara</div>
+                  <div class="reel-note">Equilibrio y profundidad.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_3" data-title="Remo con mancuerna" aria-label="Reproducir vídeo: Remo con mancuerna">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">0:38</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Espalda</div>
+                  <div class="reel-name">Remo con mancuerna</div>
+                  <div class="reel-note">Agarre y recorrido completo.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_4" data-title="Plancha con apoyo" aria-label="Reproducir vídeo: Plancha con apoyo">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">0:41</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Core</div>
+                  <div class="reel-name">Plancha con apoyo</div>
+                  <div class="reel-note">Progresión desde rodillas hasta plancha completa.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_5" data-title="Press militar" aria-label="Reproducir vídeo: Press militar">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">0:47</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Hombro</div>
+                  <div class="reel-name">Press militar</div>
+                  <div class="reel-note">Errores típicos de trayectoria y respiración.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_6" data-title="Calentamiento 5 min" aria-label="Reproducir vídeo: Calentamiento 5 min">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">4:58</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Movilidad</div>
+                  <div class="reel-name">Calentamiento 5 min</div>
+                  <div class="reel-note">La rutina con la que empiezo cada sesión.</div>
+                </div>
+              </button>
+            </article>
+          </div>
         </div>
-        <p class="videos-note">Cada testimonio se publica con el permiso escrito de la clienta.</p>
+
+        <!-- TODO: pedir permiso escrito a cada clienta antes de publicar su testimonio. -->
+        <div class="tab-panel" id="panel-testimonios" role="tabpanel" aria-labelledby="tab-testimonios" hidden>
+          <div class="reels">
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_7" data-title="Testimonio de Marta G." aria-label="Reproducir vídeo: Testimonio de Marta G.">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">1:12</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">−12 kg en 7 meses</div>
+                  <div class="reel-name">Marta G.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_8" data-title="Testimonio de Lucía R." aria-label="Reproducir vídeo: Testimonio de Lucía R.">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">0:58</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Fuerza +40%</div>
+                  <div class="reel-name">Lucía R.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_9" data-title="Testimonio de Elena V." aria-label="Reproducir vídeo: Testimonio de Elena V.">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">1:24</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Primera competición</div>
+                  <div class="reel-name">Elena V.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_10" data-title="Testimonio de Sara M." aria-label="Reproducir vídeo: Testimonio de Sara M.">
+                <div class="reel-thumb">
+                  <span class="reel-ph">Miniatura<br />del vídeo</span>
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">1:03</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Rutina sostenible</div>
+                  <div class="reel-name">Sara M.</div>
+                </div>
+              </button>
+            </article>
+          </div>
+          <p style="max-width:660px;margin:2.5rem auto 0;text-align:center;font-size:13px;color:var(--af-mut3)">Cada testimonio se publica con el permiso escrito de la clienta.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- TIENDA -->
-  <!-- Sin cesta, sin Stripe y sin pago online: cada producto enlaza a WhatsApp. -->
-  <section id="tienda">
+  <section class="sec" id="tienda">
     <div class="inner">
-      <div class="sec-header reveal">
-        <p class="section-eyebrow">Tienda</p>
-        <h2 class="section-title">Elige tu punto de partida</h2>
-        <p class="section-body">Planes de trabajo conmigo, guías para ir por tu cuenta y el material que uso en el día a día.</p>
+      <div class="center reveal">
+        <p class="eyebrow">Tienda</p>
+        <h2 class="sec-title">Elige tu punto de partida</h2>
+        <p class="sec-desc">Packs de entrenamiento y nutrición, online o presencial. Escríbeme por WhatsApp o desde el formulario y lo cerramos juntas.</p>
       </div>
-      <div class="tabs reveal" role="tablist" aria-label="Categorías de la tienda">
-        <button class="tab" type="button" role="tab" id="tab-planes" aria-controls="panel-planes" aria-selected="true">Planes</button>
-        <button class="tab" type="button" role="tab" id="tab-guias" aria-controls="panel-guias" aria-selected="false" tabindex="-1">Guías digitales</button>
-        <button class="tab" type="button" role="tab" id="tab-material" aria-controls="panel-material" aria-selected="false" tabindex="-1">Material</button>
+
+      <div class="tabs-center reveal">
+        <div class="tabs" role="tablist" aria-label="Categorías de la tienda">
+          <button class="tab" type="button" role="tab" id="tab-planes" aria-controls="panel-planes" aria-selected="true">Packs</button>
+          <button class="tab" type="button" role="tab" id="tab-guias" aria-controls="panel-guias" aria-selected="false" tabindex="-1">Guías digitales</button>
+          <button class="tab" type="button" role="tab" id="tab-material" aria-controls="panel-material" aria-selected="false" tabindex="-1">Material</button>
+        </div>
       </div>
 
       <div class="tab-panel" id="panel-planes" role="tabpanel" aria-labelledby="tab-planes">
-        <div class="planes">
-      <article class="plan reveal">
-        <h3 class="plan-name">Plan de Entrenamiento</h3>
-        <div class="plan-price">
-          <span class="plan-amount">49 €</span>
-          <span class="plan-period">/mes</span>
+        <!-- Online -->
+        <div class="shop-section-label"><span>Online</span><span class="dotline"></span></div>
+        <div class="plans-grid">
+          <div class="plan-card reveal">
+            <div class="plan-tag">Entrenamiento personalizado</div>
+            <h3 class="plan-name">Tabla de entrenamiento</h3>
+            <div class="plan-price-row">
+              <span class="plan-amount">150 €</span>
+              <span class="plan-period">/ trimestre</span>
+            </div>
+            <ul class="plan-features">
+              <li>Rutina personalizada y revisión quincenal</li>
+              <li>Ajustes según tu progreso</li>
+              <li>Resolución de dudas por WhatsApp</li>
+            </ul>
+            <div class="plan-actions">
+              <a class="btn-wa-pink" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20el%20Plan%20de%20Entrenamiento" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              <a class="btn-form" href="#contacto">Usar el formulario</a>
+            </div>
+          </div>
+          <div class="plan-card reveal">
+            <div class="plan-tag">Nutrición personalizada</div>
+            <h3 class="plan-name">Plan nutricional</h3>
+            <div class="plan-price-row">
+              <span class="plan-amount">150 €</span>
+              <span class="plan-period">/ trimestre</span>
+            </div>
+            <ul class="plan-features">
+              <li>Plan de alimentación en base a tus gustos y necesidades</li>
+              <li>Revisión quincenal</li>
+              <li>Ajuste mensual</li>
+            </ul>
+            <div class="plan-actions">
+              <a class="btn-wa-pink" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20el%20Plan%20de%20Nutrici%C3%B3n" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              <a class="btn-form" href="#contacto">Usar el formulario</a>
+            </div>
+          </div>
+          <div class="plan-card plan-highlight reveal">
+            <span class="plan-badge">Más completo</span>
+            <div class="plan-tag">Entrenamiento + nutrición</div>
+            <h3 class="plan-name">Pack integral online</h3>
+            <div class="plan-price-row">
+              <span class="plan-amount">195 €</span>
+              <span class="plan-period">/ trimestre</span>
+            </div>
+            <ul class="plan-features">
+              <li>Tabla de entrenamiento y plan nutricional personalizado</li>
+              <li>Revisiones quincenales</li>
+              <li>Ajustes según progreso y evolución</li>
+            </ul>
+            <div class="plan-actions">
+              <a class="btn-wa-pink" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20el%20Pack%20Integral%20Online" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              <a class="btn-form" href="#contacto">Usar el formulario</a>
+            </div>
+          </div>
         </div>
-        <p class="plan-note">Sin permanencia.</p>
-        <ul class="plan-list">
-          <li>Rutina personalizada revisada cada semana</li>
-          <li>Vídeos de técnica de cada ejercicio</li>
-          <li>Ajustes según tu progreso</li>
-          <li>Dudas por WhatsApp en horario de consulta</li>
-        </ul>
-        <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20el%20Plan%20de%20Entrenamiento" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Consultar por WhatsApp</a>
-      </article>
-      <article class="plan featured reveal">
-        <span class="plan-badge">Más elegido</span>
-        <h3 class="plan-name">Pack Integral Online</h3>
-        <div class="plan-price">
-          <span class="plan-amount">249 €</span>
-          <span class="plan-period">/3 meses</span>
+
+        <!-- Presencial -->
+        <div class="shop-section-label" style="margin-top:48px"><span>Presencial · Zaragoza capital</span><span class="dotline"></span></div>
+        <div class="plans-grid" style="grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))">
+          <div class="plan-card reveal">
+            <div class="plan-tag">Sesión suelta</div>
+            <h3 class="plan-name">Sesión de entrenamiento presencial</h3>
+            <div class="plan-price-row">
+              <span class="plan-amount">25 €</span>
+              <span class="plan-period">/ sesión</span>
+            </div>
+            <ul class="plan-features">
+              <li>Sesión individual en Zaragoza capital</li>
+              <li>Corrección técnica en tiempo real</li>
+              <li>Adaptada a tu nivel</li>
+            </ul>
+            <div class="plan-actions">
+              <a class="btn-wa-pink" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesan%20las%20Sesiones%20presenciales" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              <a class="btn-form" href="#contacto">Usar el formulario</a>
+            </div>
+          </div>
+          <div class="plan-card plan-highlight reveal">
+            <span class="plan-badge">Recomendado</span>
+            <div class="plan-tag">Bono</div>
+            <h3 class="plan-name">Bono de 10 sesiones de entrenamiento</h3>
+            <div class="plan-price-row">
+              <span class="plan-amount">225 €</span>
+              <span class="plan-period"></span>
+            </div>
+            <ul class="plan-features">
+              <li>10 sesiones presenciales en Zaragoza</li>
+              <li>Ahorro respecto a sesión suelta</li>
+              <li>Sin caducidad</li>
+            </ul>
+            <div class="plan-actions">
+              <a class="btn-wa-pink" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20el%20Bono%2010%20sesiones" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+              <a class="btn-form" href="#contacto">Usar el formulario</a>
+            </div>
+          </div>
         </div>
-        <p class="plan-note">83 €/mes, ahorras 75 €.</p>
-        <ul class="plan-list">
-          <li>Entrenamiento + nutrición integrados</li>
-          <li>Seguimiento diario por WhatsApp</li>
-          <li>Videollamada de revisión cada 15 días</li>
-          <li>Guías digitales incluidas</li>
-        </ul>
-        <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20el%20Pack%20Integral%20Online" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Consultar por WhatsApp</a>
-      </article>
-      <article class="plan reveal">
-        <h3 class="plan-name">Plan de Nutrición</h3>
-        <div class="plan-price">
-          <span class="plan-amount">59 €</span>
-          <span class="plan-period">/mes</span>
-        </div>
-        <p class="plan-note">Incluye lista de la compra.</p>
-        <ul class="plan-list">
-          <li>Plan de comidas adaptado a tus gustos</li>
-          <li>Equivalencias para comer fuera</li>
-          <li>Revisión y ajuste mensual</li>
-          <li>Educación nutricional, no dietas cerradas</li>
-        </ul>
-        <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20el%20Plan%20de%20Nutrici%C3%B3n" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Consultar por WhatsApp</a>
-      </article>
-        </div>
-        <p class="planes-note">Sin carrito ni pago online: me escribes por WhatsApp, vemos si el plan encaja contigo y te paso los detalles.</p>
       </div>
 
-      <!-- TODO: sustituir los placeholders por las portadas reales de cada guía -->
+      <!-- Guías digitales -->
       <div class="tab-panel" id="panel-guias" role="tabpanel" aria-labelledby="tab-guias" hidden>
         <div class="shop-grid">
-      <article class="card-shop reveal">
-        <div class="ph">Portada de la guía</div>
-        <div class="shop-body">
-          <h3 class="shop-title">Guía Empieza en el gym</h3>
-          <p class="shop-meta">PDF · 48 páginas</p>
-          <div class="shop-price">19 €</div>
-          <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20la%20gu%C3%ADa%20Empieza%20en%20el%20gym" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Consultar</a>
-        </div>
-      </article>
-      <article class="card-shop reveal">
-        <div class="ph">Portada de la guía</div>
-        <div class="shop-body">
-          <h3 class="shop-title">30 recetas altas en proteína</h3>
-          <p class="shop-meta">PDF · 30 recetas</p>
-          <div class="shop-price">15 €</div>
-          <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20la%20gu%C3%ADa%2030%20recetas%20altas%20en%20prote%C3%ADna" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Consultar</a>
-        </div>
-      </article>
-      <article class="card-shop reveal">
-        <div class="ph">Portada de la guía</div>
-        <div class="shop-body">
-          <h3 class="shop-title">Plantillas de seguimiento</h3>
-          <p class="shop-meta">Excel + Notion</p>
-          <div class="shop-price">12 €</div>
-          <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesan%20las%20Plantillas%20de%20seguimiento" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Consultar</a>
-        </div>
-      </article>
-      <article class="card-shop reveal">
-        <div class="ph">Portada de la guía</div>
-        <div class="shop-body">
-          <h3 class="shop-title">Rutina en casa 8 semanas</h3>
-          <p class="shop-meta">PDF + vídeos</p>
-          <div class="shop-price">24 €</div>
-          <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20la%20gu%C3%ADa%20Rutina%20en%20casa%208%20semanas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Consultar</a>
-        </div>
-      </article>
+          <div class="shop-card reveal">
+            <div class="shop-card-img">Portada de la guía</div>
+            <div class="shop-card-body">
+              <div class="shop-card-format">PDF · 48 páginas</div>
+              <h3 class="shop-card-title">Guía Empieza en el gym</h3>
+              <p class="shop-card-desc">Todo lo que necesitas saber para dar tus primeros pasos en el gimnasio con confianza.</p>
+              <div class="shop-card-footer">
+                <span class="shop-card-price">19 €</span>
+                <a class="btn-wa-small" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20la%20gu%C3%ADa%20Empieza%20en%20el%20gym" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div class="shop-card reveal">
+            <div class="shop-card-img">Portada de la guía</div>
+            <div class="shop-card-body">
+              <div class="shop-card-format">PDF · 30 recetas</div>
+              <h3 class="shop-card-title">30 recetas altas en proteína</h3>
+              <p class="shop-card-desc">Recetas sencillas, ricas y con los macros calculados para facilitar tu día a día.</p>
+              <div class="shop-card-footer">
+                <span class="shop-card-price">15 €</span>
+                <a class="btn-wa-small" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20la%20gu%C3%ADa%2030%20recetas%20altas%20en%20prote%C3%ADna" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div class="shop-card reveal">
+            <div class="shop-card-img">Portada de la guía</div>
+            <div class="shop-card-body">
+              <div class="shop-card-format">Excel + Notion</div>
+              <h3 class="shop-card-title">Plantillas de seguimiento</h3>
+              <p class="shop-card-desc">Registra tus entrenos y tu alimentación para ver tu progreso real.</p>
+              <div class="shop-card-footer">
+                <span class="shop-card-price">12 €</span>
+                <a class="btn-wa-small" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesan%20las%20Plantillas%20de%20seguimiento" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div class="shop-card reveal">
+            <div class="shop-card-img">Portada de la guía</div>
+            <div class="shop-card-body">
+              <div class="shop-card-format">PDF + vídeos</div>
+              <h3 class="shop-card-title">Rutina en casa 8 semanas</h3>
+              <p class="shop-card-desc">Entrena sin equipo con un plan progresivo de 8 semanas con vídeos de técnica.</p>
+              <div class="shop-card-footer">
+                <span class="shop-card-price">24 €</span>
+                <a class="btn-wa-small" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20me%20interesa%20la%20gu%C3%ADa%20Rutina%20en%20casa%208%20semanas" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- TODO: sustituir los placeholders por las fotos reales del material -->
+      <!-- Material -->
       <div class="tab-panel" id="panel-material" role="tabpanel" aria-labelledby="tab-material" hidden>
         <div class="shop-grid">
-      <article class="card-shop reveal">
-        <div class="ph">Foto del producto</div>
-        <div class="shop-body">
-          <h3 class="shop-title">Bandas de resistencia</h3>
-          <p class="shop-meta">Material de entrenamiento</p>
-          <div class="shop-price">22 €</div>
-          <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20quiero%20pedir%20las%20Bandas%20de%20resistencia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Pedir</a>
-        </div>
-      </article>
-      <article class="card-shop reveal">
-        <div class="ph">Foto del producto</div>
-        <div class="shop-body">
-          <h3 class="shop-title">Camiseta Ainhoa</h3>
-          <p class="shop-meta">Material de entrenamiento</p>
-          <div class="shop-price">26 €</div>
-          <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20quiero%20pedir%20la%20Camiseta%20Ainhoa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Pedir</a>
-        </div>
-      </article>
-      <article class="card-shop reveal">
-        <div class="ph">Foto del producto</div>
-        <div class="shop-body">
-          <h3 class="shop-title">Botella 750 ml</h3>
-          <p class="shop-meta">Material de entrenamiento</p>
-          <div class="shop-price">18 €</div>
-          <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20quiero%20pedir%20la%20Botella%20750%20ml" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Pedir</a>
-        </div>
-      </article>
-      <article class="card-shop reveal">
-        <div class="ph">Foto del producto</div>
-        <div class="shop-body">
-          <h3 class="shop-title">Proteína whey 1 kg</h3>
-          <p class="shop-meta">Suplementación</p>
-          <div class="shop-price">34 €</div>
-          <a class="btn-wa" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20quiero%20pedir%20la%20Prote%C3%ADna%20whey%201%20kg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm-2.6 4.1c-.16 0-.4.06-.61.29-.21.23-.8.79-.8 1.92s.82 2.23.94 2.38c.11.16 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.04.15 1.43.09.44-.07 1.34-.55 1.53-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.28-.23-.11-1.34-.66-1.55-.74-.21-.08-.36-.11-.51.11-.15.23-.58.74-.71.89-.13.15-.26.17-.49.06-.23-.12-.96-.36-1.83-1.13-.68-.6-1.13-1.35-1.27-1.58-.13-.23-.01-.35.1-.47.1-.1.23-.27.34-.4.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.12-.51-1.23-.7-1.68-.18-.44-.37-.38-.51-.39h-.42z"/></svg>Pedir</a>
-        </div>
-      </article>
+          <div class="shop-card reveal">
+            <div class="shop-card-img">Foto del producto</div>
+            <div class="shop-card-body">
+              <h3 class="shop-card-title">Bandas de resistencia</h3>
+              <p class="shop-card-desc">Material de entrenamiento</p>
+              <div class="shop-card-footer">
+                <span class="shop-card-price">22 €</span>
+                <a class="btn-wa-small" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20quiero%20pedir%20las%20Bandas%20de%20resistencia" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div class="shop-card reveal">
+            <div class="shop-card-img">Foto del producto</div>
+            <div class="shop-card-body">
+              <h3 class="shop-card-title">Camiseta Ainhoa</h3>
+              <p class="shop-card-desc">Material de entrenamiento</p>
+              <div class="shop-card-footer">
+                <span class="shop-card-price">26 €</span>
+                <a class="btn-wa-small" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20quiero%20pedir%20la%20Camiseta%20Ainhoa" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div class="shop-card reveal">
+            <div class="shop-card-img">Foto del producto</div>
+            <div class="shop-card-body">
+              <h3 class="shop-card-title">Botella 750 ml</h3>
+              <p class="shop-card-desc">Material de entrenamiento</p>
+              <div class="shop-card-footer">
+                <span class="shop-card-price">18 €</span>
+                <a class="btn-wa-small" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20quiero%20pedir%20la%20Botella%20750%20ml" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div class="shop-card reveal">
+            <div class="shop-card-img">Foto del producto</div>
+            <div class="shop-card-body">
+              <h3 class="shop-card-title">Proteína whey 1 kg</h3>
+              <p class="shop-card-desc">Suplementación</p>
+              <div class="shop-card-footer">
+                <span class="shop-card-price">34 €</span>
+                <a class="btn-wa-small" href="https://wa.me/34626582377?text=Hola%20Ainhoa%2C%20vengo%20de%20la%20web%20y%20quiero%20pedir%20la%20Prote%C3%ADna%20whey%201%20kg" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <p class="tienda-note">Todo se gestiona por WhatsApp: te confirmo disponibilidad, plazos y forma de pago antes de nada.</p>
+      <p class="tienda-note reveal">Todos los pedidos se gestionan por WhatsApp o formulario. Sin pagos online.</p>
     </div>
   </section>
 
   <!-- RECOMENDADOS -->
-  <!-- TODO: sustituir por productos reales, sus fotos y sus enlaces de afiliado -->
-  <section id="recomendados">
+  <section class="sec" id="recomendados">
     <div class="inner">
-      <div class="sec-header reveal">
-        <p class="section-eyebrow">Lo que uso</p>
-        <h2 class="section-title">Mis productos recomendados</h2>
-        <p class="section-body">Básicos sencillos que recomiendo a mis clientas. Nada imprescindible: primero el entrenamiento y la comida.</p>
+      <div class="center reveal">
+        <p class="eyebrow">Productos recomendados</p>
+        <h2 class="sec-title">Mis <span class="rec-title-cursive">imprescindibles</span></h2>
       </div>
-      <div class="recs">
-        <article class="rec reveal">
-          <div class="ph">Foto del producto</div>
-          <div class="rec-body">
-            <h3 class="rec-title">Creatina monohidrato</h3>
-            <p class="rec-desc">El suplemento con más evidencia detrás. 3-5 g al día, a la hora que mejor te venga.</p>
-            <a class="btn-ghost" href="#" rel="nofollow sponsored">Ver producto</a>
+      <div class="recs-grid">
+        <div class="rec-card reveal">
+          <div class="rec-card-img">
+            <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=700&q=70&fit=crop" alt="Proteína" loading="lazy" />
           </div>
-        </article>
-        <article class="rec reveal">
-          <div class="ph">Foto del producto</div>
-          <div class="rec-body">
-            <h3 class="rec-title">Proteína en polvo</h3>
-            <p class="rec-desc">Útil solo si no llegas a tu proteína diaria con comida real. Cómoda después de entrenar.</p>
-            <a class="btn-ghost" href="#" rel="nofollow sponsored">Ver producto</a>
+          <div class="rec-card-body">
+            <h3 class="rec-card-title">Proteína</h3>
+            <p class="rec-card-desc">Producto por definir.</p>
+            <span class="btn-pending">Enlace pendiente</span>
           </div>
-        </article>
-        <article class="rec reveal">
-          <div class="ph">Foto del producto</div>
-          <div class="rec-body">
-            <h3 class="rec-title">Bandas de resistencia</h3>
-            <p class="rec-desc">Para activar glúteo antes de entrenar y para las semanas que entrenes fuera de casa.</p>
-            <a class="btn-ghost" href="#" rel="nofollow sponsored">Ver producto</a>
+        </div>
+        <div class="rec-card reveal">
+          <div class="rec-card-img">
+            <img src="https://images.unsplash.com/photo-1623874514711-0f321325f318?w=700&q=70&fit=crop" alt="Bandas elásticas" loading="lazy" />
           </div>
-        </article>
-      </div>
-      <p class="afil reveal">Algunos enlaces son de afiliado: si compras, recibo una comisión sin coste extra para ti.</p>
-    </div>
-  </section>
-
-  <!-- CALCULADORA IMC -->
-  <section id="imc">
-    <div class="inner">
-      <div class="sec-header reveal">
-        <p class="section-eyebrow">Punto de partida</p>
-        <h2 class="section-title">Calculadora de IMC</h2>
-        <p class="section-body">Un primer dato para situarte. El cálculo se hace en tu navegador: no se guarda ni se envía nada.</p>
-      </div>
-      <div class="imc-box reveal">
-        <form class="imc-form" id="imcForm" novalidate>
-          <div class="imc-two">
-            <label for="imcPeso">Peso (kg)
-              <input type="number" id="imcPeso" min="25" max="300" step="0.1" inputmode="decimal" placeholder="62" />
-            </label>
-            <label for="imcAltura">Altura (cm)
-              <input type="number" id="imcAltura" min="100" max="230" step="1" inputmode="numeric" placeholder="165" />
-            </label>
+          <div class="rec-card-body">
+            <h3 class="rec-card-title">Bandas elásticas</h3>
+            <p class="rec-card-desc">Producto por definir.</p>
+            <span class="btn-pending">Enlace pendiente</span>
           </div>
-          <button type="submit" class="form-submit">Calcular</button>
-        </form>
-        <div class="imc-out" aria-live="polite">
-          <div class="imc-val" id="imcVal">—</div>
-          <div class="imc-cat" id="imcCat">Introduce tus datos</div>
-          <p class="imc-hint" id="imcHint">Peso en kilogramos y altura en centímetros.</p>
-          <p class="imc-warn">Orientativo. El IMC no distingue músculo de grasa y no sustituye una valoración profesional.</p>
-          <a class="btn-primary" href="#contacto">Reserva tu consulta gratuita</a>
+        </div>
+        <div class="rec-card reveal">
+          <div class="rec-card-img">
+            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=700&q=70&fit=crop" alt="Botella" loading="lazy" />
+          </div>
+          <div class="rec-card-body">
+            <h3 class="rec-card-title">Botella</h3>
+            <p class="rec-card-desc">Producto por definir.</p>
+            <span class="btn-pending">Enlace pendiente</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GUIA GRATIS -->
-  <section id="guia">
-    <div class="inner guia-grid">
+  <!-- CALCULADORA IMC -->
+  <section class="sec" id="imc">
+    <div class="imc-grid">
       <div class="reveal">
-        <p class="section-eyebrow">Gratis</p>
-        <h2 class="section-title">Descarga tu mini guía gratis</h2>
-        <p class="section-body">Siete páginas con lo básico para empezar a entrenar y comer mejor sin volverte loca: estructura de la semana, calentamiento y cómo montar tus platos.</p>
+        <p class="eyebrow">Herramienta</p>
+        <h2 class="sec-title">Calculadora <span style="color:var(--af-pink)">IMC</span></h2>
+        <p class="sec-desc">Introduce tu peso y altura para conocer tu índice de masa corporal. Es orientativo: no tiene en cuenta tu masa muscular.</p>
+      </div>
+      <div class="imc-calc reveal">
+        <form id="imcForm" novalidate>
+          <div class="imc-inputs">
+            <label class="imc-label">Peso (kg)
+              <input class="imc-input" type="number" id="imcPeso" min="25" max="300" step="0.1" inputmode="decimal" placeholder="60" />
+            </label>
+            <label class="imc-label">Altura (cm)
+              <input class="imc-input" type="number" id="imcAltura" min="100" max="230" step="1" inputmode="numeric" placeholder="165" />
+            </label>
+          </div>
+          <button class="btn-pink" type="submit" style="margin-top:18px;width:100%">Calcular</button>
+        </form>
+        <div class="imc-result" aria-live="polite">
+          <span class="imc-val" id="imcVal">—</span>
+          <span class="imc-cat" id="imcCat">Introduce tus datos</span>
+        </div>
+        <p class="imc-hint" id="imcHint">Peso en kilogramos y altura en centímetros.</p>
+        <p class="imc-warn">Orientativo. El IMC no distingue músculo de grasa y no sustituye una valoración profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUÍA GRATIS -->
+  <section class="sec" id="guia">
+    <div class="guia-grid">
+      <div class="reveal">
+        <p class="eyebrow">Gratis</p>
+        <h2 class="sec-title">Descarga tu mini guía gratis</h2>
+        <p class="sec-desc">Siete páginas con lo básico para empezar a entrenar y comer mejor sin volverte loca: estructura de la semana, calentamiento y cómo montar tus platos.</p>
       </div>
       <!-- Demo: el formulario no envía nada. TODO: conectar el envío real más adelante. -->
-      <!-- TODO: enlazar "política de privacidad" a privacidad.html cuando exista esa página. -->
       <form class="guia-form reveal" id="leadForm" novalidate>
         <div class="guia-field">
           <input type="email" id="leadEmail" name="email" placeholder="tu@email.com" aria-label="Tu email" required />
-          <button type="submit" class="form-submit">Enviar</button>
+          <button type="submit" class="btn-pink">Enviar</button>
         </div>
         <label class="guia-consent">
           <input type="checkbox" id="leadOk" required />
@@ -2065,81 +2205,62 @@
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto">
-    <div class="inner contacto-grid">
-      <div class="contacto-info reveal">
-        <p class="section-eyebrow">Hablemos</p>
-        <h2 class="section-title">¿Lista para empezar?</h2>
-        <p class="section-body">Cuéntame tu objetivo y te ayudo a ver qué servicio encaja mejor contigo. Primera consulta sin compromiso y completamente gratuita.</p>
-        <div class="info-items">
-          <div class="info-item">
-            <div class="info-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
+  <section class="sec" id="contacto">
+    <div class="contacto-grid">
+      <div class="reveal">
+        <p class="eyebrow">Hablemos</p>
+        <h2 class="sec-title">¿Lista para empezar?</h2>
+        <p class="sec-desc">Cuéntame tu objetivo y te ayudo a ver qué servicio encaja mejor contigo. La primera consulta está incluida en los packs de servicios.</p>
+        <div class="contacto-info-items">
+          <div class="contacto-info-item">
+            <span class="contacto-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
             <div>
-              <div class="info-label">Email</div>
-              <div class="info-value">ainhoa@fitness.com</div>
+              <div class="contacto-item-label">Email</div>
+              <div class="contacto-item-value muted">Próximamente</div>
             </div>
           </div>
-          <div class="info-item">
-            <div class="info-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
+          <div class="contacto-info-item">
+            <span class="contacto-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <div>
-              <div class="info-label">WhatsApp / Teléfono</div>
-              <div class="info-value">+34 626 58 23 77</div>
+              <div class="contacto-item-label">WhatsApp / Teléfono</div>
+              <div class="contacto-item-value">+34 626 58 23 77</div>
             </div>
           </div>
-          <div class="info-item">
-            <div class="info-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </div>
+          <div class="contacto-info-item">
+            <span class="contacto-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
             <div>
-              <div class="info-label">Instagram</div>
-              <div class="info-value">@ainhoa.fitness</div>
+              <div class="contacto-item-label">Instagram</div>
+              <div class="contacto-item-value muted">Próximamente</div>
             </div>
           </div>
-        </div>
-        <div class="social-links">
-          <a href="https://www.instagram.com/ainhoavvo/" class="social-link" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="#" class="social-link" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9a8.23 8.23 0 0 0 4.81 1.54V7.09a4.85 4.85 0 0 1-1.04-.4z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/" class="social-link" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.94C18.88 4 12 4 12 4s-6.88 0-8.6.48a2.78 2.78 0 0 0-1.94 1.94A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.52C5.12 20 12 20 12 20s6.88 0 8.6-.48a2.78 2.78 0 0 0 1.94-1.94A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-          </a>
         </div>
       </div>
 
-      <div class="reveal">
+      <div class="contacto-form-wrap reveal">
         <form class="contacto-form" id="contactForm">
           <div class="form-row">
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
-            </div>
+            <label class="form-label">Nombre
+              <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </label>
+            <label class="form-label">Email
+              <input class="form-input" type="email" id="email" name="email" placeholder="tu@email.com" required />
+            </label>
           </div>
-          <div class="form-group">
-            <label for="servicio">¿Qué te interesa?</label>
-            <select id="servicio" name="servicio">
+          <label class="form-label">¿Qué te interesa?
+            <select class="form-input" id="servicio" name="servicio">
               <option value="">Selecciona un servicio</option>
-              <option value="entrenamiento">Plan de entrenamiento</option>
-              <option value="nutricion">Plan de nutrición</option>
-              <option value="pack">Pack integral</option>
+              <option value="entrenamiento">Tabla de entrenamiento</option>
+              <option value="nutricion">Plan nutricional</option>
+              <option value="pack">Pack integral online</option>
+              <option value="presencial">Sesiones presenciales</option>
+              <option value="bono">Bono 10 sesiones</option>
               <option value="consulta">Solo quiero consultar</option>
             </select>
-          </div>
-          <div class="form-group">
-            <label for="mensaje">Cuéntame tu objetivo</label>
-            <textarea id="mensaje" name="mensaje" placeholder="¿Qué quieres conseguir? Cualquier detalle me ayuda a darte la mejor respuesta." required></textarea>
-          </div>
-          <button type="submit" class="form-submit">Enviar mensaje</button>
+          </label>
+          <label class="form-label">Cuéntame tu objetivo
+            <textarea class="form-input" id="mensaje" name="mensaje" placeholder="¿Qué quieres conseguir? Cualquier detalle me ayuda a darte la mejor respuesta." required></textarea>
+          </label>
+          <button type="submit" class="btn-submit">Enviar mensaje</button>
           <div class="form-success" id="formSuccess">
             ✓ ¡Mensaje enviado! Te respondo en menos de 24 horas.
           </div>
@@ -2150,174 +2271,197 @@
 
   <!-- FOOTER -->
   <footer>
-    <a href="#" class="footer-logo">Ainhoa<span>.</span></a>
-    <p class="footer-copy">© 2026 Ainhoa Fitness. Todos los derechos reservados.</p>
-    <ul class="footer-links">
-      <li><a href="#sobre">Sobre mí</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#videos">Vídeos</a></li>
-      <li><a href="#tienda">Tienda</a></li>
-      <li><a href="#recomendados">Recomendados</a></li>
-      <li><a href="#imc">Calculadora</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
+    <div class="footer-inner">
+      <a href="#" class="footer-brand">
+        <span class="footer-brand-name"><span class="pink">Ainhoa</span> Bikini Fitness</span>
+        <span class="footer-brand-sub">Asesora de imagen personal</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="#sobre">Sobre mí</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#tienda">Packs</a></li>
+        <li><a href="#imc">IMC</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Ainhoa Bikini Fitness. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
   <script>
-    // Theme toggle
-    const html = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const saved = localStorage.getItem('af-theme') || 'dark';
-    html.setAttribute('data-theme', saved);
+    (function() {
+      // Theme toggle
+      var html = document.documentElement;
+      var toggle = document.getElementById('themeToggle');
+      var saved = localStorage.getItem('af-theme') || 'dark';
+      html.setAttribute('data-theme', saved);
+      updateToggleLabel();
 
-    themeToggle.addEventListener('click', () => {
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('af-theme', next);
-    });
-
-    // NAV scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // Burger menu
-    const burger = document.getElementById('burger');
-    const navlinks = document.getElementById('navlinks');
-    burger.addEventListener('click', () => {
-      navlinks.classList.toggle('open');
-    });
-    navlinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => navlinks.classList.remove('open'));
-    });
-
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+      toggle.addEventListener('click', function() {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('af-theme', next);
+        updateToggleLabel();
       });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
 
-    // Form submit (demo)
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('formSuccess').style.display = 'block';
-      this.reset();
-      setTimeout(() => {
-        document.getElementById('formSuccess').style.display = 'none';
-      }, 5000);
-    });
-
-    // Calculadora de IMC — el cálculo ocurre en el navegador, no se guarda ni se envía nada
-    document.getElementById('imcForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const kg = parseFloat(document.getElementById('imcPeso').value.replace(',', '.'));
-      const cm = parseFloat(document.getElementById('imcAltura').value.replace(',', '.'));
-      const val = document.getElementById('imcVal');
-      const cat = document.getElementById('imcCat');
-      const hint = document.getElementById('imcHint');
-
-      if (!(kg > 0) || !(cm > 0)) {
-        val.textContent = '—';
-        cat.textContent = 'Faltan datos';
-        hint.textContent = 'Escribe tu peso en kg y tu altura en cm.';
-        return;
+      function updateToggleLabel() {
+        toggle.textContent = html.getAttribute('data-theme') === 'dark' ? 'Modo claro' : 'Modo oscuro';
       }
 
-      const imc = kg / Math.pow(cm / 100, 2);
-      let etiqueta, nota;
-      if (imc < 18.5) {
-        etiqueta = 'Peso insuficiente';
-        nota = 'Por debajo del rango de referencia. Merece la pena revisarlo con calma.';
-      } else if (imc < 25) {
-        etiqueta = 'Peso normal';
-        nota = 'Dentro del rango de referencia para población adulta general.';
-      } else if (imc < 30) {
-        etiqueta = 'Sobrepeso';
-        nota = 'Por encima del rango. Con un plan realista se trabaja bien desde aquí.';
-      } else {
-        etiqueta = 'Obesidad';
-        nota = 'Conviene valorarlo con un profesional sanitario antes de empezar.';
-      }
+      // Header scroll
+      var header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+      });
 
-      val.textContent = imc.toFixed(1);
-      cat.textContent = etiqueta;
-      hint.textContent = nota;
-    });
+      // Burger menu
+      var burger = document.getElementById('burger');
+      var headerNav = document.getElementById('headerNav');
+      burger.addEventListener('click', function() {
+        headerNav.classList.toggle('open');
+      });
+      headerNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { headerNav.classList.remove('open'); });
+      });
 
-    // Guía gratis (demo) — solo maquetado: no envía ni guarda nada
-    document.getElementById('leadForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const msg = document.getElementById('leadMsg');
-      const email = document.getElementById('leadEmail').value.trim();
-      if (!email || email.indexOf('@') < 1) {
-        msg.style.color = 'var(--coral)';
-        msg.textContent = 'Escribe un email válido.';
-        return;
-      }
-      if (!document.getElementById('leadOk').checked) {
-        msg.style.color = 'var(--coral)';
-        msg.textContent = 'Marca la casilla de privacidad.';
-        return;
-      }
-      msg.style.color = '';
-      msg.textContent = 'Demo: aquí se conectaría el envío.';
-    });
-
-    // Pestanas accesibles (tienda y videos)
-    document.querySelectorAll('[role="tablist"]').forEach(list => {
-      const tabs = [...list.querySelectorAll('[role="tab"]')];
-      const select = (tab) => {
-        tabs.forEach(t => {
-          const on = t === tab;
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-          t.tabIndex = on ? 0 : -1;
-          const panel = document.getElementById(t.getAttribute('aria-controls'));
-          panel.hidden = !on;
-          // El IntersectionObserver no dispara sobre paneles ocultos: al mostrarlos,
-          // revelamos su contenido para que no se quede en opacity:0.
-          if (on) panel.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      // Reveal on scroll with staggered delay
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
         });
-      };
-      list.addEventListener('click', e => {
-        const t = e.target.closest('[role="tab"]');
-        if (t) select(t);
-      });
-      list.addEventListener('keydown', e => {
-        const i = tabs.indexOf(document.activeElement);
-        if (i < 0) return;
-        let next = null;
-        if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
-        else if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
-        else if (e.key === 'Home') next = tabs[0];
-        else if (e.key === 'End') next = tabs[tabs.length - 1];
-        if (next) { e.preventDefault(); next.focus(); select(next); }
-      });
-    });
+      }, { threshold: 0.12 });
+      reveals.forEach(function(el) { observer.observe(el); });
 
-    // Videos con facade: el iframe de youtube-nocookie.com solo se crea al hacer clic.
-    // Nada de YouTube se carga mientras no se pulse el play.
-    document.querySelectorAll('.reel-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.yt;
-        if (!id || id.indexOf('REEMPLAZAR_') === 0) {
-          btn.querySelector('.reel-ph').textContent = 'Vídeo pendiente';
+      // Contact form (demo)
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('formSuccess').style.display = 'block';
+        this.reset();
+        setTimeout(function() {
+          document.getElementById('formSuccess').style.display = 'none';
+        }, 5000);
+      });
+
+      // IMC calculator
+      document.getElementById('imcForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var kg = parseFloat(document.getElementById('imcPeso').value.replace(',', '.'));
+        var cm = parseFloat(document.getElementById('imcAltura').value.replace(',', '.'));
+        var val = document.getElementById('imcVal');
+        var cat = document.getElementById('imcCat');
+        var hint = document.getElementById('imcHint');
+
+        if (!(kg > 0) || !(cm > 0)) {
+          val.textContent = '—';
+          cat.textContent = 'Faltan datos';
+          hint.textContent = 'Escribe tu peso en kg y tu altura en cm.';
           return;
         }
-        const frame = document.createElement('iframe');
-        frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
-        frame.title = btn.dataset.title || 'Vídeo';
-        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        frame.allowFullscreen = true;
-        btn.replaceWith(frame);
+
+        var imc = kg / Math.pow(cm / 100, 2);
+        var c, h;
+        if (imc < 18.5) { c = 'Peso insuficiente'; h = 'Por debajo del rango de referencia. Merece la pena revisarlo con calma.'; }
+        else if (imc < 25) { c = 'Peso normal'; h = 'Dentro del rango de referencia para población adulta general.'; }
+        else if (imc < 30) { c = 'Sobrepeso'; h = 'Por encima del rango. Con un plan realista se trabaja bien desde aquí.'; }
+        else { c = 'Obesidad'; h = 'Conviene valorarlo con un profesional sanitario antes de empezar.'; }
+
+        val.textContent = imc.toFixed(1);
+        cat.textContent = c;
+        hint.textContent = h;
       });
-    });
+
+      // Lead form (demo)
+      document.getElementById('leadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var msg = document.getElementById('leadMsg');
+        var email = document.getElementById('leadEmail').value.trim();
+        if (!email || email.indexOf('@') < 1) {
+          msg.style.color = '#F0A88C';
+          msg.textContent = 'Escribe un email válido.';
+          return;
+        }
+        if (!document.getElementById('leadOk').checked) {
+          msg.style.color = '#F0A88C';
+          msg.textContent = 'Marca la casilla de privacidad.';
+          return;
+        }
+        msg.style.color = '';
+        msg.textContent = 'Demo: aquí se conectaría el envío.';
+      });
+
+      // Accessible tabs (tienda and videos)
+      document.querySelectorAll('[role="tablist"]').forEach(function(list) {
+        var tabs = Array.from(list.querySelectorAll('[role="tab"]'));
+        var select = function(tab) {
+          tabs.forEach(function(t) {
+            var on = t === tab;
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.tabIndex = on ? 0 : -1;
+            var panel = document.getElementById(t.getAttribute('aria-controls'));
+            panel.hidden = !on;
+            if (on) panel.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+          });
+        };
+        list.addEventListener('click', function(e) {
+          var t = e.target.closest('[role="tab"]');
+          if (t) select(t);
+        });
+        list.addEventListener('keydown', function(e) {
+          var i = tabs.indexOf(document.activeElement);
+          if (i < 0) return;
+          var next = null;
+          if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+          else if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+          else if (e.key === 'Home') next = tabs[0];
+          else if (e.key === 'End') next = tabs[tabs.length - 1];
+          if (next) { e.preventDefault(); next.focus(); select(next); }
+        });
+      });
+
+      // Video facade: iframe created on click only
+      document.querySelectorAll('.reel-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = btn.dataset.yt;
+          if (!id || id.indexOf('REEMPLAZAR_') === 0) {
+            var ph = btn.querySelector('.reel-ph');
+            if (ph) ph.textContent = 'Vídeo pendiente';
+            return;
+          }
+          var frame = document.createElement('iframe');
+          frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+          frame.title = btn.dataset.title || 'Vídeo';
+          frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          frame.allowFullscreen = true;
+          frame.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
+          btn.parentElement.style.position = 'relative';
+          btn.parentElement.style.aspectRatio = '16/10';
+          btn.replaceWith(frame);
+        });
+      });
+
+      // Counter animation for stats
+      var statNumbers = document.querySelectorAll('.stat-number[data-count]');
+      var statObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            var target = parseInt(e.target.dataset.count);
+            var current = 0;
+            var step = Math.ceil(target / 40);
+            var timer = setInterval(function() {
+              current += step;
+              if (current >= target) { current = target; clearInterval(timer); }
+              e.target.textContent = current;
+            }, 30);
+            statObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      statNumbers.forEach(function(el) { statObserver.observe(el); });
+    })();
   </script>
 </body>
 </html>
