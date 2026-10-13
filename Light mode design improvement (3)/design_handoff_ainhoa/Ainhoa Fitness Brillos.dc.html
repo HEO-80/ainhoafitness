@@ -1,0 +1,628 @@
+<!DOCTYPE html><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:200px;background:radial-gradient(ellipse,rgba(242,46,154,0.12) 0%,transparent 70%);pointer-events:none;z-index:0"></div>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html, html.af-light [data-dark] { --af-s-sobre:#09080A;--af-s-comp:#09080A;--af-s-serv:#09080A;--af-s-filo:#09080A;--af-s-met:#09080A;--af-s-tienda:#09080A;--af-s-cont:#09080A;--af-s-vid:#09080A;--af-s-rec:#09080A;--af-s-imc:#09080A;--af-bg:#09080A;--af-card:#141216;--af-alt:#121014;--af-alt2:#1E1A22;--af-line:#2B2530;--af-deep:#050406;--af-ink:#F5F0F5;--af-mut:#B9B2BC;--af-mut2:#A8A1AB;--af-mut3:#8F8893;--af-mut4:#6E6772;--af-soft:#D6D1D9;--af-soft2:#D9D6DE;--af-pink:#BF2A7C;--af-pink2:#73194A;--af-head:rgba(9,8,10,0.9);--af-tint:rgba(242,240,242,0.04);--af-tint2:rgba(242,240,242,0.22);--af-highlight-card:#2E2E30;--af-highlight-ink:#F5F0F5;--af-highlight-soft:#D6D1D9; }
+  html.af-light { --af-s-sobre:#FFFFFF;--af-s-comp:#F5F3F4;--af-s-serv:#FFFFFF;--af-s-filo:#F5F3F4;--af-s-met:#FFFFFF;--af-s-tienda:#FDF0F6;--af-s-cont:#F5F3F4;--af-s-vid:#FFFFFF;--af-s-rec:#F5F3F4;--af-s-imc:#F0EDEE;--af-bg:#FFF7FB;--af-card:#FFFFFF;--af-alt:#FCEFF6;--af-alt2:#F7E6EF;--af-line:#EBD3E0;--af-deep:#F3E4EC;--af-ink:#1A1418;--af-mut:#5E5260;--af-mut2:#665A69;--af-mut3:#716475;--af-mut4:#8A7D8C;--af-soft:#3A3040;--af-soft2:#3A3040;--af-pink:#D6127A;--af-pink2:#B80F68;--af-head:rgba(255,247,251,0.92);--af-tint:rgba(214,18,122,0.05);--af-tint2:rgba(26,20,24,0.14);--af-highlight-card:#3A3040;--af-highlight-ink:#fff;--af-highlight-soft:#F2F0F2; }
+  body { margin:0; background:var(--af-bg); color:var(--af-ink); font-family:'Montserrat',system-ui,sans-serif; }
+  a { color:#FF2D95; text-decoration:none; }
+  a:hover { color:#E0157C; }
+  * { box-sizing:border-box; }
+  ::selection { background:#FF2D95; color:#fff; }
+  html.af-light [style*="var(--af-highlight-card)"] { color:var(--af-highlight-ink) !important; }
+  html.af-light [style*="var(--af-highlight-card)"] h3 { color:var(--af-highlight-ink) !important; }
+  html.af-light [style*="var(--af-highlight-card)"] span { color:var(--af-highlight-ink) !important; }
+  html.af-light [style*="var(--af-highlight-card)"] li { color:var(--af-highlight-soft) !important; }
+  html.af-light [style*="var(--af-highlight-card)"] a[style*="border"] { color:var(--af-highlight-ink) !important; border-color:rgba(255,255,255,0.3) !important; }
+  @keyframes drawerIn { from { transform:translateX(100%); } to { transform:translateX(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+</style>
+</helmet>
+<button onClick="{{ toggleTheme }}" aria-label="Cambiar modo claro / oscuro" style="position:fixed;right:clamp(16px,3vw,32px);top:92px;z-index:98;display:flex;align-items:center;padding:16px 32px;min-height:44px;background:var(--af-pink);color:#fff;border:0;border-radius:2px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;box-shadow:0 6px 22px rgba(242,46,154,0.35)" style-hover="background:var(--af-pink2)">{{ themeLabel }}</button>
+
+<div style="width:100%;max-width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px clamp(20px,5vw,72px);background:var(--af-head);backdrop-filter:blur(10px);border-bottom:1px solid var(--af-line)">
+    <div style="display:flex;align-items:baseline;gap:6px;font-family:'Great Vibes',cursive;font-size:32px;line-height:1;white-space:nowrap"><span style="color:var(--af-pink);text-shadow:0 0 12px rgba(242,46,154,0.55)">Ainhoa</span><span style="color:var(--af-ink);text-shadow:0 0 10px rgba(255,255,255,0.35)">Villalba</span></div>
+    <nav style="display:flex;align-items:center;gap:clamp(14px,2.2vw,30px);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase">
+      <a href="#sobre" style="color:var(--af-ink)">Sobre mí</a>
+      <a href="#servicios" style="color:var(--af-ink)">Servicios</a>
+      <a href="#metodo" style="color:var(--af-ink)">Método</a>
+      <a href="#tienda" style="color:var(--af-ink)">Packs</a>
+      <a href="#imc" style="color:var(--af-ink)">IMC</a>
+      <a href="#contacto" style="display:inline-flex;align-items:center;padding:10px 18px;background:var(--af-pink);color:#fff;border-radius:2px;letter-spacing:0.12em;box-shadow:0 0 18px rgba(242,46,154,0.45)">Contactar</a>
+      
+    </nav>
+  </header>
+
+  <section data-dark="1" style="position:relative;min-height:clamp(560px,86vh,860px);display:flex;align-items:center;overflow:hidden;background:var(--af-bg)">
+    <div style="position:absolute;inset:0"><image-slot id="af-hero" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=70" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" fit="cover" placeholder="Foto de entrenamiento a pantalla completa"></image-slot></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,5,7,0.92) 0%,rgba(6,5,7,0.78) 50%,rgba(6,5,7,0.6) 100%);pointer-events:none"></div>
+    <div style="position:relative;width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:40px;padding:clamp(40px,7vw,96px) clamp(20px,5vw,72px)"><div style="max-width:720px;flex:1 1 420px">
+      <p style="margin:0 0 18px;font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--af-pink)">Asesora personal de entrenamiento y nutrición deportiva</p>
+      <h1 style="margin:0;font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(40px,6.2vw,78px);line-height:1;letter-spacing:-0.02em;color:var(--af-ink);text-wrap:balance">Tu mejor versión<br><em style="display:inline-block;margin-top:8px;padding-bottom:0.12em;font-family:'Great Vibes',cursive;font-style:normal;font-weight:400;font-size:1.35em;line-height:1.2;white-space:nowrap;letter-spacing:0;color:var(--af-pink);text-shadow:0 0 22px rgba(242,46,154,0.6)">empieza aquí</em></h1>
+      <p style="margin:26px 0 0;max-width:470px;font-size:16px;line-height:1.7;color:var(--af-soft)">Planes de entrenamiento y nutrición adaptados a ti, sin dietas milagro ni rutinas imposibles. Solo método, constancia y resultados reales.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+        <a href="#contacto" style="padding:16px 30px;background:var(--af-pink);color:#fff;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Quiero empezar</a>
+        <a href="#tienda" style="padding:16px 30px;border:1px solid rgba(242,240,242,0.5);color:var(--af-ink);border-radius:2px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Ver planes y precios</a>
+      </div>
+    </div>
+    <img src="img/af-logo-brillos.png" alt="Ainhoa Villalba · Bikini Fitness Master" style="flex:0 1 330px;width:100%;max-width:330px;height:auto;margin:0 auto;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse at center,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 62%,transparent 100%)">
+    </div>
+  </section>
+
+  <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));background:var(--af-alt);border-bottom:1px solid var(--af-line)">
+      <div style="padding:34px 24px;text-align:center;border-right:1px solid var(--af-line)">
+        <div style="font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;color:var(--af-pink)">10</div>
+        <div style="margin-top:6px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-pink)">Años de experiencia</div>
+      </div>
+      <div style="padding:34px 24px;text-align:center;border-right:1px solid var(--af-line)">
+        <div style="font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;color:var(--af-pink)">100%</div>
+        <div style="margin-top:6px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-pink)">Planes personalizados</div>
+      </div>
+      <div style="padding:34px 24px;text-align:center">
+        <div style="font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;color:var(--af-pink)">Online</div>
+        <div style="margin-top:6px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-pink)">Desde cualquier lugar</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <section id="sobre" style="background:var(--af-s-sobre);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px)"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,80px);align-items:center;max-width:1280px;margin:0 auto">
+    <div style="position:relative;padding:14px 0 26px 14px">
+      <div style="position:absolute;top:0;left:0;width:72%;height:82%;border:1px solid var(--af-pink);pointer-events:none"></div>
+      <div style="position:absolute;bottom:0;right:0;width:96px;height:96px;background:var(--af-soft2);pointer-events:none"></div>
+      <div style="position:relative;aspect-ratio:4/3"><image-slot id="af-about" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=70" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Foto de Ainhoa entrenando"></image-slot></div>
+    </div>
+    <div>
+      <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Sobre mí</p>
+      <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(32px,4.4vw,52px);font-weight:700;line-height:1.05;letter-spacing:-0.02em">Hola, soy Ainhoa</h2>
+      <p style="margin:22px 0 0;font-size:16px;line-height:1.75;color:var(--af-ink);font-weight:600">Soy una apasionada del Fitness como estilo de vida.</p>
+      <p style="margin:14px 0 0;font-size:15px;line-height:1.75;color:var(--af-mut)">Puedo ayudarte a mejorar tu físico, tu rendimiento y calidad muscular. Mi objetivo es entender tus necesidades y darte las pautas necesarias para mejorar tu relación con la alimentación y el deporte de forma sostenible.</p>
+      <p style="margin:16px 0 0;padding-top:16px;border-top:2px dotted var(--af-pink);font-size:15px;line-height:1.75;color:var(--af-mut)">La clave del éxito está en encontrar el plan que mejor se adapte a ti, el cual disfrutes para poderlo mantener en el tiempo e incorporarlo a tu día a día.</p>
+    </div>
+  </div></section>
+
+  <section style="border-top:1px solid var(--af-line);background:var(--af-s-comp);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="text-align:center;max-width:620px;margin:0 auto">
+        <img src="img/af-horse.png" alt="" style="display:block;width:84px;height:84px;margin:0 auto 18px;border-radius:999px;box-shadow:0 0 30px rgba(242,46,154,0.35)"><p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Competición</p>
+        <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(30px,4.2vw,50px);font-weight:700;line-height:1.05;letter-spacing:-0.02em">Campeona<span style="display:block;font-family:'Great Vibes',cursive;font-weight:400;font-size:1.3em;letter-spacing:0;color:var(--af-pink)">Bikini Fitness</span></h2>
+        <p style="margin:18px 0 0;font-size:15px;line-height:1.7;color:var(--af-mut)">Competir en campeonatos de culturismo es la satisfacción de dar tu 100%, de ver hasta dónde eres capaz de llegar, superar tus límites y demostrarte a ti misma que <strong style="font-weight:800;letter-spacing:0.04em;color:var(--af-pink)">TODO ESFUERZO TIENE SU RECOMPENSA.</strong></p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;margin-top:44px;max-width:900px;margin-left:auto;margin-right:auto">
+        <div style="position:relative;grid-row:1/3;overflow:hidden"><image-slot id="af-comp-1" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=70" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Foto en escenario"></image-slot></div>
+        <div style="position:relative"><image-slot id="af-comp-2" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=70" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Foto grupo competición"></image-slot></div>
+        <div style="position:relative"><image-slot id="af-comp-3" src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=900&q=70" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Foto con medalla"></image-slot></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" style="border-top:1px solid var(--af-line);background:var(--af-s-serv);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px)"><div style="max-width:1180px;margin:0 auto">
+    <div style="text-align:center;max-width:600px;margin:0 auto">
+      <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Lo que ofrezco</p>
+      <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(30px,4.2vw,50px);font-weight:700;letter-spacing:-0.02em">Servicios</h2>
+      <p style="margin:18px 0 0;font-size:15px;line-height:1.7;color:var(--af-mut)">Cada persona es diferente. Por eso trabajo con un enfoque 100% individualizado, escuchando tus objetivos, tu historia y tu estilo de vida.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;margin-top:48px;background:var(--af-line);border:1px solid var(--af-line)">
+      <div style="background:var(--af-card);padding:38px 32px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--af-mut4)">01</div>
+        <div style="margin:22px 0 20px;font-size:26px;color:var(--af-pink)">╫</div>
+        <h3 style="margin:0;font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700">Plan de Entrenamiento</h3>
+        <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:var(--af-mut)">Rutinas adaptadas a tu nivel, objetivos y disponibilidad. Seguimiento quincenal con ajustes continuos para que nunca te estanques.</p>
+      </div>
+      <div style="background:var(--af-card);padding:38px 32px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--af-mut4)">02</div>
+        <div style="margin:22px 0 20px;font-size:26px;color:var(--af-pink)">⊕</div>
+        <h3 style="margin:0;font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700">Plan de Nutrición</h3>
+        <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:var(--af-mut)">Dietas personalizadas sin restricciones rotundas. Aprenderemos a comer bien sin renunciar a lo que te gusta, de forma progresiva y real.</p>
+      </div>
+      <div style="background:var(--af-card);padding:38px 32px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--af-mut4)">03</div>
+        <div style="margin:22px 0 20px;font-size:26px;color:var(--af-pink)">⊛</div>
+        <h3 style="margin:0;font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700">Pack Integral Online</h3>
+        <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:var(--af-mut)">Entrenamiento + nutrición + seguimiento diario por WhatsApp. La opción más completa para quienes quieren resultados reales y duraderos.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section style="position:relative;background:var(--af-s-filo);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px);border-top:1px solid var(--af-line);border-bottom:1px solid var(--af-line)">
+    <div style="max-width:880px;margin:0 auto;text-align:center">
+      <p style="margin:0 0 20px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Mi filosofía</p>
+      <blockquote style="margin:0;font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(26px,4vw,48px);line-height:1.15;letter-spacing:0.01em;text-transform:uppercase;text-wrap:balance">"Todo esfuerzo tiene su <span style="color:var(--af-pink)">recompensa</span>"</blockquote>
+      <p style="margin:20px 0 0;font-size:clamp(16px,1.8vw,19px);line-height:1.6;color:var(--af-mut)">Sé fiel y constante y los resultados llegarán solos.</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-top:26px">
+        <span style="width:70px;border-top:2px dotted var(--af-pink)"></span>
+        <span style="color:var(--af-pink);font-size:16px">♥</span>
+        <span style="font-family:'Great Vibes',cursive;font-size:30px;color:var(--af-ink)">Ainhoa</span>
+        <span style="color:var(--af-pink);font-size:16px">♥</span>
+        <span style="width:70px;border-top:2px dotted var(--af-pink)"></span>
+      </div>
+    </div>
+    
+  </section>
+
+  <section id="metodo" style="border-top:1px solid var(--af-line);background:var(--af-s-met);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px)"><div style="max-width:1036px;margin:0 auto">
+    <div style="text-align:center;max-width:620px;margin:0 auto">
+      <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Cómo trabajamos</p>
+      <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(30px,4.2vw,50px);font-weight:700;letter-spacing:-0.02em">El método <span style="font-family:'Great Vibes',cursive;font-weight:400;font-size:1.3em;letter-spacing:0;color:var(--af-pink)">Ainhoa</span></h2>
+      <p style="margin:18px 0 0;font-size:15px;line-height:1.7;color:var(--af-mut)">Un proceso adaptado a ti pensado para que encuentres la motivación y la disciplina necesaria para cumplir tus objetivos.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px;margin-top:52px">
+      <div style="text-align:center">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--af-pink);border-radius:999px;color:var(--af-pink);font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700">1</div>
+        <h4 style="margin:18px 0 8px;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700">Primera consulta</h4>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:var(--af-mut)">Hacemos una pequeña entrevista donde hablamos sobre tus necesidades y qué quieres conseguir. Incluida en los packs de servicios.</p>
+      </div>
+      <div style="text-align:center">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--af-pink);border-radius:999px;color:var(--af-pink);font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700">2</div>
+        <h4 style="margin:18px 0 8px;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700">Plan personalizado</h4>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:var(--af-mut)">Diseño tu plan personalizado 100% y adaptado a ti.</p>
+      </div>
+      <div style="text-align:center">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--af-pink);border-radius:999px;color:var(--af-pink);font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700">3</div>
+        <h4 style="margin:18px 0 8px;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700">Te acompaño</h4>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:var(--af-mut)">Te acompaño desde el comienzo resolviendo posibles dudas.</p>
+      </div>
+      <div style="text-align:center">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--af-pink);border-radius:999px;color:var(--af-pink);font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700">4</div>
+        <h4 style="margin:18px 0 8px;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700">Seguimiento continuo</h4>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:var(--af-mut)">Revisiones quincenales y ajustes del plan para que siempre avances.</p>
+      </div>
+    </div>
+
+    </div><div style="margin:clamp(48px,7vw,86px) calc(-1 * clamp(20px,5vw,72px)) calc(-1 * clamp(56px,9vw,120px));padding:clamp(48px,7vw,80px) clamp(20px,5vw,72px) clamp(56px,9vw,110px);background:var(--af-s-vid);border-top:1px solid var(--af-line)"><div style="max-width:1036px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+        <div style="max-width:560px">
+          <p style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">En vídeo</p>
+          <h3 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(24px,3.2vw,36px);font-weight:700;letter-spacing:-0.02em">Mira cómo se entrena y qué dicen ellas</h3>
+        </div>
+        <div style="display:flex;gap:1px;background:var(--af-line);border:1px solid var(--af-line)">
+          <button onClick="{{ showEjercicios }}" style="{{ tabEjerciciosStyle }}">Ejercicios</button>
+          <button onClick="{{ showTestimonios }}" style="{{ tabTestimoniosStyle }}">Testimonios</button>
+        </div>
+      </div>
+
+      <sc-if value="{{ isEjercicios }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:34px">
+          <sc-for list="{{ ejercicios }}" as="v" hint-placeholder-count="6">
+            <button onClick="{{ v.open }}" style="display:block;width:100%;padding:0;border:1px solid var(--af-line);background:var(--af-card);text-align:left;cursor:pointer;font:inherit" style-hover="border-color:var(--af-pink)">
+              <div style="position:relative;aspect-ratio:16/10">
+                <image-slot id="{{ v.slot }}" src="{{ v.img }}" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Miniatura"></image-slot>
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+                  <span style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(242,46,154,0.94);color:#fff;border-radius:999px;font-size:15px;padding-left:3px">▶</span>
+                </div>
+                <span style="position:absolute;top:10px;right:10px;padding:4px 8px;background:rgba(6,5,7,0.78);color:#fff;font-size:11px;font-weight:600;letter-spacing:0.08em;pointer-events:none">{{ v.dur }}</span>
+              </div>
+              <div style="padding:16px 18px 18px">
+                <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-pink)">{{ v.zona }}</div>
+                <div style="margin-top:7px;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--af-ink)">{{ v.nombre }}</div>
+                <div style="margin-top:6px;font-size:13px;line-height:1.6;color:var(--af-mut)">{{ v.nota }}</div>
+              </div>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isTestimonios }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:34px">
+          <sc-for list="{{ testimonios }}" as="t" hint-placeholder-count="3">
+            <div style="border:1px solid var(--af-line);background:var(--af-card)">
+              <button onClick="{{ t.open }}" style="display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer">
+                <div style="position:relative;aspect-ratio:9/13">
+                  <image-slot id="{{ t.slot }}" src="{{ t.img }}" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Vídeo vertical de clienta"></image-slot>
+                  <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px;background:linear-gradient(180deg,rgba(6,5,7,0) 45%,rgba(6,5,7,0.8) 100%);pointer-events:none">
+                    <span style="display:flex;align-items:center;gap:9px;color:#fff;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase"><span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;background:var(--af-pink);border-radius:999px;font-size:12px;padding-left:2px">▶</span>Ver testimonio</span>
+                  </div>
+                </div>
+              </button>
+              <div style="padding:18px">
+                <p style="margin:0;font-size:14px;line-height:1.7;color:var(--af-ink)">{{ t.cita }}</p>
+                <div style="margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+                  <span style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700">{{ t.nombre }}</span>
+                  <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--af-pink)">{{ t.resultado }}</span>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </div></section>
+
+  <section id="tienda" style="background:var(--af-s-tienda);color:var(--af-ink);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="text-align:center;max-width:620px;margin:0 auto">
+        <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Tienda</p>
+        <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(30px,4.2vw,50px);font-weight:700;letter-spacing:-0.02em;color:var(--af-ink)">Elige tu punto de partida</h2>
+        <p style="margin:18px 0 0;font-size:15px;line-height:1.7;color:var(--af-mut)">Packs de entrenamiento y nutrición, online o presencial. Escríbeme por WhatsApp o desde el formulario y lo cerramos juntas.</p>
+      </div>
+
+      <div style="display:flex;justify-content:center;margin-top:40px">
+        <div style="display:flex;flex-wrap:wrap;gap:1px;background:var(--af-tint2);border:1px solid var(--af-tint2)">
+          <button onClick="{{ tabPlanes }}" style="{{ shopTabPlanesStyle }}">Packs</button>
+          <button onClick="{{ tabDigital }}" style="{{ shopTabDigitalStyle }}">Guías digitales</button>
+          <button onClick="{{ tabMerch }}" style="{{ shopTabMerchStyle }}">Material</button>
+        </div>
+      </div>
+
+      <sc-if value="{{ isPlanes }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:14px;margin:38px 0 18px"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--af-pink);white-space:nowrap">Online</span><span style="flex:1;border-top:2px dotted var(--af-pink)"></span></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(calc((100% - 36px) / 3),calc((700px - 100%) * 1000))),1fr));gap:18px">
+          <sc-for list="{{ packsOnline }}" as="p" hint-placeholder-count="3">
+            <div style="{{ p.cardStyle }}">
+              <sc-if value="{{ p.destacado }}" hint-placeholder-val="{{ false }}">
+                <span style="position:absolute;top:0;right:0;padding:7px 14px;background:var(--af-pink);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap">{{ p.badge }}</span>
+              </sc-if>
+              <div style="display:flex;align-items:flex-end;min-height:calc(2 * 1.4em);font-size:10px;line-height:1.4;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-pink);padding-right:92px">{{ p.tag }}</div>
+              <h3 style="margin:14px 0 0;min-height:calc(2 * 1.35em);font-family:'Montserrat',sans-serif;font-size:19px;line-height:1.35;font-weight:700;color:var(--af-ink);text-wrap:pretty">{{ p.nombre }}</h3>
+              <div style="display:flex;align-items:baseline;gap:8px;min-height:62px;margin-top:18px;padding:18px 0 20px;border-top:2px dotted var(--af-pink);border-bottom:1px solid var(--af-tint2)">
+                <span style="font-family:'Montserrat',sans-serif;font-size:44px;line-height:1;font-weight:800;letter-spacing:-0.03em;color:var(--af-pink);white-space:nowrap">{{ p.precio }}</span>
+                <span style="font-size:13px;font-weight:600;color:var(--af-mut);white-space:nowrap">{{ p.periodo }}</span>
+              </div>
+              <ul style="margin:20px 0 26px;padding:0;list-style:none;display:grid;align-content:start;gap:10px;flex:1">
+                <sc-for list="{{ p.incluye }}" as="linea" hint-placeholder-count="3">
+                  <li style="display:flex;gap:10px;font-size:13.5px;line-height:1.6;color:var(--af-soft)"><span style="flex:none;color:var(--af-pink)">✦</span><span style="flex:1;min-width:0">{{ linea }}</span></li>
+                </sc-for>
+              </ul>
+              <div style="display:grid;gap:8px">
+                <a href="{{ p.wa }}" target="_blank" rel="noopener" style="{{ p.btnStyle }}">Pedir por WhatsApp</a>
+                <a href="#contacto" onClick="{{ p.toForm }}" style="padding:12px;text-align:center;border:1px solid var(--af-tint2);color:var(--af-ink);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none" style-hover="border-color:var(--af-pink);color:var(--af-pink)">Usar el formulario</a>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;margin:48px 0 18px"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--af-pink);white-space:nowrap">Presencial · Zaragoza capital</span><span style="flex:1;border-top:2px dotted var(--af-pink)"></span></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:18px">
+          <sc-for list="{{ packsPresencial }}" as="p" hint-placeholder-count="2">
+            <div style="{{ p.cardStyle }}">
+              <sc-if value="{{ p.destacado }}" hint-placeholder-val="{{ false }}">
+                <span style="position:absolute;top:0;right:0;padding:7px 14px;background:var(--af-pink);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap">{{ p.badge }}</span>
+              </sc-if>
+              <div style="display:flex;align-items:flex-end;min-height:calc(2 * 1.4em);font-size:10px;line-height:1.4;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-pink);padding-right:92px">{{ p.tag }}</div>
+              <h3 style="margin:14px 0 0;min-height:calc(2 * 1.35em);font-family:'Montserrat',sans-serif;font-size:19px;line-height:1.35;font-weight:700;color:var(--af-ink);text-wrap:pretty">{{ p.nombre }}</h3>
+              <div style="display:flex;align-items:baseline;gap:8px;min-height:62px;margin-top:18px;padding:18px 0 20px;border-top:2px dotted var(--af-pink);border-bottom:1px solid var(--af-tint2)">
+                <span style="font-family:'Montserrat',sans-serif;font-size:44px;line-height:1;font-weight:800;letter-spacing:-0.03em;color:var(--af-pink);white-space:nowrap">{{ p.precio }}</span>
+                <span style="font-size:13px;font-weight:600;color:var(--af-mut);white-space:nowrap">{{ p.periodo }}</span>
+              </div>
+              <ul style="margin:20px 0 26px;padding:0;list-style:none;display:grid;align-content:start;gap:10px;flex:1">
+                <sc-for list="{{ p.incluye }}" as="linea" hint-placeholder-count="3">
+                  <li style="display:flex;gap:10px;font-size:13.5px;line-height:1.6;color:var(--af-soft)"><span style="flex:none;color:var(--af-pink)">✦</span><span style="flex:1;min-width:0">{{ linea }}</span></li>
+                </sc-for>
+              </ul>
+              <div style="display:grid;gap:8px">
+                <a href="{{ p.wa }}" target="_blank" rel="noopener" style="{{ p.btnStyle }}">Pedir por WhatsApp</a>
+                <a href="#contacto" onClick="{{ p.toForm }}" style="padding:12px;text-align:center;border:1px solid var(--af-tint2);color:var(--af-ink);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none" style-hover="border-color:var(--af-pink);color:var(--af-pink)">Usar el formulario</a>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isDigital }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:38px">
+          <sc-for list="{{ digitales }}" as="d" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;border:1px solid var(--af-tint2);background:var(--af-tint)">
+              <div style="position:relative;aspect-ratio:4/3"><image-slot id="{{ d.slot }}" src="{{ d.img }}" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Portada de la guía"></image-slot></div>
+              <div style="display:flex;flex-direction:column;flex:1;padding:22px">
+                <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-pink)">{{ d.formato }}</div>
+                <h3 style="margin:10px 0 0;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:var(--af-ink)">{{ d.nombre }}</h3>
+                <p style="margin:10px 0 18px;font-size:13.5px;line-height:1.65;color:var(--af-mut);flex:1">{{ d.desc }}</p>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                  <span style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:var(--af-ink)">{{ d.precio }}</span>
+                  <a href="{{ d.wa }}" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;padding:12px 18px;background:var(--af-pink);border:0;color:#fff;font:inherit;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer" style-hover="background:var(--af-pink2)">WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isMerch }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:38px">
+          <sc-for list="{{ merch }}" as="m" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;border:1px solid var(--af-tint2);background:var(--af-tint)">
+              <div style="position:relative;aspect-ratio:1/1"><image-slot id="{{ m.slot }}" src="{{ m.img }}" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Foto de producto"></image-slot></div>
+              <div style="display:flex;flex-direction:column;flex:1;padding:20px">
+                <h3 style="margin:0;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--af-ink)">{{ m.nombre }}</h3>
+                <p style="margin:8px 0 16px;font-size:13px;line-height:1.6;color:var(--af-mut);flex:1">{{ m.desc }}</p>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                  <span style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:var(--af-ink)">{{ m.precio }}</span>
+                  <a href="{{ m.wa }}" target="_blank" rel="noopener" style="text-decoration:none;white-space:nowrap;padding:11px 16px;background:transparent;border:1px solid var(--af-ink);color:var(--af-ink);font:inherit;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer" style-hover="background:var(--af-pink);border-color:var(--af-pink);color:#fff">WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <p style="margin:34px 0 0;text-align:center;font-size:12.5px;color:var(--af-mut3)">Todos los pedidos se gestionan por WhatsApp o formulario. Sin pagos online.</p>
+    </div>
+  </section>
+
+  <section id="recomendados" style="border-top:1px solid var(--af-line);background:var(--af-s-rec);color:var(--af-ink);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="text-align:center;max-width:620px;margin:0 auto">
+        <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Productos recomendados</p>
+        <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(30px,4.2vw,50px);font-weight:700;letter-spacing:-0.02em;color:var(--af-ink)">Mis <span style="font-family:'Great Vibes',cursive;font-weight:400;font-size:1.3em;letter-spacing:0;color:var(--af-pink)">imprescindibles</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:18px;margin-top:40px">
+        <div style="display:flex;flex-direction:column;border:1px solid var(--af-line);background:var(--af-card)">
+          <div style="position:relative;aspect-ratio:4/3"><image-slot id="af-rec-1" src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=700&q=70" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Foto de producto"></image-slot></div>
+          <div style="display:flex;flex-direction:column;flex:1;padding:22px">
+            <h3 style="margin:0;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--af-ink)">Proteína</h3>
+            <p style="margin:8px 0 18px;font-size:13px;line-height:1.6;color:var(--af-mut);flex:1">Producto por definir.</p>
+            <span style="padding:12px;text-align:center;border:1px dashed var(--af-tint2);color:var(--af-mut3);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Enlace pendiente</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid var(--af-line);background:var(--af-card)">
+          <div style="position:relative;aspect-ratio:4/3"><image-slot id="af-rec-2" src="https://images.unsplash.com/photo-1623874514711-0f321325f318?auto=format&fit=crop&w=700&q=70" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Foto de producto"></image-slot></div>
+          <div style="display:flex;flex-direction:column;flex:1;padding:22px">
+            <h3 style="margin:0;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--af-ink)">Bandas elásticas</h3>
+            <p style="margin:8px 0 18px;font-size:13px;line-height:1.6;color:var(--af-mut);flex:1">Producto por definir.</p>
+            <span style="padding:12px;text-align:center;border:1px dashed var(--af-tint2);color:var(--af-mut3);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Enlace pendiente</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid var(--af-line);background:var(--af-card)">
+          <div style="position:relative;aspect-ratio:4/3"><image-slot id="af-rec-3" src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=700&q=70" credit="Foto: Unsplash" credit-href="https://unsplash.com" shape="rect" placeholder="Foto de producto"></image-slot></div>
+          <div style="display:flex;flex-direction:column;flex:1;padding:22px">
+            <h3 style="margin:0;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:700;color:var(--af-ink)">Botella</h3>
+            <p style="margin:8px 0 18px;font-size:13px;line-height:1.6;color:var(--af-mut);flex:1">Producto por definir.</p>
+            <span style="padding:12px;text-align:center;border:1px dashed var(--af-tint2);color:var(--af-mut3);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Enlace pendiente</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="imc" style="border-top:1px solid var(--af-line);background:var(--af-s-imc);color:var(--af-ink);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px)">
+    <div style="max-width:880px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(28px,5vw,56px);align-items:center">
+      <div>
+        <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Herramienta</p>
+        <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(30px,4.2vw,46px);font-weight:700;letter-spacing:-0.02em">Calculadora <span style="color:var(--af-pink)">IMC</span></h2>
+        <p style="margin:18px 0 0;font-size:15px;line-height:1.7;color:var(--af-mut)">Introduce tu peso y altura para conocer tu índice de masa corporal. Es orientativo: no tiene en cuenta tu masa muscular.</p>
+      </div>
+      <div style="padding:clamp(24px,4vw,36px);border:1px solid var(--af-pink);background:var(--af-card)">
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px">
+          <label style="display:grid;gap:7px;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--af-mut3)">Peso (kg)
+            <input type="number" inputmode="decimal" placeholder="60" value="{{ imcPeso }}" onChange="{{ setPeso }}" style="width:100%;min-width:0;padding:13px 14px;border:1px solid var(--af-line);background:var(--af-bg);font:inherit;font-size:16px;color:var(--af-ink);letter-spacing:0;border-radius:2px">
+          </label>
+          <label style="display:grid;gap:7px;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--af-mut3)">Altura (cm)
+            <input type="number" inputmode="decimal" placeholder="165" value="{{ imcAltura }}" onChange="{{ setAltura }}" style="width:100%;min-width:0;padding:13px 14px;border:1px solid var(--af-line);background:var(--af-bg);font:inherit;font-size:16px;color:var(--af-ink);letter-spacing:0;border-radius:2px">
+          </label>
+        </div>
+        <div style="margin-top:22px;padding-top:20px;border-top:2px dotted var(--af-pink);display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <span style="font-family:'Montserrat',sans-serif;font-size:48px;line-height:1;font-weight:800;color:var(--af-pink)">{{ imcValor }}</span>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--af-ink)">{{ imcEtiqueta }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="background:var(--af-s-cont);padding:clamp(64px,10vw,130px) clamp(20px,5vw,72px)"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,72px);max-width:1180px;margin:0 auto">
+    <div>
+      <p style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--af-pink)">Hablemos</p>
+      <h2 style="margin:0;font-family:'Montserrat',sans-serif;font-size:clamp(30px,4.2vw,46px);font-weight:700;letter-spacing:-0.02em">¿Lista para empezar?</h2>
+      <p style="margin:18px 0 32px;font-size:15px;line-height:1.7;color:var(--af-mut)">Cuéntame tu objetivo y te ayudo a ver qué servicio encaja mejor contigo. La primera consulta está incluida en los packs de servicios.</p>
+      <div style="display:grid;gap:16px">
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--af-pink);border:none;color:#fff;font-size:14px;border-radius:2px">@</span>
+          <div style="min-width:0"><div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-mut3)">Email</div><div style="margin-top:4px;font-size:14.5px;color:var(--af-mut)">Próximamente</div></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--af-pink);border:none;color:#fff;font-size:14px;border-radius:2px">✆</span>
+          <div style="min-width:0"><div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-mut3);line-height:1.5;white-space:nowrap">WhatsApp / Teléfono</div><div style="margin-top:4px;font-size:14.5px">+34 626 58 23 77</div></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--af-pink);border:none;color:#fff;border-radius:2px;font-size:14px">◎</span>
+          <div style="min-width:0"><div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--af-mut3)">Instagram</div><div style="margin-top:4px;font-size:14.5px;color:var(--af-mut)">Próximamente</div></div>
+        </div>
+      </div>
+    </div>
+    <form onSubmit="{{ noSubmit }}" style="display:grid;gap:16px;align-content:start;padding:clamp(24px,4vw,36px);background:var(--af-card);border:1px solid var(--af-line)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:16px">
+        <label style="display:grid;gap:7px;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--af-mut3)">Nombre
+          <input type="text" placeholder="Tu nombre" style="width:100%;min-width:0;padding:13px 14px;border:1px solid var(--af-line);background:var(--af-card);font:inherit;font-size:14px;color:var(--af-ink);letter-spacing:0;text-transform:none;border-radius:2px">
+        </label>
+        <label style="display:grid;gap:7px;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--af-mut3)">Email
+          <input type="email" placeholder="tu@email.com" style="width:100%;min-width:0;padding:13px 14px;border:1px solid var(--af-line);background:var(--af-card);font:inherit;font-size:14px;color:var(--af-ink);letter-spacing:0;text-transform:none;border-radius:2px">
+        </label>
+      </div>
+      <label style="display:grid;gap:7px;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--af-mut3)">¿Qué te interesa?
+        <select value="{{ interes }}" onChange="{{ setInteres }}" style="width:100%;min-width:0;padding:13px 14px;border:1px solid var(--af-line);background:var(--af-card);font:inherit;font-size:14px;color:var(--af-ink);letter-spacing:0;text-transform:none;border-radius:2px">
+          <option value="">Selecciona un servicio</option>
+          <sc-for list="{{ packOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
+          <option>Guías digitales</option>
+          <option>Material</option>
+        </select>
+      </label>
+      <label style="display:grid;gap:7px;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--af-mut3)">Cuéntame tu objetivo
+        <textarea rows="5" placeholder="¿Qué quieres conseguir? Cualquier detalle me ayuda a darte la mejor respuesta." style="width:100%;min-width:0;padding:13px 14px;border:1px solid var(--af-line);background:var(--af-card);font:inherit;font-size:14px;line-height:1.6;color:var(--af-ink);letter-spacing:0;text-transform:none;border-radius:2px;resize:vertical"></textarea>
+      </label>
+      <button type="submit" data-af-send="1" style="justify-self:start;padding:16px 32px;background:var(--af-pink);border:0;color:#fff;font:inherit;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;border-radius:2px" style-hover="background:var(--af-pink2)">Enviar mensaje</button>
+    </form>
+  </div></section>
+
+  <footer style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding:30px clamp(20px,5vw,72px);border-top:1px solid var(--af-line);background:var(--af-card)">
+    <div style="display:grid;gap:4px"><div style="font-family:'Great Vibes',cursive;font-size:30px;line-height:1.2;white-space:nowrap"><span style="color:var(--af-pink)">Ainhoa</span> Bikini Fitness</div><div style="font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--af-mut3);white-space:nowrap">Asesora de imagen personal</div></div>
+    <div style="font-size:12px;color:var(--af-mut3)">© 2026 Ainhoa Bikini Fitness. Todos los derechos reservados.</div>
+    <div style="display:flex;gap:20px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase">
+      <a href="#sobre" style="color:var(--af-ink)">Sobre mí</a>
+      <a href="#tienda" style="color:var(--af-ink)">Tienda</a>
+      <a href="#contacto" style="color:var(--af-ink)">Contacto</a>
+    </div>
+  </footer>
+
+  
+
+  <sc-if value="{{ videoOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeVideo }}" style="position:fixed;inset:0;z-index:95;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:rgba(6,5,7,0.86);animation:fadeIn 0.18s ease">
+      <div style="width:min(900px,100%)">
+        <div style="position:relative;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--af-deep);border:1px solid rgba(242,240,242,0.22)">
+          <span style="display:flex;align-items:center;justify-content:center;width:62px;height:62px;border:1px solid rgba(242,240,242,0.4);border-radius:999px;color:var(--af-pink);font-size:20px;padding-left:4px">▶</span>
+          <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--af-ink);text-align:center;padding:0 20px">{{ videoTitle }}</div>
+          <div style="font-size:13px;color:var(--af-mut3);text-align:center;padding:0 24px">Hueco reservado para el vídeo. Sustitúyelo por el MP4 o el embed de YouTube/Instagram.</div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:14px">
+          <button onClick="{{ closeVideo }}" style="padding:11px 20px;background:transparent;border:1px solid rgba(242,240,242,0.4);color:var(--af-ink);font:inherit;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:99;padding:14px 22px;background:var(--af-pink);color:var(--af-ink);font-size:13px;font-weight:600;letter-spacing:0.04em;animation:fadeIn 0.18s ease">{{ toast }}</div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultShopTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;planes&quot;,&quot;digital&quot;,&quot;merch&quot;],&quot;default&quot;:&quot;planes&quot;,&quot;tsType&quot;:&quot;'planes'|'digital'|'merch'&quot;,&quot;section&quot;:&quot;Tienda&quot;},&quot;showStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Página&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { let t = 'dark'; try { t = localStorage.getItem('af-theme') || 'dark'; } catch (e) {} this.applyTheme(t); this.alignToggle(); window.addEventListener('resize', this.alignToggle); window.addEventListener('load', this.alignToggle); let n = 0; this._alignT = setInterval(() => { this.alignToggle(); if (++n > 10) clearInterval(this._alignT); }, 500); }
+  componentWillUnmount() { document.documentElement.classList.remove('af-light'); window.removeEventListener('resize', this.alignToggle); window.removeEventListener('load', this.alignToggle); clearInterval(this._alignT); }
+  alignToggle = () => {
+    const b = document.querySelector('[data-af-send]'); if (!b) return;
+    const d = Math.round(document.documentElement.scrollHeight - (b.getBoundingClientRect().bottom + window.scrollY));
+    document.documentElement.style.setProperty('--af-toggle-bottom', Math.max(16, d) + 'px');
+  };
+  applyTheme(t) { document.documentElement.classList.toggle('af-light', t === 'light'); try { localStorage.setItem('af-theme', t); } catch (e) {} this.setState({ theme: t }); }
+  state = { theme: 'dark', videoTab: 'ejercicios', shopTab: null, interes: '', imcPeso: '', imcAltura: '', video: null, toast: '' };
+  wa(msg) { return 'https://wa.me/34626582377?text=' + encodeURIComponent(msg); }
+
+  eur(n) { return n.toLocaleString('es-ES', { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' €'; }
+
+  catalog() {
+    return {
+      p1: { nombre: 'Plan Entrenamiento', sub: 'Suscripción mensual', precio: 49 },
+      p2: { nombre: 'Plan Nutrición', sub: 'Suscripción mensual', precio: 59 },
+      p3: { nombre: 'Pack Integral Online', sub: 'Trimestral · 3 meses', precio: 249 },
+      d1: { nombre: 'Guía: Empieza en el gym', sub: 'PDF descargable', precio: 19 },
+      d2: { nombre: '30 recetas altas en proteína', sub: 'PDF descargable', precio: 15 },
+      d3: { nombre: 'Plantillas de seguimiento', sub: 'Excel + Notion', precio: 12 },
+      d4: { nombre: 'Rutina en casa 8 semanas', sub: 'PDF + vídeos', precio: 24 },
+      m1: { nombre: 'Bandas de resistencia', sub: 'Set de 3', precio: 22 },
+      m2: { nombre: 'Camiseta Ainhoa', sub: 'Algodón orgánico', precio: 26 },
+      m3: { nombre: 'Botella 750 ml', sub: 'Acero inoxidable', precio: 18 },
+      m4: { nombre: 'Proteína whey 1 kg', sub: 'Sabor vainilla', precio: 34 }
+    };
+  }
+
+  tab(active) {
+    return 'white-space:nowrap;padding:13px 20px;background:' + (active ? 'var(--af-pink)' : 'var(--af-card)') + ';border:0;color:' + (active ? '#fff' : 'var(--af-mut)') + ";font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer";
+  }
+  shopTabStyle(active) {
+    return 'white-space:nowrap;padding:13px 20px;background:' + (active ? 'var(--af-pink)' : 'transparent') + ';border:0;color:' + (active ? '#fff' : 'var(--af-mut)') + ";font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer";
+  }
+
+  renderVals() {
+    const cat = this.catalog();
+    const shopTab = this.state.shopTab || this.props.defaultShopTab || 'planes';
+    const themeVals = {
+      themeLabel: this.state.theme === 'light' ? 'Modo oscuro' : 'Modo claro',
+      toggleTheme: () => this.applyTheme(this.state.theme === 'light' ? 'dark' : 'light')
+    };
+    const ejercicios = [
+      { zona: 'Glúteo', nombre: 'Hip thrust', dur: '0:45', nota: 'Colocación de barra y recorrido completo.' },
+      { zona: 'Pierna', nombre: 'Sentadilla búlgara', dur: '0:52', nota: 'Dónde poner el pie y cómo no perder el equilibrio.' },
+      { zona: 'Espalda', nombre: 'Remo con mancuerna', dur: '0:38', nota: 'Espalda neutra y tirón desde el codo.' },
+      { zona: 'Core', nombre: 'Plancha con apoyo', dur: '0:41', nota: 'Progresión desde rodillas hasta plancha completa.' },
+      { zona: 'Hombro', nombre: 'Press militar', dur: '0:47', nota: 'Errores típicos de trayectoria y respiración.' },
+      { zona: 'Movilidad', nombre: 'Calentamiento 5 min', dur: '4:58', nota: 'La rutina con la que empiezo cada sesión.' },
+      { zona: 'Pecho', nombre: 'Press inclinado', dur: '0:55', nota: 'Agarre y ángulo para activar bien el pectoral.' },
+      { zona: 'Cardio', nombre: 'HIIT en 12 minutos', dur: '12:10', nota: 'Circuito rápido para quemar y activar metabolismo.' },
+      
+    ].map((v, i) => ({ ...v, slot: 'af-ex-' + i, img: ["https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1550345332-09e3ac987658?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=700&q=70"][i % 8], open: () => this.setState({ video: v.nombre }) }));
+
+    const testimonios = [
+      { nombre: 'Marta G.', resultado: '−12 kg en 7 meses', cita: 'Nunca había sido constante con nada. Con Ainhoa entendí que no hacía falta pasar hambre, solo tener un plan que me encajara.' },
+      { nombre: 'Lucía R.', resultado: 'Fuerza +40%', cita: 'Empecé sin saber ni coger una mancuerna. Hoy entreno sola con seguridad y llevo dos años sin parar.' },
+      { nombre: 'Elena V.', resultado: 'Primera competición', cita: 'Me preparó para subirme al escenario cuidando cada detalle, también la cabeza. Fue mucho más que una dieta.' }
+    ].map((t, i) => ({ ...t, slot: 'af-test-' + i, img: ["https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?auto=format&fit=crop&w=700&q=70"][i % 4], open: () => this.setState({ video: 'Testimonio de ' + t.nombre }) }));
+
+    const planCard = (dest) => 'position:relative;display:flex;flex-direction:column;padding:32px 24px;border:' + (dest ? '2px solid var(--af-pink)' : '1px solid var(--af-tint2)') + ';background:' + (dest ? 'var(--af-highlight-card)' : 'var(--af-card)') + (dest ? ';color:var(--af-highlight-ink)' : '');
+    const planBtn = (dest) => 'display:block;padding:14px;text-align:center;text-decoration:none;background:var(--af-pink);border:1px solid var(--af-pink);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase';
+    const mk = (p) => {
+      const opt = p.nombre + ' · ' + p.precio + (p.periodo ? ' ' + p.periodo : '');
+      return { ...p, cardStyle: planCard(p.destacado), btnStyle: planBtn(p.destacado), opt,
+        badge: p.badge || 'Más completo', wa: this.wa('Hola Ainhoa, me interesa: ' + opt + '. ¿Me cuentas más?'),
+        toForm: () => this.setState({ interes: opt }) };
+    };
+    const packsOnline = [
+      { tag: 'Entrenamiento', nombre: 'Tabla de entrenamiento', precio: '150 €', periodo: '/ trimestre', destacado: false,
+        incluye: ['Rutina personalizada y revisión quincenal', 'Ajustes según tu progreso', 'Resolución de dudas por WhatsApp'] },
+      { tag: 'Nutrición', nombre: 'Plan nutricional', precio: '150 €', periodo: '/ trimestre', destacado: false,
+        incluye: ['Plan de alimentación en base a tus gustos y necesidades', 'Revisión quincenal', 'Ajuste mensual'] },
+      { tag: 'Entrenamiento + nutrición', nombre: 'Pack integral online', precio: '195 €', periodo: '/ trimestre', destacado: true,
+        incluye: ['Tabla de entrenamiento y plan nutricional personalizado', 'Revisiones quincenales', 'Ajustes según progreso y evolución'], badge: 'Más completo' }
+    ].map(mk);
+    const packsPresencial = [
+      { tag: 'Sesión suelta', nombre: 'Sesión de entrenamiento presencial', precio: '25 €', periodo: '/ sesión', destacado: false,
+        incluye: ['50 minutos', 'Sólo en Zaragoza capital', 'Centro deportivo a concertar'] },
+      { tag: 'Bono', nombre: 'Bono de 10 sesiones de entrenamiento personal', precio: '225 €', periodo: '/ 10 sesiones', destacado: true,
+        incluye: ['10 sesiones de 50 minutos', 'Sólo en Zaragoza capital', 'Centro deportivo a concertar'], badge: 'Recomendado' }
+    ].map(mk);
+    const imcP = parseFloat(String(this.state.imcPeso).replace(',', '.')), imcA = parseFloat(String(this.state.imcAltura).replace(',', '.')) / 100;
+    const imc = imcP > 0 && imcA > 0.5 ? imcP / (imcA * imcA) : null;
+    const imcEtiqueta = imc == null ? 'Introduce tus datos' : imc < 18.5 ? 'Bajo peso' : imc < 25 ? 'Peso normal' : imc < 30 ? 'Sobrepeso' : 'Obesidad';
+
+    const digitales = ['d1', 'd2', 'd3', 'd4'].map((id, i) => {
+      const meta = [
+        { formato: 'PDF · 48 páginas', desc: 'Todo lo que necesitas saber antes de tu primer día: máquinas, series, descansos y cómo organizar la semana.' },
+        { formato: 'PDF · 30 recetas', desc: 'Desayunos, comidas y cenas rápidas con macros calculados. Sin ingredientes raros.' },
+        { formato: 'Excel + Notion', desc: 'Plantillas para registrar cargas, medidas y hábitos. Las mismas que uso con mis clientas.' },
+        { formato: 'PDF + vídeos', desc: 'Programa de 8 semanas para entrenar en casa con material mínimo.' }
+      ][i];
+      return { ...meta, nombre: cat[id].nombre, precio: this.eur(cat[id].precio), slot: 'af-dig-' + i, img: ["https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=700&q=70"][i % 4], wa: this.wa('Hola Ainhoa, me interesa: ' + cat[id].nombre + ' (' + this.eur(cat[id].precio) + ').') };
+    });
+
+    const merch = ['m1', 'm2', 'm3', 'm4'].map((id, i) => {
+      const desc = ['Ligera, media y fuerte. Para activar antes de entrenar.', 'Corte holgado, tejido suave. Tallas S a XL.', 'Aguanta frío 12h. Marcas de hidratación.', 'Aislado de suero, 24 g de proteína por toma.'][i];
+      return { nombre: cat[id].nombre, desc, precio: this.eur(cat[id].precio), slot: 'af-merch-' + i, img: ["https://images.unsplash.com/photo-1623874514711-0f321325f318?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=700&q=70","https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=700&q=70"][i % 4], wa: this.wa('Hola Ainhoa, me interesa: ' + cat[id].nombre + ' (' + this.eur(cat[id].precio) + ').') };
+    });
+
+    return {
+      ...themeVals,
+      showStats: this.props.showStats ?? true,
+      isEjercicios: this.state.videoTab === 'ejercicios',
+      isTestimonios: this.state.videoTab === 'testimonios',
+      showEjercicios: () => this.setState({ videoTab: 'ejercicios' }),
+      showTestimonios: () => this.setState({ videoTab: 'testimonios' }),
+      tabEjerciciosStyle: this.tab(this.state.videoTab === 'ejercicios'),
+      tabTestimoniosStyle: this.tab(this.state.videoTab === 'testimonios'),
+      ejercicios, testimonios,
+      isPlanes: shopTab === 'planes', isDigital: shopTab === 'digital', isMerch: shopTab === 'merch',
+      tabPlanes: () => this.setState({ shopTab: 'planes' }),
+      tabDigital: () => this.setState({ shopTab: 'digital' }),
+      tabMerch: () => this.setState({ shopTab: 'merch' }),
+      shopTabPlanesStyle: this.shopTabStyle(shopTab === 'planes'),
+      shopTabDigitalStyle: this.shopTabStyle(shopTab === 'digital'),
+      shopTabMerchStyle: this.shopTabStyle(shopTab === 'merch'),
+      packsOnline, packsPresencial, packOptions: packsOnline.concat(packsPresencial).map(p => p.opt), digitales, merch,
+      imcPeso: this.state.imcPeso, imcAltura: this.state.imcAltura,
+      setPeso: (e) => this.setState({ imcPeso: e.target.value }),
+      setAltura: (e) => this.setState({ imcAltura: e.target.value }),
+      imcValor: imc == null ? '—' : imc.toFixed(1).replace('.', ','), imcEtiqueta,
+      interes: this.state.interes,
+      setInteres: (e) => this.setState({ interes: e.target.value }),
+      videoOpen: !!this.state.video, videoTitle: this.state.video || '',
+      closeVideo: () => this.setState({ video: null }),
+      toast: this.state.toast,
+      noSubmit: (e) => { e.preventDefault(); this.setState({ toast: 'Mensaje enviado (demo)' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
