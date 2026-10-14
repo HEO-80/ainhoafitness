@@ -16,7 +16,7 @@
       --af-alt: #121014;
       --af-alt2: #1E1A22;
       --af-line: #2B2530;
-      --af-deep: #050406;
+      --af-deep: #1A161E;
       --af-ink: #F5F0F5;
       --af-mut: #B9B2BC;
       --af-mut2: #A8A1AB;
@@ -26,14 +26,13 @@
       --af-soft2: #D9D6DE;
       --af-pink: #F22E9A;
       --af-pink2: #BF2A7C;
-      --af-head: rgba(9,8,10,0.9);
+      --af-head: rgba(26,22,30,0.92);
       --af-tint: rgba(242,240,242,0.04);
       --af-tint2: rgba(242,240,242,0.22);
       --af-highlight-card: #2E2E30;
       --af-highlight-ink: #F5F0F5;
       --af-highlight-soft: #D6D1D9;
       --af-s-sobre:#09080A;--af-s-comp:#09080A;--af-s-serv:#09080A;--af-s-filo:#09080A;--af-s-met:#09080A;--af-s-tienda:#09080A;--af-s-cont:#09080A;--af-s-vid:#09080A;--af-s-rec:#09080A;--af-s-imc:#09080A;
-      --demo-h: 33px;
     }
 
     [data-theme="light"] {
@@ -75,27 +74,6 @@
     a:hover { color: var(--af-pink2); }
     ::selection { background: var(--af-pink); color: #fff; }
 
-    /* ─── DEMO BANNER ──────────────────── */
-    .demo {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 110;
-      height: var(--demo-h);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #09080A;
-      color: #F5F0F5;
-      padding: 0 1rem;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    .demo b { color: var(--af-pink); font-weight: 700; }
-
     /* ─── HEADER ───────────────────────── */
     header {
       position: relative;
@@ -105,7 +83,7 @@
       justify-content: space-between;
       gap: 24px;
       padding: 16px clamp(20px, 5vw, 72px);
-      background: var(--af-bg);
+      background: var(--af-deep);
       border-bottom: 1px solid var(--af-line);
       transition: background 0.3s;
     }
@@ -158,14 +136,13 @@
     }
     .header-nav .nav-cta:hover { background: var(--af-pink2); }
 
-    /* Nav over dark hero in light mode: transparent header with light text */
-    [data-theme="light"] header { background: rgba(9,8,10,0.35); border-bottom-color: transparent; }
+    /* Light mode header: pinkish bg matching footer */
+    [data-theme="light"] header { background: var(--af-deep); border-bottom-color: var(--af-line); }
     [data-theme="light"] .header-logo .logo-ainhoa { color: var(--af-pink); }
-    [data-theme="light"] .header-logo .logo-villalba { color: #F5F0F5; text-shadow: none; }
-    [data-theme="light"] .header-nav a { color: #F5F0F5; }
+    [data-theme="light"] .header-logo .logo-villalba { color: var(--af-ink); text-shadow: none; }
+    [data-theme="light"] .header-nav a { color: var(--af-ink); }
     [data-theme="light"] .header-nav .nav-cta { color: #fff !important; }
-    /* Once scrolled: solid light header with dark text */
-    [data-theme="light"] header.scrolled { background: var(--af-head); border-bottom-color: var(--af-line); }
+    [data-theme="light"] header.scrolled { background: var(--af-deep); border-bottom-color: var(--af-line); }
     [data-theme="light"] header.scrolled .header-logo .logo-villalba { color: var(--af-ink); }
     [data-theme="light"] header.scrolled .header-nav a { color: var(--af-ink); }
     [data-theme="light"] header.scrolled .header-nav a:hover { color: var(--af-pink); }
@@ -187,7 +164,7 @@
       background: var(--af-ink);
       transition: all 0.3s;
     }
-    [data-theme="light"] .nav-burger span { background: #F5F0F5; }
+    [data-theme="light"] .nav-burger span { background: var(--af-ink); }
     [data-theme="light"] header.scrolled .nav-burger span { background: var(--af-ink); }
 
     .header-right {
@@ -298,6 +275,7 @@
       line-height: 1.7;
       color: var(--af-soft);
     }
+    [data-theme="light"] .hero-sub { color: #fff; }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1494,7 +1472,7 @@
         border-bottom: 1px solid var(--af-line);
       }
       [data-theme="light"] .header-nav {
-        background: var(--af-bg);
+        background: var(--af-deep);
       }
       [data-theme="light"] .header-nav a {
         color: var(--af-ink);
@@ -1523,15 +1501,11 @@
     }
 
     @media (max-width: 420px) {
-      .demo { font-size: 8.5px; letter-spacing: 0.14em; }
       .tab { padding: 10px 14px; font-size: 10px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- BANNER VERSION DEMO -->
-  <div class="demo"><b>Versión demo</b>&nbsp;— contenido provisional</div>
 
   <!-- HEADER -->
   <header id="siteHeader">
@@ -1814,6 +1788,34 @@
                   <div class="reel-tag">Movilidad</div>
                   <div class="reel-name">Calentamiento 5 min</div>
                   <div class="reel-note">La rutina con la que empiezo cada sesión.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_11" data-title="Press de banca" aria-label="Reproducir vídeo: Press de banca">
+                <div class="reel-thumb">
+                  <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=70&fit=crop" alt="Press de banca" loading="lazy" />
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">0:50</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Pecho</div>
+                  <div class="reel-name">Press de banca</div>
+                  <div class="reel-note">Agarre, arco y trayectoria de la barra.</div>
+                </div>
+              </button>
+            </article>
+            <article class="reel reveal">
+              <button class="reel-btn" type="button" data-yt="REEMPLAZAR_YT_12" data-title="Curl de bíceps" aria-label="Reproducir vídeo: Curl de bíceps">
+                <div class="reel-thumb">
+                  <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=70&fit=crop" alt="Curl de bíceps" loading="lazy" />
+                  <div class="reel-play-icon"><span class="reel-play-circle">▶</span></div>
+                  <span class="reel-dur">0:35</span>
+                </div>
+                <div class="reel-info">
+                  <div class="reel-tag">Bíceps</div>
+                  <div class="reel-name">Curl de bíceps</div>
+                  <div class="reel-note">Control del movimiento y contracción máxima.</div>
                 </div>
               </button>
             </article>
