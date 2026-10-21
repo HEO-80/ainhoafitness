@@ -519,9 +519,13 @@ section[id] { scroll-margin-top: 20px; }
 .servicio-card {
   background: var(--af-card);
   padding: 38px 32px;
-  transition: background 0.25s;
+  transition: background 0.25s, transform 0.3s ease, box-shadow 0.3s ease;
 }
-.servicio-card:hover { background: var(--af-alt2); }
+.servicio-card:hover {
+  background: var(--af-alt2);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(242,46,154,0.15), 0 14px 44px rgba(242,46,154,0.10);
+}
 .servicio-num {
   font-size: 11px;
   font-weight: 700;
@@ -837,9 +841,13 @@ section[id] { scroll-margin-top: 20px; }
   border: 1px solid var(--af-tint2);
   background: var(--af-tint);
   padding: 32px 28px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, transform 0.3s ease, box-shadow 0.3s ease;
 }
-.plan-card:hover { border-color: var(--af-pink); }
+.plan-card:hover {
+  border-color: var(--af-pink);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(242,46,154,0.15), 0 14px 44px rgba(242,46,154,0.10);
+}
 .plan-highlight {
   background: var(--af-highlight-card);
   border-color: var(--af-pink);
@@ -1082,9 +1090,13 @@ section[id] { scroll-margin-top: 20px; }
   flex-direction: column;
   border: 1px solid var(--af-line);
   background: var(--af-card);
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.2s;
 }
-.rec-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.rec-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--af-pink);
+  box-shadow: 0 6px 20px rgba(242,46,154,0.15), 0 14px 44px rgba(242,46,154,0.10);
+}
 .rec-card-img {
   position: relative;
   aspect-ratio: 4/3;
