@@ -73,7 +73,7 @@ header {
   justify-content: space-between;
   gap: 24px;
   padding: 16px clamp(20px, 5vw, 72px);
-  background: var(--af-deep);
+  background: var(--af-bg);
   border-bottom: 1px solid var(--af-line);
   transition: background 0.3s;
 }
@@ -314,6 +314,7 @@ header {
   max-width: 330px;
   margin: 0 auto;
   overflow: hidden;
+  mix-blend-mode: screen;
   -webkit-mask-image: radial-gradient(ellipse at center, #000 62%, transparent 100%);
   mask-image: radial-gradient(ellipse at center, #000 62%, transparent 100%);
 }
@@ -332,18 +333,17 @@ header {
     transparent 60%
   );
   transform: translateX(-120%);
-  animation: logoShimmer 6s ease-in-out infinite 2s;
+  animation: logoShimmer 15s ease-in-out infinite 2s;
   pointer-events: none;
 }
 @keyframes logoShimmer {
-  0%, 70%, 100% { transform: translateX(-120%); }
-  20% { transform: translateX(120%); }
+  0%, 85%, 100% { transform: translateX(-120%); }
+  10% { transform: translateX(120%); }
 }
 .hero-logo-img {
   width: 100%;
   height: auto;
   display: block;
-  mix-blend-mode: screen;
 }
 
 /* ─── SCROLL HINT ──────────────────── */
@@ -1433,7 +1433,7 @@ select.form-input option { background: var(--af-card); color: var(--af-ink); }
 
 /* ─── FOOTER ────────────────────────── */
 footer {
-  background: var(--af-deep);
+  background: var(--af-bg);
   border-top: 1px solid var(--af-line);
   padding: clamp(20px, 3vw, 36px) clamp(20px, 5vw, 72px);
   transition: background-color 0.3s;
