@@ -646,8 +646,13 @@ section[id] { scroll-margin-top: 20px; }
 /* ─── MÉTODO ────────────────────────── */
 #metodo { background: var(--af-s-met); background-image: var(--af-glow-bg); border-top: 1px solid var(--af-line); }
 .metodo-title-cursive {
-  font-family: 'Montserrat', sans-serif;
-  font-style: italic;
+  font-family: 'Great Vibes', cursive;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1.3em;
+  color: var(--af-pink);
+  text-shadow: 0 0 12px rgba(242,46,154,0.55);
   font-weight: 400;
   font-size: 1.3em;
   letter-spacing: 0;
