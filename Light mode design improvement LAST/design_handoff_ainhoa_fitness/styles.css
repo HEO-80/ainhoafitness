@@ -1,0 +1,26 @@
+html, html.af-light [data-dark] { --af-s-sobre:#09080A;--af-s-comp:#09080A;--af-s-serv:#09080A;--af-s-filo:#09080A;--af-s-met:#09080A;--af-s-tienda:#09080A;--af-s-cont:#09080A;--af-s-vid:#09080A;--af-s-rec:#09080A;--af-s-imc:#09080A;--af-bg:#09080A;--af-card:#141216;--af-alt:#121014;--af-alt2:#1E1A22;--af-line:#2B2530;--af-deep:#050406;--af-ink:#F5F0F5;--af-mut:#B9B2BC;--af-mut2:#A8A1AB;--af-mut3:#8F8893;--af-mut4:#6E6772;--af-soft:#D6D1D9;--af-soft2:#D9D6DE;--af-pink:#BF2A7C;--af-pink2:#73194A;--af-head:rgba(4,3,5,0.96);--af-tint:rgba(242,240,242,0.04);--af-tint2:rgba(242,240,242,0.22);--af-highlight-card:#2E2E30;--af-highlight-ink:#F5F0F5;--af-highlight-soft:#D6D1D9;--af-glow-bg:radial-gradient(ellipse at 20% 40%, rgba(160,30,100,0.25) 0%, rgba(80,10,60,0.08) 40%, transparent 70%);--af-glow-bg2:radial-gradient(ellipse at 80% 30%, rgba(140,20,90,0.22) 0%, rgba(70,8,50,0.06) 45%, transparent 70%);--af-glow-bg3:radial-gradient(ellipse at 50% 20%, rgba(180,35,110,0.18) 0%, rgba(100,15,70,0.06) 40%, transparent 60%); }
+  html.af-light { --af-glow-bg:radial-gradient(ellipse at 20% 40%, rgba(214,18,122,0.14) 0%, rgba(180,15,100,0.05) 40%, transparent 65%);--af-glow-bg2:radial-gradient(ellipse at 80% 30%, rgba(214,18,122,0.12) 0%, rgba(160,12,90,0.04) 45%, transparent 65%);--af-glow-bg3:radial-gradient(ellipse at 50% 20%, rgba(214,18,122,0.10) 0%, rgba(180,15,100,0.03) 40%, transparent 60%);--af-s-sobre:#FFFFFF;--af-s-comp:#F5F3F4;--af-s-serv:#FFFFFF;--af-s-filo:#F5F3F4;--af-s-met:#FFFFFF;--af-s-tienda:#FDF0F6;--af-s-cont:#F5F3F4;--af-s-vid:#FFFFFF;--af-s-rec:#F5F3F4;--af-s-imc:#F0EDEE;--af-bg:#FFF7FB;--af-card:#FFFFFF;--af-alt:#FCEFF6;--af-alt2:#F7E6EF;--af-line:#EBD3E0;--af-deep:#F3E4EC;--af-ink:#1A1418;--af-mut:#5E5260;--af-mut2:#665A69;--af-mut3:#716475;--af-mut4:#8A7D8C;--af-soft:#3A3040;--af-soft2:#3A3040;--af-pink:#D6127A;--af-pink2:#B80F68;--af-head:rgba(255,247,251,0.92);--af-tint:rgba(214,18,122,0.05);--af-tint2:rgba(26,20,24,0.14);--af-highlight-card:#2A2030;--af-highlight-ink:#fff;--af-highlight-soft:#E8E4EA; }
+  body { margin:0; background:var(--af-bg); color:var(--af-ink); font-family:'Montserrat',system-ui,sans-serif; }
+  a { color:#FF2D95; text-decoration:none; }
+  a:hover { color:#E0157C; }
+  * { box-sizing:border-box; }
+  ::selection { background:#FF2D95; color:#fff; }
+  html.af-light [style*="var(--af-highlight-card)"] { color:var(--af-highlight-ink) !important; }
+  html.af-light [style*="var(--af-highlight-card)"] h3 { color:var(--af-highlight-ink) !important; }
+  html.af-light [style*="var(--af-highlight-card)"] span { color:var(--af-highlight-ink) !important; }
+  html.af-light [style*="var(--af-highlight-card)"] li { color:var(--af-highlight-soft) !important; }
+  html.af-light [style*="var(--af-highlight-card)"] a[style*="border"] { color:var(--af-highlight-ink) !important; border-color:rgba(255,255,255,0.3) !important; }
+  html.af-light .af-logo-icon { background: linear-gradient(135deg, #FFFFFF, #F8E8F0) !important; border-color: rgba(214,18,122,0.3) !important; }
+  html.af-light #metodo { background: var(--af-s-met) !important; background-image: var(--af-glow-bg) !important; }
+  html.af-light #metodo h2, html.af-light #metodo p { color: #1A1418; }
+  html.af-light #metodo > div > div:first-child { color: #1A1418; }
+  html.af-light #metodo > div > div:first-child h2 { color: #1A1418; }
+  html.af-light #metodo > div > div:first-child p { color: #4A3848; }
+  html.af-light #metodo .af-glow-card { background: #fff !important; color: #1A1418 !important; border-color: rgba(235,211,224,0.5) !important; }
+  html.af-light #metodo .af-glow-card h4 { color: #1A1418 !important; }
+  html.af-light #metodo .af-glow-card p { color: #5E5260 !important; }
+  .af-logo-icon:hover { box-shadow: 0 0 28px rgba(242,46,154,0.6), 0 0 56px rgba(242,46,154,0.2) !important; border-color: rgba(242,46,154,0.8) !important; }
+  .af-glow-card { transition: border-color 0.3s, box-shadow 0.3s; }
+  .af-glow-card:hover { border-color: rgba(191,42,124,0.5) !important; box-shadow: 0 0 20px rgba(191,42,124,0.15), inset 0 0 20px rgba(191,42,124,0.03); }
+  @keyframes drawerIn { from { transform:translateX(100%); } to { transform:translateX(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
