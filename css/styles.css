@@ -544,12 +544,13 @@ section[id] { scroll-margin-top: 20px; }
 }
 .comp-title-cursive {
   display: block;
-  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+  font-family: 'Great Vibes', cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 1.4em;
-  letter-spacing: 0;
+  letter-spacing: normal;
   color: var(--af-pink);
+  text-shadow: 0 0 12px rgba(242,46,154,0.55);
 }
 .comp-gallery {
   display: grid;
