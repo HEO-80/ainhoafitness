@@ -6,7 +6,7 @@
   <title>Ainhoa Fitness | Entrenamiento & Nutrición</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="img/af-horse.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -15,6 +15,7 @@
   <!-- HEADER -->
   <header id="siteHeader">
     <a href="#" class="header-logo">
+      <div class="af-logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--af-pink)" stroke-width="2.2" stroke-linecap="round"><line x1="2" y1="12" x2="22" y2="12"/><line x1="5" y1="7" x2="5" y2="17"/><line x1="8" y1="9" x2="8" y2="15"/><line x1="16" y1="9" x2="16" y2="15"/><line x1="19" y1="7" x2="19" y2="17"/></svg></div>
       <span class="logo-ainhoa">Ainhoa</span>
       <span class="logo-villalba">Villalba</span>
     </a>
@@ -23,7 +24,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#metodo">Método</a>
       <a href="#tienda">Packs</a>
-      <a href="#imc">IMC</a>
+      <a href="#recomendados">Extras</a>
       <a href="#contacto" class="nav-cta">Contactar</a>
     </nav>
     <div class="header-right">
@@ -53,7 +54,7 @@
         </div>
       </div>
       <div class="hero-logo-wrap reveal">
-        <img src="img/Logos/Logotipo de Ainhoa con corona y brillantes negro.jpg" alt="Ainhoa Villalba · Bikini Fitness Master" class="hero-logo-img" />
+        <img src="img/af-logo-brillos-negro.jpg" alt="Ainhoa Villalba · Bikini Fitness Master" class="hero-logo-img" />
       </div>
     </div>
     <div class="hero-scroll">
@@ -82,8 +83,9 @@
   <section class="sec" id="sobre">
     <div class="inner sobre-grid">
       <div class="sobre-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80&fit=crop&crop=top" alt="Ainhoa entrenando" loading="lazy" />
-        <div class="sobre-accent"></div>
+        <div class="af-glow-card" style="aspect-ratio:3/4;border-radius:12px;overflow:hidden;border:1px solid var(--af-line)">
+          <img src="img/ainhoa-escenario-azul.png" alt="Ainhoa en escenario" loading="lazy" />
+        </div>
       </div>
       <div class="reveal">
         <p class="eyebrow">Sobre mí</p>
@@ -105,14 +107,17 @@
         <p class="sec-desc">Competir en campeonatos de culturismo es la satisfacción de dar tu 100%, de ver hasta dónde eres capaz de llegar, superar tus límites y demostrarte a ti misma que <strong style="font-weight:800;letter-spacing:0.04em;color:var(--af-pink)">TODO ESFUERZO TIENE SU RECOMPENSA.</strong></p>
       </div>
       <div class="comp-gallery">
-        <div class="comp-main reveal">
-          <img src="img/IMG_20260626_110657.jpg" alt="Ainhoa posando en el escenario del campeonato de Fitness Bikini" loading="lazy" />
+        <div class="af-glow-card reveal">
+          <img src="img/IMG_20260626_110657.jpg" alt="Ainhoa compitiendo" loading="lazy" />
         </div>
-        <div class="comp-side reveal">
-          <img src="img/IMG_20260626_110832.jpg" alt="Ainhoa compitiendo en el escenario de Ms. Bikini" loading="lazy" />
+        <div class="af-glow-card reveal">
+          <img src="img/IMG_20260626_110832.jpg" alt="Ainhoa en el escenario" loading="lazy" />
         </div>
-        <div class="comp-side reveal">
-          <img src="img/Ainhoa1.jpeg" alt="Ainhoa posando en competición" loading="lazy" />
+        <div class="af-glow-card reveal">
+          <img src="img/Ainhoa1.jpeg" alt="Ainhoa posando" loading="lazy" />
+        </div>
+        <div class="af-glow-card reveal">
+          <img src="img/ainhoa-posing.jpeg" alt="Ainhoa en competición" loading="lazy" />
         </div>
       </div>
     </div>
@@ -127,19 +132,19 @@
         <p class="sec-desc">Cada persona es diferente. Por eso trabajo con un enfoque 100% individualizado, escuchando tus objetivos, tu historia y tu estilo de vida.</p>
       </div>
       <div class="servicios-grid">
-        <div class="servicio-card reveal">
+        <div class="servicio-card af-glow-card reveal">
           <div class="servicio-num">01</div>
           <div class="servicio-icon">╫</div>
           <h3 class="servicio-title">Plan de Entrenamiento</h3>
           <p class="servicio-desc">Rutinas adaptadas a tu nivel, objetivos y disponibilidad. Seguimiento quincenal con ajustes continuos para que nunca te estanques.</p>
         </div>
-        <div class="servicio-card reveal">
+        <div class="servicio-card af-glow-card reveal">
           <div class="servicio-num">02</div>
           <div class="servicio-icon">⊕</div>
           <h3 class="servicio-title">Plan de Nutrición</h3>
           <p class="servicio-desc">Dietas personalizadas sin restricciones rotundas. Aprenderemos a comer bien sin renunciar a lo que te gusta, de forma progresiva y real.</p>
         </div>
-        <div class="servicio-card reveal">
+        <div class="servicio-card af-glow-card reveal">
           <div class="servicio-num">03</div>
           <div class="servicio-icon">⊛</div>
           <h3 class="servicio-title">Pack Integral Online</h3>
@@ -151,7 +156,6 @@
 
   <!-- FILOSOFÍA -->
   <section class="sec sec-filo">
-    <div class="filo-glow"></div>
     <div style="max-width:880px;margin:0 auto;text-align:center;position:relative">
       <p class="eyebrow reveal">Mi filosofía</p>
       <blockquote class="filo-quote reveal">"Todo esfuerzo tiene su <span style="color:var(--af-pink)">recompensa</span>"</blockquote>
@@ -175,22 +179,22 @@
         <p class="sec-desc">Un proceso adaptado a ti pensado para que encuentres la motivación y la disciplina necesaria para cumplir tus objetivos.</p>
       </div>
       <div class="metodo-grid">
-        <div class="metodo-step reveal">
+        <div class="metodo-step af-glow-card reveal">
           <div class="step-num">1</div>
           <h4 class="step-title">Primera consulta</h4>
           <p class="step-desc">Hacemos una pequeña entrevista donde hablamos sobre tus necesidades y qué quieres conseguir. Incluida en los packs de servicios.</p>
         </div>
-        <div class="metodo-step reveal">
+        <div class="metodo-step af-glow-card reveal">
           <div class="step-num">2</div>
           <h4 class="step-title">Plan personalizado</h4>
           <p class="step-desc">Diseño tu plan personalizado 100% y adaptado a ti.</p>
         </div>
-        <div class="metodo-step reveal">
+        <div class="metodo-step af-glow-card reveal">
           <div class="step-num">3</div>
           <h4 class="step-title">Te acompaño</h4>
           <p class="step-desc">Te acompaño desde el comienzo resolviendo posibles dudas.</p>
         </div>
-        <div class="metodo-step reveal">
+        <div class="metodo-step af-glow-card reveal">
           <div class="step-num">4</div>
           <h4 class="step-title">Seguimiento continuo</h4>
           <p class="step-desc">Revisiones quincenales y ajustes del plan para que siempre avances.</p>
@@ -615,98 +619,69 @@
     </div>
   </section>
 
-  <!-- RECOMENDADOS -->
+  <!-- EXTRAS: RECOMENDADOS + CALCULADORA IMC -->
   <section class="sec" id="recomendados">
-    <div class="inner">
+    <div class="inner" style="max-width:960px">
       <div class="center reveal">
-        <p class="eyebrow">Productos recomendados</p>
-        <h2 class="sec-title">Mis <span class="rec-title-cursive">imprescindibles</span></h2>
+        <p class="eyebrow">Extras</p>
+        <h2 class="sec-title">Herramientas y recomendados</h2>
       </div>
-      <div class="recs-grid">
-        <div class="rec-card reveal">
-          <div class="rec-card-img">
-            <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=700&q=70&fit=crop" alt="Proteína" loading="lazy" />
-          </div>
-          <div class="rec-card-body">
-            <h3 class="rec-card-title">Proteína</h3>
-            <p class="rec-card-desc">Producto por definir.</p>
-            <span class="btn-pending">Enlace pendiente</span>
-          </div>
-        </div>
-        <div class="rec-card reveal">
-          <div class="rec-card-img">
-            <img src="https://images.unsplash.com/photo-1623874514711-0f321325f318?w=700&q=70&fit=crop" alt="Bandas elásticas" loading="lazy" />
-          </div>
-          <div class="rec-card-body">
-            <h3 class="rec-card-title">Bandas elásticas</h3>
-            <p class="rec-card-desc">Producto por definir.</p>
-            <span class="btn-pending">Enlace pendiente</span>
-          </div>
-        </div>
-        <div class="rec-card reveal">
-          <div class="rec-card-img">
-            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=700&q=70&fit=crop" alt="Botella" loading="lazy" />
-          </div>
-          <div class="rec-card-body">
-            <h3 class="rec-card-title">Botella</h3>
-            <p class="rec-card-desc">Producto por definir.</p>
-            <span class="btn-pending">Enlace pendiente</span>
-          </div>
-        </div>
+      <div class="extras-tabs" role="tablist" aria-label="Extras">
+        <button class="extras-tab" type="button" role="tab" id="tab-rec" aria-controls="panel-rec" aria-selected="true">Mis imprescindibles</button>
+        <button class="extras-tab" type="button" role="tab" id="tab-imc" aria-controls="panel-imc" aria-selected="false" tabindex="-1">Calculadora IMC</button>
       </div>
-    </div>
-  </section>
 
-  <!-- CALCULADORA IMC -->
-  <section class="sec" id="imc">
-    <div class="imc-grid">
-      <div class="reveal">
-        <p class="eyebrow">Herramienta</p>
-        <h2 class="sec-title">Calculadora <span style="color:var(--af-pink)">IMC</span></h2>
-        <p class="sec-desc">Introduce tu peso y altura para conocer tu índice de masa corporal. Es orientativo: no tiene en cuenta tu masa muscular.</p>
-      </div>
-      <div class="imc-calc reveal">
-        <form id="imcForm" novalidate>
-          <div class="imc-inputs">
-            <label class="imc-label">Peso (kg)
-              <input class="imc-input" type="number" id="imcPeso" min="25" max="300" step="0.1" inputmode="decimal" placeholder="60" />
-            </label>
-            <label class="imc-label">Altura (cm)
-              <input class="imc-input" type="number" id="imcAltura" min="100" max="230" step="1" inputmode="numeric" placeholder="165" />
-            </label>
+      <div class="tab-panel" id="panel-rec" role="tabpanel" aria-labelledby="tab-rec">
+        <div class="recs-grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="rec-card af-glow-card reveal">
+            <div class="rec-card-img"><img src="img/rec-proteina.png" alt="Proteína Whey" loading="lazy" /></div>
+            <div class="rec-card-body">
+              <h3 class="rec-card-title">Proteína Whey</h3>
+              <p class="rec-card-desc">Mi suplemento base</p>
+            </div>
           </div>
-          <button class="btn-pink" type="submit" style="margin-top:18px;width:100%">Calcular</button>
-        </form>
-        <div class="imc-result" aria-live="polite">
-          <span class="imc-val" id="imcVal">—</span>
-          <span class="imc-cat" id="imcCat">Introduce tus datos</span>
+          <div class="rec-card af-glow-card reveal">
+            <div class="rec-card-img"><img src="img/rec-bandas.png" alt="Bandas elásticas" loading="lazy" /></div>
+            <div class="rec-card-body">
+              <h3 class="rec-card-title">Bandas elásticas</h3>
+              <p class="rec-card-desc">Para casa o gym</p>
+            </div>
+          </div>
+          <div class="rec-card af-glow-card reveal">
+            <div class="rec-card-img"><img src="img/rec-botella.png" alt="Botella 1L" loading="lazy" /></div>
+            <div class="rec-card-body">
+              <h3 class="rec-card-title">Botella 1L</h3>
+              <p class="rec-card-desc">Hidratación siempre</p>
+            </div>
+          </div>
         </div>
-        <p class="imc-hint" id="imcHint">Peso en kilogramos y altura en centímetros.</p>
-        <p class="imc-warn">Orientativo. El IMC no distingue músculo de grasa y no sustituye una valoración profesional.</p>
+        <p style="font-size:12px;color:var(--af-mut3);margin-top:16px;text-align:center;font-style:italic">Enlaces a productos próximamente</p>
       </div>
-    </div>
-  </section>
 
-  <!-- GUÍA GRATIS -->
-  <section class="sec" id="guia">
-    <div class="guia-grid">
-      <div class="reveal">
-        <p class="eyebrow">Gratis</p>
-        <h2 class="sec-title">Descarga tu mini guía gratis</h2>
-        <p class="sec-desc">Siete páginas con lo básico para empezar a entrenar y comer mejor sin volverte loca: estructura de la semana, calentamiento y cómo montar tus platos.</p>
-      </div>
-      <!-- Demo: el formulario no envía nada. TODO: conectar el envío real más adelante. -->
-      <form class="guia-form reveal" id="leadForm" novalidate>
-        <div class="guia-field">
-          <input type="email" id="leadEmail" name="email" placeholder="tu@email.com" aria-label="Tu email" required />
-          <button type="submit" class="btn-pink">Enviar</button>
+      <div class="tab-panel" id="panel-imc" role="tabpanel" aria-labelledby="tab-imc" hidden>
+        <div class="imc-grid">
+          <div class="reveal">
+            <p class="eyebrow">Herramienta</p>
+            <h2 class="sec-title">Calculadora <span style="color:var(--af-pink)">IMC</span></h2>
+            <p class="sec-desc">Introduce tu peso y altura para conocer tu índice de masa corporal. Es orientativo: no tiene en cuenta tu masa muscular.</p>
+          </div>
+          <div class="imc-calc reveal">
+            <div class="imc-inputs">
+              <label class="imc-label">Peso (kg)
+                <input class="imc-input" type="number" id="imcPeso" min="25" max="300" step="0.1" inputmode="decimal" placeholder="60" />
+              </label>
+              <label class="imc-label">Altura (cm)
+                <input class="imc-input" type="number" id="imcAltura" min="100" max="230" step="1" inputmode="numeric" placeholder="165" />
+              </label>
+            </div>
+            <div class="imc-result" aria-live="polite">
+              <span class="imc-val" id="imcVal">—</span>
+              <span class="imc-cat" id="imcCat">Introduce tus datos</span>
+            </div>
+            <p class="imc-warn">Orientativo. El IMC no distingue músculo de grasa y no sustituye una valoración profesional.</p>
+          </div>
         </div>
-        <label class="guia-consent">
-          <input type="checkbox" id="leadOk" required />
-          <span>Acepto la política de privacidad y recibir la guía por email.</span>
-        </label>
-        <p class="guia-msg" id="leadMsg" aria-live="polite"></p>
-      </form>
+      </div>
     </div>
   </section>
 
@@ -718,32 +693,33 @@
         <h2 class="sec-title">¿Lista para empezar?</h2>
         <p class="sec-desc">Cuéntame tu objetivo y te ayudo a ver qué servicio encaja mejor contigo. La primera consulta está incluida en los packs de servicios.</p>
         <div class="contacto-info-items">
-          <div class="contacto-info-item">
-            <span class="contacto-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <a href="mailto:info@ainhoavillalba.com" class="contacto-info-item af-glow-card">
+            <span class="contacto-icon">@</span>
             <div>
-              <div class="contacto-item-label">Email</div>
-              <div class="contacto-item-value muted">Próximamente</div>
+              <div class="contacto-item-label">Email oficial</div>
+              <div class="contacto-item-value">info@ainhoavillalba.com</div>
             </div>
-          </div>
-          <div class="contacto-info-item">
-            <span class="contacto-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          </a>
+          <a href="https://wa.me/34626582377" target="_blank" rel="noopener" class="contacto-info-item af-glow-card">
+            <span class="contacto-icon">✆</span>
             <div>
-              <div class="contacto-item-label">WhatsApp / Teléfono</div>
+              <div class="contacto-item-label">WhatsApp directo</div>
               <div class="contacto-item-value">+34 626 58 23 77</div>
             </div>
-          </div>
-          <div class="contacto-info-item">
-            <span class="contacto-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+          </a>
+          <a href="https://instagram.com/ainhoavillalba_bikini" target="_blank" rel="noopener" class="contacto-info-item af-glow-card">
+            <span class="contacto-icon">◎</span>
             <div>
               <div class="contacto-item-label">Instagram</div>
-              <div class="contacto-item-value muted">Próximamente</div>
+              <div class="contacto-item-value">@ainhoavillalba_bikini</div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
       <div class="contacto-form-wrap reveal">
         <form class="contacto-form" id="contactForm">
+          <h3 style="margin:0 0 4px;font-size:18px;font-weight:700">Formulario de solicitud</h3>
           <div class="form-row">
             <label class="form-label">Nombre
               <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
@@ -760,13 +736,16 @@
               <option value="pack">Pack integral online</option>
               <option value="presencial">Sesiones presenciales</option>
               <option value="bono">Bono 10 sesiones</option>
+              <option value="guias">Guías digitales</option>
+              <option value="material">Material</option>
               <option value="consulta">Solo quiero consultar</option>
             </select>
           </label>
           <label class="form-label">Cuéntame tu objetivo
             <textarea class="form-input" id="mensaje" name="mensaje" placeholder="¿Qué quieres conseguir? Cualquier detalle me ayuda a darte la mejor respuesta." required></textarea>
           </label>
-          <button type="submit" class="btn-submit">Enviar mensaje</button>
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer"><input type="checkbox" id="privacyCheck" style="margin-top:3px;accent-color:var(--af-pink)"><span style="font-size:12px;color:var(--af-mut3)">He leído y acepto la política de privacidad y tratamiento de datos deportivos.</span></label>
+          <button type="submit" class="btn-submit" style="width:100%">Enviar mensaje</button>
           <div class="form-success" id="formSuccess">
             ✓ ¡Mensaje enviado! Te respondo en menos de 24 horas.
           </div>
@@ -780,14 +759,14 @@
     <div class="footer-inner">
       <a href="#" class="footer-brand">
         <span class="footer-brand-name"><span class="pink">Ainhoa</span> Bikini Fitness</span>
-        <span class="footer-brand-sub">Asesora de imagen personal</span>
+        <span class="footer-brand-sub">Asesora de entrenamiento y nutrición deportiva</span>
       </a>
       <ul class="footer-links">
         <li><a href="#sobre">Sobre mí</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#metodo">Método</a></li>
         <li><a href="#tienda">Packs</a></li>
-        <li><a href="#imc">IMC</a></li>
+        <li><a href="#recomendados">Extras</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
       <p class="footer-copy">© 2026 Ainhoa Bikini Fitness. Todos los derechos reservados.</p>

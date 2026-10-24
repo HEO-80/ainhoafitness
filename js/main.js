@@ -55,52 +55,33 @@
     }, 5000);
   });
 
-  // IMC calculator
-  document.getElementById('imcForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var kg = parseFloat(document.getElementById('imcPeso').value.replace(',', '.'));
-    var cm = parseFloat(document.getElementById('imcAltura').value.replace(',', '.'));
+  // IMC calculator (live)
+  function calcIMC() {
+    var pesoEl = document.getElementById('imcPeso');
+    var altEl = document.getElementById('imcAltura');
     var val = document.getElementById('imcVal');
     var cat = document.getElementById('imcCat');
-    var hint = document.getElementById('imcHint');
-
+    if (!pesoEl || !altEl || !val || !cat) return;
+    var kg = parseFloat(pesoEl.value.replace(',', '.'));
+    var cm = parseFloat(altEl.value.replace(',', '.'));
     if (!(kg > 0) || !(cm > 0)) {
       val.textContent = '—';
-      cat.textContent = 'Faltan datos';
-      hint.textContent = 'Escribe tu peso en kg y tu altura en cm.';
+      cat.textContent = 'Introduce tus datos';
       return;
     }
-
     var imc = kg / Math.pow(cm / 100, 2);
-    var c, h;
-    if (imc < 18.5) { c = 'Peso insuficiente'; h = 'Por debajo del rango de referencia. Merece la pena revisarlo con calma.'; }
-    else if (imc < 25) { c = 'Peso normal'; h = 'Dentro del rango de referencia para población adulta general.'; }
-    else if (imc < 30) { c = 'Sobrepeso'; h = 'Por encima del rango. Con un plan realista se trabaja bien desde aquí.'; }
-    else { c = 'Obesidad'; h = 'Conviene valorarlo con un profesional sanitario antes de empezar.'; }
-
-    val.textContent = imc.toFixed(1);
+    var c;
+    if (imc < 18.5) c = 'Bajo peso';
+    else if (imc < 25) c = 'Peso normal';
+    else if (imc < 30) c = 'Sobrepeso';
+    else c = 'Obesidad';
+    val.textContent = imc.toFixed(1).replace('.', ',');
     cat.textContent = c;
-    hint.textContent = h;
-  });
-
-  // Lead form (demo)
-  document.getElementById('leadForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var msg = document.getElementById('leadMsg');
-    var email = document.getElementById('leadEmail').value.trim();
-    if (!email || email.indexOf('@') < 1) {
-      msg.style.color = '#F0A88C';
-      msg.textContent = 'Escribe un email válido.';
-      return;
-    }
-    if (!document.getElementById('leadOk').checked) {
-      msg.style.color = '#F0A88C';
-      msg.textContent = 'Marca la casilla de privacidad.';
-      return;
-    }
-    msg.style.color = '';
-    msg.textContent = 'Demo: aquí se conectaría el envío.';
-  });
+  }
+  var imcPesoEl = document.getElementById('imcPeso');
+  var imcAltEl = document.getElementById('imcAltura');
+  if (imcPesoEl) imcPesoEl.addEventListener('input', calcIMC);
+  if (imcAltEl) imcAltEl.addEventListener('input', calcIMC);
 
   // Accessible tabs (tienda and videos)
   document.querySelectorAll('[role="tablist"]').forEach(function(list) {
