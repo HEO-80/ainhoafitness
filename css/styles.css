@@ -549,6 +549,7 @@ section[id] { scroll-margin-top: 20px; }
   font-style: normal;
   font-size: 1.4em;
   letter-spacing: normal;
+  text-transform: none;
   color: var(--af-pink);
   text-shadow: 0 0 12px rgba(242,46,154,0.55);
 }
