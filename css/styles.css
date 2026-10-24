@@ -72,7 +72,20 @@ a:hover { color: var(--af-pink2); }
 
 .af-glow-card { transition: border-color 0.3s, box-shadow 0.3s; }
 .af-glow-card:hover { border-color: rgba(191,42,124,0.5) !important; box-shadow: 0 0 20px rgba(191,42,124,0.15), inset 0 0 20px rgba(191,42,124,0.03); }
-.af-logo-icon:hover { box-shadow: 0 0 28px rgba(242,46,154,0.6), 0 0 56px rgba(242,46,154,0.2) !important; border-color: rgba(242,46,154,0.8) !important; }
+.af-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid rgba(191,42,124,0.4);
+  background: linear-gradient(135deg, #1A1118, #2A1525);
+  box-shadow: 0 0 14px rgba(191,42,124,0.25);
+  transition: box-shadow 0.6s ease, border-color 0.6s ease;
+  flex-shrink: 0;
+}
+.af-logo-icon:hover { box-shadow: 0 0 28px rgba(242,46,154,0.6), 0 0 56px rgba(242,46,154,0.2); border-color: rgba(242,46,154,0.8); }
 
 /* ─── HEADER ───────────────────────── */
 header {
@@ -146,7 +159,7 @@ header {
 [data-theme="light"] .header-logo .logo-villalba { color: var(--af-ink); text-shadow: none; }
 [data-theme="light"] .header-nav a { color: var(--af-ink); }
 [data-theme="light"] .header-nav .nav-cta { color: #fff !important; }
-[data-theme="light"] .af-logo-icon { background: linear-gradient(135deg, #FFFFFF, #F8E8F0) !important; border-color: rgba(214,18,122,0.3) !important; }
+[data-theme="light"] .af-logo-icon { background: linear-gradient(135deg, #FFFFFF, #F8E8F0); border-color: rgba(214,18,122,0.3); }
 [data-theme="light"] header.scrolled { background: var(--af-head); border-bottom-color: var(--af-line); }
 [data-theme="light"] header.scrolled .header-logo .logo-villalba { color: var(--af-ink); }
 [data-theme="light"] header.scrolled .header-nav a { color: var(--af-ink); }
