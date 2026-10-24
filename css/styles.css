@@ -787,7 +787,7 @@ section[id] { scroll-margin-top: 20px; }
 }
 .reel-thumb {
   position: relative;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/11;
   background: var(--af-alt);
   display: flex;
   align-items: center;
