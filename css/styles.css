@@ -517,10 +517,10 @@ section[id] { scroll-margin-top: 20px; }
 }
 .comp-title-cursive {
   display: block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
   font-weight: 400;
-  font-style: italic;
-  font-size: 1.3em;
+  font-style: normal;
+  font-size: 1.4em;
   letter-spacing: 0;
   color: var(--af-pink);
 }
