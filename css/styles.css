@@ -99,7 +99,7 @@ header {
   justify-content: space-between;
   gap: 24px;
   padding: 16px clamp(20px, 5vw, 72px);
-  background: var(--af-bg);
+  background: var(--af-head);
   border-bottom: 1px solid var(--af-line);
   transition: background 0.3s;
 }
@@ -107,7 +107,7 @@ header {
 .header-logo {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 24px;
   font-family: 'Great Vibes', cursive;
   font-size: 32px;
   line-height: 1;
@@ -319,6 +319,11 @@ header {
   transition: background 0.25s ease, transform 0.3s ease;
 }
 .btn-pink:hover { background: var(--af-pink2); color: #fff; transform: translateY(-2px); }
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 6px 22px rgba(242,46,154,0.35); }
+  50% { box-shadow: 0 6px 32px rgba(242,46,154,0.55), 0 0 48px rgba(242,46,154,0.18); }
+}
+.btn-pink, .nav-cta, .btn-submit { animation: glowPulse 3s ease-in-out infinite; }
 .btn-border {
   display: inline-flex;
   align-items: center;
@@ -418,9 +423,9 @@ header {
 }
 .stat-item:last-child { border-right: none; }
 .stat-number {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
-  font-weight: 800;
+  font-family: 'Bebas Neue', 'Montserrat', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
   color: var(--af-pink);
 }
 .stat-label {
@@ -491,6 +496,15 @@ section[id] { scroll-margin-top: 20px; }
   display: block;
   border-radius: 12px;
 }
+.sobre-title-cursive {
+  font-family: 'Great Vibes', cursive;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1.3em;
+  color: var(--af-pink);
+  text-shadow: 0 0 12px rgba(242,46,154,0.55);
+}
 .sobre-bold {
   margin: 22px 0 0;
   font-size: 16px;
@@ -540,7 +554,7 @@ section[id] { scroll-margin-top: 20px; }
 .comp-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 10px;
   margin-top: 36px;
   max-width: 740px;
   margin-left: auto;
@@ -682,6 +696,8 @@ section[id] { scroll-margin-top: 20px; }
 [data-theme="light"] #metodo .metodo-step { background: #fff !important; color: #1A1418 !important; border-color: rgba(235,211,224,0.5) !important; }
 [data-theme="light"] #metodo .step-title { color: #1A1418 !important; }
 [data-theme="light"] #metodo .step-desc { color: #5E5260 !important; }
+[data-theme="light"] #metodo .metodo-step::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(ellipse at center, rgba(214,18,122,0.07), transparent 70%); pointer-events: none; }
+[data-theme="light"] #metodo .metodo-step { position: relative; }
 .metodo-step {
   text-align: center;
   padding: 28px 20px;
@@ -1528,7 +1544,7 @@ footer {
     flex-direction: column;
     position: absolute;
     top: 100%; left: 0; right: 0;
-    background: var(--af-bg);
+    background: var(--af-head);
     padding: 1.5rem clamp(20px, 5vw, 72px);
     gap: 1.2rem;
     border-bottom: 1px solid var(--af-line);
