@@ -2,19 +2,23 @@
   // Theme toggle
   var html = document.documentElement;
   var toggle = document.getElementById('themeToggle');
+  var logoIcon = document.querySelector('.af-logo-icon');
   var saved = localStorage.getItem('af-theme') || 'dark';
   html.setAttribute('data-theme', saved);
-  updateToggleLabel();
 
-  toggle.addEventListener('click', function() {
+  function toggleTheme() {
     var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('af-theme', next);
-    updateToggleLabel();
-  });
+  }
 
-  function updateToggleLabel() {
-    toggle.textContent = html.getAttribute('data-theme') === 'dark' ? 'Modo claro' : 'Modo oscuro';
+  toggle.addEventListener('click', toggleTheme);
+  if (logoIcon) {
+    logoIcon.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleTheme();
+    });
   }
 
   // Header scroll

@@ -58,12 +58,15 @@
 
 html { scroll-behavior: smooth; }
 
+html, html * {
+  transition: background-color 0.6s ease, color 0.4s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
 body {
   font-family: 'Montserrat', system-ui, sans-serif;
   background: var(--af-bg);
   color: var(--af-ink);
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a { color: var(--af-pink); text-decoration: none; transition: color 0.25s ease; }
@@ -80,12 +83,14 @@ a:hover { color: var(--af-pink2); }
   height: 42px;
   border-radius: 10px;
   border: 1px solid rgba(191,42,124,0.4);
-  background: linear-gradient(135deg, #1A1118, #2A1525);
+  background: linear-gradient(135deg, #2A2030, #3A2535);
   box-shadow: 0 0 14px rgba(191,42,124,0.25);
-  transition: box-shadow 0.6s ease, border-color 0.6s ease;
+  transition: box-shadow 0.6s ease, border-color 0.6s ease, background 0.6s ease;
   flex-shrink: 0;
+  cursor: pointer;
 }
 .af-logo-icon:hover { box-shadow: 0 0 28px rgba(242,46,154,0.6), 0 0 56px rgba(242,46,154,0.2); border-color: rgba(242,46,154,0.8); }
+[data-theme="light"] .af-logo-icon { background: linear-gradient(135deg, #FFFFFF, #F8E8F0); }
 
 /* ─── HEADER ───────────────────────── */
 header {
@@ -108,8 +113,8 @@ header {
   display: flex;
   align-items: center;
   gap: 24px;
-  font-family: 'Great Vibes', cursive;
-  font-size: 32px;
+  font-family: 'Allura', cursive;
+  font-size: 36px;
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
@@ -159,7 +164,7 @@ header {
 [data-theme="light"] .header-logo .logo-villalba { color: var(--af-ink); text-shadow: none; }
 [data-theme="light"] .header-nav a { color: var(--af-ink); }
 [data-theme="light"] .header-nav .nav-cta { color: #fff !important; }
-[data-theme="light"] .af-logo-icon { background: linear-gradient(135deg, #FFFFFF, #F8E8F0); border-color: rgba(214,18,122,0.3); }
+[data-theme="light"] .af-logo-icon { border-color: rgba(214,18,122,0.3); }
 [data-theme="light"] header.scrolled { background: var(--af-head); border-bottom-color: var(--af-line); }
 [data-theme="light"] header.scrolled .header-logo .logo-villalba { color: var(--af-ink); }
 [data-theme="light"] header.scrolled .header-nav a { color: var(--af-ink); }
@@ -194,27 +199,46 @@ header {
 /* ─── THEME TOGGLE ─────────────────── */
 .theme-toggle {
   position: fixed;
-  right: clamp(16px, 3vw, 32px);
-  top: 92px;
+  right: clamp(16px, 3vw, 136px);
+  top: 164px;
   z-index: 98;
   display: flex;
   align-items: center;
-  padding: 16px 32px;
-  min-height: 44px;
-  background: var(--af-pink);
-  color: #fff;
-  border: 0;
-  border-radius: 2px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: #1A1118;
+  border: 2px solid rgba(191,42,124,0.3);
+  border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 6px 22px rgba(242,46,154,0.35);
-  transition: background 0.25s ease;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
-.theme-toggle:hover { background: var(--af-pink2); }
+.theme-toggle:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 28px rgba(242,46,154,0.6), 0 0 56px rgba(242,46,154,0.2);
+  border-color: rgba(242,46,154,1);
+}
+.toggle-horse {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: none;
+}
+.toggle-pesa {
+  display: block;
+}
+[data-theme="light"] .theme-toggle {
+  background: transparent;
+}
+[data-theme="light"] .toggle-horse {
+  display: block;
+}
+[data-theme="light"] .toggle-pesa {
+  display: none;
+}
 
 /* ─── HERO ──────────────────────────── */
 .hero {
@@ -273,17 +297,18 @@ header {
   color: var(--af-ink);
   text-transform: uppercase;
 }
-.hero-title em {
+.hero-title-accent {
   display: inline-block;
   margin-top: 8px;
   padding-bottom: 0.12em;
-  font-family: 'Montserrat', sans-serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 1.1em;
+  font-family: 'Bebas Neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.35em;
   line-height: 1.2;
   white-space: nowrap;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--af-pink);
   text-shadow: 0 0 22px rgba(242,46,154,0.6);
 }
@@ -497,11 +522,11 @@ section[id] { scroll-margin-top: 20px; }
   border-radius: 12px;
 }
 .sobre-title-cursive {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-style: normal;
   text-transform: none;
   letter-spacing: normal;
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: var(--af-pink);
   text-shadow: 0 0 12px rgba(242,46,154,0.55);
 }
@@ -544,10 +569,10 @@ section[id] { scroll-margin-top: 20px; }
 }
 .comp-title-cursive {
   display: block;
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.4em;
+  font-size: 1.6em;
   letter-spacing: normal;
   text-transform: none;
   color: var(--af-pink);
@@ -666,8 +691,8 @@ section[id] { scroll-margin-top: 20px; }
   font-size: 16px;
 }
 .filo-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 30px;
+  font-family: 'Allura', cursive;
+  font-size: 34px;
   color: var(--af-ink);
 }
 
@@ -675,17 +700,14 @@ section[id] { scroll-margin-top: 20px; }
 /* ─── MÉTODO ────────────────────────── */
 #metodo { background: var(--af-s-met); background-image: var(--af-glow-bg); border-top: 1px solid var(--af-line); }
 .metodo-title-cursive {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-style: normal;
   text-transform: none;
   letter-spacing: normal;
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: var(--af-pink);
   text-shadow: 0 0 12px rgba(242,46,154,0.55);
   font-weight: 400;
-  font-size: 1.3em;
-  letter-spacing: 0;
-  color: var(--af-pink);
 }
 .metodo-grid {
   display: grid;
@@ -1172,7 +1194,7 @@ section[id] { scroll-margin-top: 20px; }
 /* ─── RECOMENDADOS ─────────────────── */
 #recomendados { background: var(--af-s-rec); background-image: var(--af-glow-bg3); border-top: 1px solid var(--af-line); }
 .rec-title-cursive {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Allura', cursive;
   font-weight: 400;
   font-size: 1.3em;
   letter-spacing: 0;
@@ -1485,8 +1507,8 @@ footer {
   text-decoration: none;
 }
 .footer-brand-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 28px;
+  font-family: 'Allura', cursive;
+  font-size: 32px;
   color: var(--af-ink);
 }
 .footer-brand-name .pink { color: var(--af-pink); }
@@ -1561,7 +1583,7 @@ footer {
   .nav-burger { display: flex; }
   .hero-logo-wrap { max-width: 200px; }
   .hero-scroll { display: none; }
-  .theme-toggle { padding: 12px 16px; font-size: 10px; top: 78px; }
+  .theme-toggle { top: 78px; }
 }
 
 @media (max-width: 900px) {
