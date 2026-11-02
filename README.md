@@ -72,17 +72,23 @@ Zero frameworks. Zero build tools. Solo HTML, CSS y JavaScript puro.
 - **Pricing cards** — planes online y presencial con badges "Recomendado" / "Más completo"
 - **Tabs accesibles** — secciones de vídeos, tienda y extras con `role="tablist"` + navegación por teclado
 
-### Animaciones GSAP + ScrollTrigger (7 efectos)
+### Animaciones GSAP + ScrollTrigger (11 efectos)
 
-| Efecto | Elemento | Detalle |
-|---|---|---|
-| Fade-in + slide-up | Todas las `<section>` | `opacity: 0→1`, `y: 60→0` |
-| Stagger cards | `.af-glow-card` | Cascada con `back.out(1.4)` |
-| Parallax hero | Imagen hero | `scrub: 0.5` |
-| Scale-in | Fotos de competición | `scale: 0.8→1` |
-| SplitText reveal | "Hola, soy Ainhoa" | Letra por letra con `rotateX(-90deg)` |
-| Títulos h2 | Encabezados de sección | Fade-in + slide-up individual |
-| CTA bounce | Botones de acción | `back.out(2)` |
+| # | Efecto | Elemento | Detalle |
+|:---:|---|---|---|
+| 1 | Fade-in + slide-up | Todas las `<section>` | `opacity: 0→1`, `y: 60→0` |
+| 2 | Stagger cards | `.af-glow-card` | Cascada con `back.out(1.4)` |
+| 3 | Parallax hero | Imagen hero | `scrub: 0.5` |
+| 4 | Scale-in | Fotos de competición | `scale: 0.8→1` |
+| 5 | Títulos h2 | Encabezados de sección | Fade-in + slide-up individual |
+| 6 | CTA bounce | Botones de acción | `back.out(2)` |
+| 7 | Parallax logo | Logo header | Movimiento sutil en scroll |
+| 8 | 🔮 Glow orbs | `[data-glow]` sections | Esferas luminosas animadas con `hsl()` dinámico |
+| 9 | 🌈 Color morph borders | Cards con glow | Bordes con gradiente animado `conic-gradient` |
+| 10 | 🔦 Focal spotlight | Hero section | Foco circular que sigue el scroll |
+| 11 | ✍️ SplitText reveal | "Hola, soy Ainhoa" | Letra por letra con `rotateX(-90deg)` |
+
+> **Nota:** Los efectos 8–11 representan técnicas avanzadas de GSAP con generación dinámica de DOM y propiedades CSS custom.
 
 ### Efectos CSS puros
 
@@ -112,15 +118,19 @@ La página implementa buenas prácticas de accesibilidad web siguiendo las direc
 | **HTML semántico** | `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>` |
 | **Jerarquía de encabezados** | H1 → H2 → H3 → H4 en orden secuencial |
 | **Atributo `lang`** | `<html lang="es">` declarado en el documento |
+| **Skip to content** | Enlace oculto que aparece al tabular — salta al contenido principal |
 | **`aria-label`** | En botón hamburguesa, toggle de tema, botones de vídeo |
-| **`aria-live`** | Resultado de la calculadora IMC se anuncia a lectores de pantalla |
+| **`aria-live`** | Resultado de la calculadora IMC + confirmación de formulario (`role="status"`) |
 | **Tabs accesibles** | `role="tablist"`, `role="tab"`, `role="tabpanel"`, `aria-selected`, `aria-controls` |
-| **Alt text** | Todas las imágenes con texto alternativo descriptivo |
+| **Alt text descriptivo** | Hero: "Interior de gimnasio con equipamiento profesional de fitness" |
 | **Imágenes decorativas** | `alt=""` en iconos que no aportan información |
-| **`rel="noopener"`** | En todos los enlaces externos (`target="_blank"`) |
-| **Contraste** | Paleta diseñada para ratio mínimo AA en texto sobre fondo |
+| **`:focus-visible`** | Outline `2px solid var(--af-pink)` en todos los elementos interactivos |
+| **`prefers-reduced-motion`** | CSS desactiva transiciones + JS cancela todas las animaciones GSAP |
+| **`prefers-color-scheme`** | Tema inicial automático según preferencia del sistema (sin localStorage) |
 | **`loading="lazy"`** | Carga diferida en imágenes fuera del viewport |
-| **Focus visible** | Indicadores de foco para navegación por teclado |
+| **`rel="noopener"`** | En todos los enlaces externos (`target="_blank"`) |
+| **Meta description** | SEO optimizado + Open Graph tags para preview en LinkedIn/redes |
+| **Contraste** | Paleta diseñada para ratio mínimo AA en texto sobre fondo |
 | **`inputmode`** | `decimal` y `numeric` en la calculadora para teclado numérico en móvil |
 
 > **Lighthouse Accessibility: 95/100** — auditoría automatizada sobre la página en producción.
@@ -153,12 +163,12 @@ Dos modos completos gestionados con CSS custom properties:
 
 ```
 ainhoafitness/
-├── index.html              # Documento principal (728 líneas)
+├── index.html              # Documento principal (735 líneas)
 ├── css/
-│   └── styles.css          # Estilos completos (1603 líneas)
+│   └── styles.css          # Estilos completos + accesibilidad (1645 líneas)
 ├── js/
-│   ├── main.js             # Lógica: tema, tabs, formulario, IMC, drawer (149 líneas)
-│   └── gsap-animations.js  # 7 efectos GSAP + ScrollTrigger (88 líneas)
+│   ├── main.js             # Lógica: tema, tabs, formulario, IMC, drawer (152 líneas)
+│   └── gsap-animations.js  # 11 efectos GSAP + ScrollTrigger (230 líneas)
 ├── img/
 │   ├── af-logo-brillos.png # Logo principal
 │   ├── af-horse.png        # Icono caballo (favicon + toggle)
@@ -167,11 +177,13 @@ ainhoafitness/
 │   ├── Logos/              # Variantes del logo
 │   ├── page/               # Screenshots dark/light
 │   └── demo/               # Capturas de diseño y referencias
-├── GSAP_SCROLLTRIGGER.md   # Documentación técnica de animaciones
+├── GSAP_SCROLLTRIGGER.md                # Documentación técnica de animaciones
+├── EFECTO_GLOW_COLOR_MORPH.md           # Docs: glow orbs + color morph borders
+├── EFECTO_SPLITTEXT_REVEAL.md           # Docs: SplitText reveal animation
 └── README.md
 ```
 
-**Total: ~2.600 líneas de código** · 4 archivos fuente · Sin dependencias locales
+**Total: ~2.762 líneas de código** · 4 archivos fuente · Sin dependencias locales
 
 ---
 
@@ -184,11 +196,12 @@ Auditoría ejecutada con Lighthouse 13.x sobre la página servida en local (imá
 | ⚡ Performance | **97** | Sin frameworks, sin JS bundling, imágenes optimizadas |
 | ♿ Accessibility | **95** | ARIA, semántica, alt text, contraste |
 | ✅ Best Practices | **96** | HTTPS, `rel="noopener"`, sin errores críticos |
-| 🔍 SEO | **91** | Semántica, viewport, `lang`, headings. Pendiente: `<meta description>` |
+| 🔍 SEO | **91** | Semántica, viewport, `lang`, headings, meta description, OG tags |
 
 ### Mejoras identificadas
 
-- [ ] Añadir `<meta name="description">` para SEO
+- [x] Añadir `<meta name="description">` para SEO
+- [x] Open Graph tags para LinkedIn/redes
 - [ ] Revisar contraste en textos secundarios (ratio AA)
 - [ ] Corregir salto de heading en sección de vídeos
 
@@ -201,11 +214,15 @@ Auditoría ejecutada con Lighthouse 13.x sobre la página servida en local (imá
 - [x] Calculadora IMC interactiva
 - [x] Accesibilidad WCAG 2.1 (Lighthouse 95)
 - [x] Documentación técnica de animaciones GSAP
+- [x] Efectos visuales avanzados — glow orbs, color morph borders, focal spotlight
+- [x] SplitText reveal animation
+- [x] Skip-to-content + `:focus-visible` + `role="status"`
+- [x] `prefers-reduced-motion` — CSS + JS desactivan animaciones
+- [x] `prefers-color-scheme` — tema inicial según preferencia del sistema
+- [x] Open Graph tags para preview en LinkedIn/redes sociales
+- [x] Meta description SEO + alt text descriptivo en hero
 - [ ] Añadir fotos reales de Ainhoa (sustituir Unsplash)
 - [ ] Conectar formulario a Formspree o EmailJS
-- [ ] Open Graph tags para preview en redes sociales
-- [ ] `prefers-reduced-motion` — respetar preferencia de no-animaciones
-- [ ] `prefers-color-scheme` — tema inicial según preferencia del sistema
 - [ ] Sección de testimonios con slider
 - [ ] v2 — Migración a **Astro** + **Tailwind CSS** con componentes
 
