@@ -3,7 +3,10 @@
   var html = document.documentElement;
   var toggle = document.getElementById('themeToggle');
   var logoIcon = document.querySelector('.af-logo-icon');
-  var saved = localStorage.getItem('af-theme') || 'dark';
+  var saved = localStorage.getItem('af-theme');
+  if (!saved) {
+    saved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
   html.setAttribute('data-theme', saved);
 
   function toggleTheme() {

@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ainhoa Villalba — Asesora personal de entrenamiento y nutrición deportiva. Planes personalizados online y presencial en Zaragoza." />
+  <meta property="og:title" content="Ainhoa Fitness | Entrenamiento &amp; Nutrición" />
+  <meta property="og:description" content="Planes de entrenamiento y nutrición adaptados a ti. Sin dietas milagro ni rutinas imposibles. Solo método, constancia y resultados reales." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/af-logo-brillos-negro.jpg" />
   <title>Ainhoa Fitness | Entrenamiento & Nutrición</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,6 +18,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-to-content">Saltar al contenido</a>
 
   <!-- HEADER -->
   <header id="siteHeader">
@@ -43,9 +50,9 @@
   </button>
 
   <!-- HERO -->
-  <section class="hero" data-dark>
+  <section class="hero" id="main-content" data-dark>
     <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=80&fit=crop" alt="Gym" loading="eager" />
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=80&fit=crop" alt="Interior de gimnasio con equipamiento de fitness" loading="eager" />
     </div>
     <div class="hero-scrim"></div>
     <div class="hero-inner">
@@ -106,7 +113,7 @@
   <section class="sec sec-comp" id="competicion" data-glow="2">
     <div class="inner">
       <div class="center reveal">
-        <img src="img/af-horse.png" alt="" class="comp-horse" />
+        <img src="img/af-horse.png" alt="" class="comp-horse" loading="lazy" />
         <p class="eyebrow">Competición</p>
         <h2 class="sec-title">Campeona<span class="comp-title-cursive">Bikini Fitness</span></h2>
         <p class="sec-desc">Competir en campeonatos de culturismo es la satisfacción de dar tu 100%, de ver hasta dónde eres capaz de llegar, superar tus límites y demostrarte a ti misma que <strong style="font-weight:800;letter-spacing:0.04em;color:var(--af-pink)">TODO ESFUERZO TIENE SU RECOMPENSA.</strong></p>
@@ -695,8 +702,8 @@
           </label>
           <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer"><input type="checkbox" id="privacyCheck" style="margin-top:3px;accent-color:var(--af-pink)"><span style="font-size:12px;color:var(--af-mut3)">He leído y acepto la política de privacidad y tratamiento de datos deportivos.</span></label>
           <button type="submit" class="btn-submit" style="width:100%">Enviar mensaje</button>
-          <div class="form-success" id="formSuccess">
-            ✓ ¡Mensaje enviado! Te respondo en menos de 24 horas.
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+            ¡Mensaje enviado! Te respondo en menos de 24 horas.
           </div>
         </form>
       </div>

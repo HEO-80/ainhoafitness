@@ -73,6 +73,34 @@ a { color: var(--af-pink); text-decoration: none; transition: color 0.25s ease; 
 a:hover { color: var(--af-pink2); }
 ::selection { background: var(--af-pink); color: #fff; }
 
+/* ─── SKIP TO CONTENT ─────────────── */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  padding: 12px 24px;
+  background: var(--af-pink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+}
+.skip-to-content:focus { left: 0; color: #fff; }
+
+/* ─── FOCUS VISIBLE ───────────────── */
+:focus-visible {
+  outline: 2px solid var(--af-pink);
+  outline-offset: 2px;
+}
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--af-pink);
+  outline-offset: 2px;
+}
+
 .af-glow-card { transition: border-color 0.3s, box-shadow 0.3s; }
 .af-glow-card:hover { border-color: rgba(191,42,124,0.5) !important; box-shadow: 0 0 20px rgba(191,42,124,0.15), inset 0 0 20px rgba(191,42,124,0.03); }
 .af-logo-icon {
@@ -1603,4 +1631,15 @@ footer {
 
 @media (max-width: 420px) {
   .tab { padding: 10px 14px; font-size: 10px; }
+}
+
+/* ─── REDUCED MOTION ──────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }
