@@ -37,18 +37,6 @@
     a.addEventListener('click', function() { headerNav.classList.remove('open'); });
   });
 
-  // Reveal on scroll with staggered delay
-  var reveals = document.querySelectorAll('.reveal');
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(function(el) { observer.observe(el); });
-
   // Contact form (demo)
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -97,7 +85,10 @@
         t.tabIndex = on ? 0 : -1;
         var panel = document.getElementById(t.getAttribute('aria-controls'));
         panel.hidden = !on;
-        if (on) panel.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+        if (on && typeof gsap !== 'undefined') {
+          var els = panel.querySelectorAll('.reveal');
+          if (els.length) gsap.fromTo(els, { opacity: 0, y: 20 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.06, ease: 'power2.out', overwrite: true });
+        }
       });
     };
     list.addEventListener('click', function(e) {
