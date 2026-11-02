@@ -396,7 +396,7 @@ header {
   pointer-events: none;
 }
 @keyframes logoShimmer {
-  0%, 85%, 100% { transform: translateX(-120%); }
+  0%, 30%, 100% { transform: translateX(-120%); }
   10% { transform: translateX(120%); }
 }
 .hero-logo-img {
