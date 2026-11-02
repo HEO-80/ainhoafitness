@@ -1551,6 +1551,9 @@ footer {
   padding-top: 0;
 }
 
+/* ─── GLOW SECTIONS ───────────────── */
+[data-glow] { position: relative; overflow: hidden; }
+
 /* ─── REVEAL (initial hidden state; GSAP handles animation) ── */
 .reveal {
   opacity: 0;
