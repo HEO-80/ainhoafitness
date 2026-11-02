@@ -120,6 +120,7 @@ header {
   text-decoration: none;
 }
 .header-logo .logo-ainhoa {
+  font-size: 38px;
   color: var(--af-pink);
   text-shadow: 0 0 12px rgba(242,46,154,0.55);
 }
@@ -1511,7 +1512,7 @@ footer {
   font-size: 32px;
   color: var(--af-ink);
 }
-.footer-brand-name .pink { color: var(--af-pink); }
+.footer-brand-name .pink { color: var(--af-pink); font-size: 34px; }
 .footer-brand-sub {
   display: block;
   font-size: 10px;
